@@ -1,0 +1,26 @@
+{
+  "note": "Draft copy for Clayton to approve (rule 10). Only claims that are true today. Replace [DOMAIN] with the live domain. Keep platform character limits in mind (verify).",
+  "bios": [
+    { "platform": "Instagram (150 chars)", "text": "Sports cards • TCG • pack openings\nDaily Pack Verdict: profit or loss?\nShop the pulls on eBay 👇" },
+    { "platform": "TikTok (80 chars)", "text": "Cards ripped on camera. Shop on eBay. Daily Pack Verdict." },
+    { "platform": "X (160 chars)", "text": "Sports cards, TCG & pack openings. Daily Pack Verdict: profit or loss? Shop the pulls on eBay. YouTube: Off The Rip Collectables." },
+    { "platform": "Threads / Facebook short", "text": "Sports cards, TCG and pack openings. Most of the store gets pulled on camera: watch on YouTube, buy on eBay." },
+    { "platform": "YouTube About", "text": "Welcome to Off The Rip Collectables: your home for sports cards, TCG, pack openings, box breaks, big hits and everything in the hobby!\n\nNew videos daily, including the Daily Pack Verdict: one pack a day, profit or loss?\n\nShop the cards pulled on this channel on eBay: [EBAY STORE LINK]\nScoreboard, Want List and giveaway alerts: [DOMAIN]\n\nBusiness: hello@[DOMAIN]" },
+    { "platform": "eBay store description", "text": "Off The Rip Collectables is your destination for sports cards and TCG singles, hits and sealed product: NBA, NFL, MLB and more, plus Pokémon, One Piece, Dragon Ball Super and more, and graded slabs. Most cards are pulled on camera on our YouTube channel, Off The Rip Collectables. Questions? Send a message; we usually reply within a day. Thanks for supporting a small hobby seller!" }
+  ],
+  "youtube_description_template": "[ONE-LINE SUMMARY OF THE VIDEO]\n\n▶ Daily Pack Verdict scoreboard: [DOMAIN]/verdict/?src=yt\n🛒 Shop the pulls on eBay: [EBAY STORE LINK]\n📝 Want a specific card? [DOMAIN]/want-list/?src=yt\n🎁 Get giveaway alerts: [DOMAIN]/giveaways/?src=yt\n\nChapters:\n00:00 Intro\n...\n\n#sportscards #tcg #packopening",
+  "pinned_comment_template": "What would you rip next? Drop your pick below 👇 Day [N] result + the running scoreboard: [DOMAIN]/verdict/?src=yt",
+  "short_caption_templates": [
+    "Day [N]: [PRODUCT]. Profit or loss? 👀 Scoreboard: [DOMAIN]/verdict/",
+    "[PLAYER] [PARALLEL] /[NUMBER] pulled! 🔥 Shop on eBay: link in bio",
+    "Can a $[PRICE] [PRODUCT] turn a profit? Full result on the channel. Link in bio."
+  ],
+  "hashtags": { "sports": "#sportscards #nba #nfl #mlb #rookie #cardcollecting", "pokemon": "#pokemoncards #pokemontcg #packopening", "onepiece_dbs": "#onepiecetcg #dragonballsupertcg", "general": "#packopening #cardbreaks #hobby #tcg" },
+  "order_insert_text": "THANK YOU for your order! 🙌\nWatch the cards get ripped: YouTube → Off The Rip Collectables\nTell us what you're hunting: [DOMAIN]/thanks/?src=insert",
+  "want_list_match_email": "Subject: A match for your Want List: [CARD]\n\nHi [NAME],\n\nA card you asked about just came off the rip: [CARD DESCRIPTION].\nHere's the eBay listing: [LINK]\n\nIf it's not what you hoped, reply and tell me what to look for next.\n\n— Clayton",
+  "giveaway_disclosure": "No purchase necessary. Open to [ELIGIBILITY]. Ends [DATE]. Not sponsored by or affiliated with YouTube, eBay or any card company. Winner chosen at random and announced on the channel. Full rules: [RULES LINK].",
+  "dm_reply_templates": [
+    "Thanks for watching! The cards from that video are in the eBay store (link in bio). If you don't see it, add it to the Want List: [DOMAIN]/want-list/",
+    "Great pull choice! I'll check the Want List this weekend and email you if something matches."
+  ]
+}

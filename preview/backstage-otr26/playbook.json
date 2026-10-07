@@ -1,0 +1,60 @@
+{
+  "intro": "Recommendations, ordered by expected payoff for the effort. Baselines are from facts.json (2026-10-07). Targets are suggestions, not predictions.",
+  "sections": [
+    { "title": "1. The strategy in one paragraph", "bullets": [
+      "Clayton already makes a lot of content (about 2 videos a day) and has a clean eBay record (100% positive, 1.6K sold). The weak links are **reach beyond YouTube**, **owning an audience** (no email list, no website) and **repeat buying**.",
+      "So the site is a **brand hub and retention engine, not a store**: it points people to eBay for every purchase, and captures an email or a Want List entry for everyone who isn't ready to buy today.",
+      "The strongest asset is the **Daily Pack Verdict** series with a visible 7-day losing streak: a built-in cliffhanger. Build the audience habit around 'will today break it?'."] },
+    { "title": "2. Content that compounds", "bullets": [
+      "Keep Daily Pack Verdict daily; log cost and pulled value so the scoreboard, chart and totals can grow (T22). Publish the scoring method for trust.",
+      "Weekly 'Up or Down': track one chase card's price every week (the Josh Allen Gold /50 from Week 16 is a good start) and add a small chart page. Price-tracking content is evergreen search traffic.",
+      "'Is this box worth ripping?' summaries per product: one page per set on the site, fed by Verdict results. Search for 'is <set> worth it' is high-intent.",
+      "Repurpose every Short on TikTok, Reels, Facebook Reels, Threads the same day (T29). Same content, 4x the surface.",
+      "Pin the best-performing Verdict as the channel trailer; make a 'Start here' playlist."] },
+    { "title": "3. eBay optimization (where the money is made)", "bullets": [
+      "Every listing: strong 80-character title, front/back photos, correct category and item specifics (these power eBay search).",
+      "Best Offer on singles, offers to watchers, and a modest Promoted Listings Standard rate for slow movers. (verify current rates and fee schedule before committing)",
+      "Highlight cards 'pulled on the channel' (with the video link); that story is what a generic seller can't copy.",
+      "Run 2 to 3 'weekend sale' events a month; announce them in the Hit List and on the site's promo bar (`promo` in site.config.json).",
+      "Ask for feedback politely after delivery; protect the 100% score: it is the main conversion asset."] },
+    { "title": "4. Website conversion", "bullets": [
+      "One primary action per page: Shop on eBay. One secondary: Join the Hit List.",
+      "Use the same words and logo as the YouTube channel so a visitor from a video recognises the page instantly.",
+      "Bio links on every platform use `?src=<platform>` so the Newsletter and Want List forms record where signups came from.",
+      "Keep it fast: no frameworks, self-hosted fonts, images lazy-loaded. Re-run Lighthouse after any change."] },
+    { "title": "5. Email and retention", "bullets": [
+      "Weekly 'Hit List' email: 3 biggest pulls, the Verdict scoreboard, 3 new listings, one giveaway reminder. Short, scannable.",
+      "Segment by the interests ticked at signup (sports, Pokémon, One Piece/DBS, graded) so Pokémon fans don't get football emails.",
+      "Want List: a weekly Sunday pass (T34). Each match email is the highest-converting message he can send.",
+      "Giveaway engine: announce each giveaway in the Hit List first, tag subscribers with the giveaways interest, and keep entry on YouTube (email is an extra alert, never a condition of entry).",
+      "Special 'streak broke!' email the day the losing streak ends.",
+      "Starting targets for 90 days (guesses): 250 email subscribers, 40 Want List entries, 25% more eBay followers, bio-link clicks tracked per platform."] },
+    { "title": "6. Community and collaboration", "bullets": [
+      "Reply to every YouTube comment in the first hour after upload; it boosts distribution and builds loyalty.",
+      "Collab with similar-size card YouTubers (join each other's breaks, trade shout-outs, 'break together' videos).",
+      "Local: card shows, hobby shops and Facebook groups (follow each group's rules about selling and self-promotion).",
+      "Consider a free Discord only after the list passes 500; communities need daily attention to stay alive."] },
+    { "title": "7. 3D-printed extras (optional, test small)", "bullets": [
+      "A branded slab/card stand as a free gift over a set order value, or sold in the eBay store. Cheap to make, memorable, photographs well.",
+      "Use the logo's olive for the filament so it matches the brand. Photograph the stand with a card on it for the listing and Reels.",
+      "Check material costs and print time first; only scale if people ask."] },
+    { "title": "8. Compliance guardrails", "bullets": [
+      "**eBay**: do not move buyers off eBay to complete sales. The earlier idea of a 'direct-buy discount' is **parked** until eBay's current off-platform policy has been read and a lawyer or eBay support confirms what is allowed (verify). If direct sales ever happen, they need sales-tax collection (e.g. Stripe Tax) and a real checkout.",
+      "**Email**: consent, unsubscribe, honest subject lines, a mailing address in every email.",
+      "**FTC**: disclose sponsors and giveaway terms. Never pay for or fabricate reviews.",
+      "**Trademarks**: card names and artwork are the owners'; keep the disclaimer in the footer and don't imply endorsement.",
+      "**Kids**: many TCG fans are minors. The email list is for ages 13+ (privacy page says so); giveaways need age rules."] },
+    { "title": "9. Future builds (when the basics are running)", "bullets": [
+      "'Which collector are you?' quiz that recommends a category and captures email (the same pattern worked on the Ashley Claudy site).",
+      "Up-or-Down price tracker page with a chart per tracked card.",
+      "'Is this set worth ripping?' pages generated from Verdict data.",
+      "Break calendar with reminders (.ics) if he starts live breaks or Whatnot shows.",
+      "Collection showcase: his personal PC with the story behind each card.",
+      "Real checkout via Shopify/Stripe, only after the policy and tax steps above."] },
+    { "title": "10. What not to do", "bullets": [
+      "Don't buy followers, fake reviews or engagement pods: platforms detect them and it can kill the eBay account.",
+      "Don't change the live eBay store or listings in bulk without testing a few first.",
+      "Don't cut over the domain, or send the first email, before Clayton has approved the exact page or copy.",
+      "Don't let the HQ page leak: no passwords, keys or private contact details in it, ever."] }
+  ]
+}

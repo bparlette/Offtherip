@@ -1,0 +1,1209 @@
+{
+ "asOf": "2026-10-07",
+ "phases": [
+  {
+   "id": "P0",
+   "title": "Approvals & accounts",
+   "blurb": "Nothing goes live without Clayton's OK. Accounts must be in his name."
+  },
+  {
+   "id": "P1",
+   "title": "Launch the site",
+   "blurb": "Domain, hosting, email, forms, analytics. Preview first, cutover only after approval."
+  },
+  {
+   "id": "P2",
+   "title": "Claim and unify the brand",
+   "blurb": "Close the gaps (X, Facebook Page, TikTok) and make every profile point at the site."
+  },
+  {
+   "id": "P3",
+   "title": "Data & content",
+   "blurb": "Feed the site real numbers and real copy."
+  },
+  {
+   "id": "P4",
+   "title": "Growth",
+   "blurb": "More eyes on the rips, more buyers on eBay."
+  },
+  {
+   "id": "P5",
+   "title": "Retention",
+   "blurb": "Turn one-time eBay buyers into a list, a Want List and repeat customers."
+  },
+  {
+   "id": "P6",
+   "title": "Ongoing",
+   "blurb": "Short routines that keep it all alive."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "T00",
+   "phase": "P0",
+   "title": "Research the brand and build the first version of the site",
+   "owner": "ai",
+   "minutes": 0,
+   "priority": 1,
+   "status": "done",
+   "why": "Everything below depends on it.",
+   "steps": [
+    "Gathered public facts (facts.json), built the static site, forms backend, sync tools, tests and this HQ."
+   ],
+   "acceptance": [
+    "`npm run build && npm test` pass"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [],
+   "notes": "Preview not deployed yet (T05).",
+   "done_by": "Claude, 2026-10-07"
+  },
+  {
+   "id": "T01",
+   "phase": "P0",
+   "title": "Get Clayton's go-ahead and answer the open questions",
+   "owner": "human",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "He owns the brand. Rule 1: nothing public or changed on his accounts without his OK.",
+   "steps": [
+    "Show him the site (run `npm run dev` and open http://localhost:8080, or the preview from T05).",
+    "Walk through `facts.json` → `questions_for_clayton` and write his answers into the notes of this task.",
+    "Get a yes/no on each: brand spelling, using his first name, public email, domain choice, which platforms to claim."
+   ],
+   "acceptance": [
+    "His approval is recorded in notes (date + how he said it)",
+    "Answers to every question are in notes"
+   ],
+   "needs_human": [
+    "Clayton's decision"
+   ],
+   "links": [],
+   "depends_on": [],
+   "notes": ""
+  },
+  {
+   "id": "T02",
+   "phase": "P0",
+   "title": "Decide who owns which account, and secure them",
+   "owner": "human",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "Domains, Cloudflare, email list and GitHub must be in Clayton's name with his email, or he can be locked out of his own brand.",
+   "steps": [
+    "Create or confirm: a Clayton-owned Google/Gmail (or other) email for account sign-ups.",
+    "Use a password manager (1Password / Bitwarden) and turn on 2FA everywhere (authenticator app, not SMS where possible).",
+    "List any operator/helper accounts and give them delegated access instead of sharing passwords."
+   ],
+   "acceptance": [
+    "Every account below lists Clayton as owner",
+    "2FA on registrar, Cloudflare, email list tool, GitHub"
+   ],
+   "needs_human": [
+    "Account creation, passwords, 2FA codes"
+   ],
+   "links": [],
+   "depends_on": [],
+   "notes": ""
+  },
+  {
+   "id": "T03",
+   "phase": "P1",
+   "title": "Register the domains",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "The website, email and every bio link need one home. Both spellings are unregistered today and could be taken any day.",
+   "steps": [
+    "Re-check availability (facts.json is from 2026-10-07): `whois offtheripcollectables.com` should say 'No match'.",
+    "Open the registrar. Recommended: Cloudflare Registrar (sold at cost, free WHOIS privacy; needs a Cloudflare account). Alternatives: Porkbun, Namecheap. (verify current price)",
+    "Register `offtheripcollectables.com` (primary) and `offtheripcollectibles.com` (redirect). Optional: `offtheripcards.com`.",
+    "Turn ON: auto-renew, registrar lock, WHOIS privacy, 2FA.",
+    "Registrant email must be Clayton's."
+   ],
+   "acceptance": [
+    "`dig +short NS offtheripcollectables.com` returns the registrar/Cloudflare nameservers",
+    "Auto-renew shows ON",
+    "Total spend ≤ $40"
+   ],
+   "needs_human": [
+    "Entering payment details",
+    "CAPTCHA / email verification"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01",
+    "T02"
+   ],
+   "notes": "",
+   "verify": "Registrar prices and WHOIS-privacy policy change; read the checkout page before paying."
+  },
+  {
+   "id": "T04",
+   "phase": "P1",
+   "title": "Put the project in a GitHub repository",
+   "owner": "either",
+   "minutes": 15,
+   "priority": 2,
+   "status": "todo",
+   "why": "Version history, collaboration between AIs, and automatic deploys.",
+   "steps": [
+    "Human runs `gh auth login` once (browser).",
+    "In the project folder: `gh repo create off-the-rip-site --private --source . --remote origin --push` (private until launch; the repo contains no secrets).",
+    "Confirm `.gitignore` excludes `dist/`, `node_modules/`, `.env*`."
+   ],
+   "acceptance": [
+    "Repo exists and `git log` shows the history online",
+    "No secrets in the repo (`git grep -iE 'api[_-]?key|secret' -- ':!*.md'` finds nothing real)"
+   ],
+   "needs_human": [
+    "GitHub login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T02"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T05",
+   "phase": "P1",
+   "title": "Deploy a preview to Cloudflare Pages",
+   "owner": "either",
+   "minutes": 25,
+   "priority": 1,
+   "status": "todo",
+   "why": "Lets Clayton see the real thing before any domain changes.",
+   "steps": [
+    "Create a free Cloudflare account (T02 rules apply).",
+    "Option A (recommended): Workers & Pages → Create → Pages → Connect to Git → pick the repo. Build command `npm run build`, output directory `dist`, env var `NODE_VERSION=22`. Project name `off-the-rip`.",
+    "Option B (no Git): `npx wrangler login` (human approves in the browser) then `npm run deploy`.",
+    "Set `ALLOW_PAGES_DEV=1` and `ALLOW_NO_SINK=1` as variables on the preview so the forms don't error before T09/T10.",
+    "Open https://off-the-rip.pages.dev and click every nav link."
+   ],
+   "acceptance": [
+    "Home, Shop, Pack Verdict, Watch, Want List, About, Links and the HQ path all load on the .pages.dev URL",
+    "Response headers on the HQ path include `X-Robots-Tag: noindex`",
+    "Lighthouse (Chrome DevTools) ≥ 90 on Performance, Accessibility and SEO for the home page"
+   ],
+   "needs_human": [
+    "Cloudflare login / OAuth approval"
+   ],
+   "links": [
+    {
+     "label": "Cloudflare Pages docs",
+     "url": "https://developers.cloudflare.com/pages/"
+    }
+   ],
+   "depends_on": [
+    "T04"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T06",
+   "phase": "P1",
+   "title": "Clayton reviews the preview and lists corrections",
+   "owner": "human",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "Rule 1. He signs off before the real domain points here.",
+   "steps": [
+    "Send him the .pages.dev link (not the HQ link).",
+    "Collect every correction in notes; fix; redeploy.",
+    "Get an explicit 'go' to connect the real domain."
+   ],
+   "acceptance": [
+    "'Go' recorded with a date"
+   ],
+   "needs_human": [
+    "Clayton's sign-off"
+   ],
+   "links": [],
+   "depends_on": [
+    "T05"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T07",
+   "phase": "P1",
+   "title": "Connect the real domain and set redirects",
+   "owner": "either",
+   "minutes": 25,
+   "priority": 1,
+   "status": "todo",
+   "why": "Go live.",
+   "steps": [
+    "Pages project → Custom domains → add `offtheripcollectables.com` and `www.offtheripcollectables.com`.",
+    "Redirect `www` → apex, and `offtheripcollectibles.com` → `https://offtheripcollectables.com` (Cloudflare Rules → Redirect Rules, preserve path).",
+    "Update `siteUrl` in `site.config.json` if different; `npm run build`; redeploy.",
+    "Check HTTPS padlock, and that `https://offtheripcollectables.com/sitemap.xml` loads."
+   ],
+   "acceptance": [
+    "All four URL variants end on the primary https URL",
+    "Sitemap and robots load",
+    "The old preview URL is no longer used in any bio"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T03",
+    "T05",
+    "T06"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T08",
+   "phase": "P1",
+   "title": "Set up hello@ email",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "The site publishes hello@offtheripcollectables.com; mail to it must arrive.",
+   "steps": [
+    "Cloudflare → Email → Email Routing → enable for the domain (adds MX + SPF automatically).",
+    "Create address `hello@` → forward to Clayton's real inbox; verify the destination via the confirmation email.",
+    "Optional: set up 'Send mail as hello@' in Gmail (needs an SMTP provider; (verify) options).",
+    "Send a test email to hello@ from a different account."
+   ],
+   "acceptance": [
+    "Test email arrives",
+    "SPF record present (`dig TXT offtheripcollectables.com`)"
+   ],
+   "needs_human": [
+    "Confirming the destination inbox"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": "",
+   "verify": "If Email Routing is unavailable, use any forwarding service; just don't publish an address that doesn't work."
+  },
+  {
+   "id": "T09",
+   "phase": "P1",
+   "title": "Create the email list in Kit (ConvertKit)",
+   "owner": "either",
+   "minutes": 30,
+   "priority": 1,
+   "status": "todo",
+   "why": "The one asset eBay won't give him: a list he owns.",
+   "steps": [
+    "Create a Kit account (free plan; (verify) current subscriber limit and terms).",
+    "Create a form named 'The Hit List'. Turn on double opt-in.",
+    "Create custom fields: source, interests, utm_source, utm_medium, utm_campaign, want, budget, grade.",
+    "Settings → email: sender name 'Off The Rip Collectables', sender `hello@` once T08 works, and authenticate the sending domain (DKIM/SPF) per Kit's wizard.",
+    "Footer mailing address: Clayton chooses (PO box / virtual mailbox / home). Required by CAN-SPAM.",
+    "Create an API key (Developer settings) and note the numeric form id. Do not paste either into chat or the repo."
+   ],
+   "acceptance": [
+    "Test signup on the preview shows up in Kit as an unconfirmed subscriber with the right fields",
+    "Footer address set"
+   ],
+   "needs_human": [
+    "Account creation",
+    "Choosing the mailing address",
+    "Pasting the API key into Cloudflare (T10), not into any file"
+   ],
+   "links": [
+    {
+     "label": "Kit developer docs",
+     "url": "https://developers.kit.com/"
+    }
+   ],
+   "depends_on": [
+    "T02"
+   ],
+   "notes": "",
+   "verify": "The Kit v4 request shape in `functions/api/_lib.js` (POST /v4/subscribers, POST /v4/forms/{id}/subscribers, header X-Kit-Api-Key) was written from memory of the public docs. Check developers.kit.com before relying on it; fix `deliver()` if it differs."
+  },
+  {
+   "id": "T10",
+   "phase": "P1",
+   "title": "Connect the forms and test end to end",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "A broken signup form silently loses customers.",
+   "steps": [
+    "Cloudflare Pages → Settings → Variables and Secrets (Production): `SITE_URL=https://offtheripcollectables.com`, `KIT_API_KEY` (secret), `KIT_FORM_ID`. Optional: `FORM_WEBHOOK_URL` (Google Sheet backup), KV binding `LEADS`.",
+    "Remove `ALLOW_NO_SINK` from production.",
+    "Redeploy. Submit the home-page form with a real inbox, and the Want List form.",
+    "Confirm: Kit shows both subscribers with fields filled; the confirmation email arrives; a post with the hidden `website` field filled is silently ignored.",
+    "Command-line check: `curl -s -X POST https://<site>/api/subscribe -H 'Content-Type: application/json' -d '{\"email\":\"you+test@example.com\",\"consent\":true}'` should return `{\"ok\":true}`."
+   ],
+   "acceptance": [
+    "Real signup reaches Kit and the backup sink",
+    "Error path: with a wrong key the form shows an error instead of fake success"
+   ],
+   "needs_human": [
+    "Pasting secrets into the Cloudflare dashboard"
+   ],
+   "links": [],
+   "depends_on": [
+    "T05",
+    "T09"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T11",
+   "phase": "P1",
+   "title": "Turn on privacy-friendly analytics",
+   "owner": "either",
+   "minutes": 10,
+   "priority": 2,
+   "status": "todo",
+   "why": "You can't improve what you can't see.",
+   "steps": [
+    "Cloudflare → Web Analytics → add the site → copy the token.",
+    "Put it in `site.config.json` → `analytics.cloudflareToken` (a public token, not a secret). Optional: `analytics.plausibleDomain` for custom events (eBay Click, Newsletter Signup, Want List).",
+    "Rebuild, deploy, load a page, confirm a visit appears."
+   ],
+   "acceptance": [
+    "Visits show in the dashboard",
+    "No cookie banner needed (no cookies set)"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T12",
+   "phase": "P1",
+   "title": "Register with Google Search Console and Bing",
+   "owner": "either",
+   "minutes": 15,
+   "priority": 2,
+   "status": "todo",
+   "why": "So the site and the Verdict pages get indexed.",
+   "steps": [
+    "Search Console → Add property → Domain → verify with a DNS TXT record in Cloudflare.",
+    "Submit `https://offtheripcollectables.com/sitemap.xml`.",
+    "Bing Webmaster Tools → import from Search Console."
+   ],
+   "acceptance": [
+    "Sitemap status 'Success' with 9 pages"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T13",
+   "phase": "P1",
+   "title": "Lock the HQ page behind Cloudflare Access",
+   "owner": "either",
+   "minutes": 15,
+   "priority": 1,
+   "status": "todo",
+   "why": "The HQ path is unlisted but anyone with the URL could read it. It contains planning notes, not secrets, but should still be private.",
+   "steps": [
+    "Cloudflare Zero Trust (free for up to 50 users) → Access → Applications → Add → Self-hosted.",
+    "Application domain `offtheripcollectables.com`, path `backstage-otr26/*` (use the real `hqPath` from site.config.json).",
+    "Policy: Allow → emails: Clayton's and the operator's. One-time PIN login.",
+    "Confirm an incognito window gets the login screen."
+   ],
+   "acceptance": [
+    "Incognito can't open the HQ page; both emails can"
+   ],
+   "needs_human": [
+    "Approving the allowed emails"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": "",
+   "verify": "Zero Trust free-plan limits and UI labels (verify)."
+  },
+  {
+   "id": "T14",
+   "phase": "P2",
+   "title": "Claim the X (Twitter) handle",
+   "owner": "human",
+   "minutes": 15,
+   "priority": 2,
+   "status": "todo",
+   "why": "The logo shows an X icon but no matching account exists, and the handle is free right now.",
+   "steps": [
+    "Try `@offtheripcollectables` first. If taken, fallbacks in order: `@OTRCollectables`, `@offtherip_cc`, `@otr_cards` (check each in the signup flow; do not use names that other brands already use).",
+    "Sign up with the Clayton-owned email; phone verification is required.",
+    "Set the profile photo to `src/assets/img/logo-640.png`, bio from the Copy Kit, link to the site.",
+    "Put the final handle in `site.config.json` → `links.x` and rebuild."
+   ],
+   "acceptance": [
+    "Handle exists, bio and link set, `links.x` filled so the footer shows it"
+   ],
+   "needs_human": [
+    "Phone verification",
+    "CAPTCHA"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": "@OffTheRipCards and @offtheripco belong to other people. Don't confuse or impersonate."
+  },
+  {
+   "id": "T15",
+   "phase": "P2",
+   "title": "Create a Facebook Business Page",
+   "owner": "either",
+   "minutes": 25,
+   "priority": 2,
+   "status": "todo",
+   "why": "Card buyers live in Facebook groups, and a personal profile can't run ads or hold a shop link.",
+   "steps": [
+    "From Clayton's profile: Pages → Create. Name 'Off The Rip Collectables'. Category (verify): Collectibles Store or Trading Card Store.",
+    "Profile photo = the logo; cover = a banner (see T26); about text from the Copy Kit; website + eBay link.",
+    "Add a 'Shop now' / 'Learn more' button pointing at the eBay store.",
+    "Put the Page URL in `site.config.json` → `links.facebook`; rebuild."
+   ],
+   "acceptance": [
+    "Page is public, has the logo, the bio and both links"
+   ],
+   "needs_human": [
+    "Facebook login / identity checks"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T16",
+   "phase": "P2",
+   "title": "Decide on Whatnot (live auctions)",
+   "owner": "human",
+   "minutes": 20,
+   "priority": 2,
+   "status": "todo",
+   "why": "Live selling is the biggest card-sales channel for many YouTubers; Clayton already makes video content.",
+   "steps": [
+    "Ask Clayton whether he wants to go live weekly. If no, close this task.",
+    "If yes: apply as a seller at whatnot.com/sell; read current fees, payout and category rules (verify).",
+    "Set `links.whatnot` and `features.whatnotLive=true`, add the schedule to /watch/."
+   ],
+   "acceptance": [
+    "Decision recorded; if yes, seller application submitted"
+   ],
+   "needs_human": [
+    "Application, ID verification"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": "",
+   "verify": "Whatnot fees and seller requirements."
+  },
+  {
+   "id": "T17",
+   "phase": "P2",
+   "title": "Decide on TCGplayer (TCG singles)",
+   "owner": "human",
+   "minutes": 20,
+   "priority": 3,
+   "status": "todo",
+   "why": "TCG singles often sell faster on TCGplayer than eBay.",
+   "steps": [
+    "Ask if he already sells there. If not, read the seller requirements and fee schedule (verify) and decide with Clayton whether the extra channel is worth the work.",
+    "If yes: set `links.tcgplayer`."
+   ],
+   "acceptance": [
+    "Decision recorded"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": "",
+   "verify": "TCGplayer seller eligibility and fees."
+  },
+  {
+   "id": "T18",
+   "phase": "P2",
+   "title": "Make sure TikTok is live and cross-posting",
+   "owner": "either",
+   "minutes": 30,
+   "priority": 2,
+   "status": "todo",
+   "why": "TikTok is where card content grows fastest and the account exists but looks empty.",
+   "steps": [
+    "Log in as Clayton; confirm the account is active; if empty, post the last 7 days of Shorts (download from YouTube Studio, no watermark issue).",
+    "Switch to a Business account if the 'website' field needs it (verify), set link = the site's /links/ page.",
+    "Set the bio from the Copy Kit; pin the best video."
+   ],
+   "acceptance": [
+    "At least 7 posts live, bio link set"
+   ],
+   "needs_human": [
+    "TikTok login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T19",
+   "phase": "P2",
+   "title": "Unify every profile: name, picture, bio, one link",
+   "owner": "either",
+   "minutes": 45,
+   "priority": 1,
+   "status": "todo",
+   "why": "Every profile should look like the same business and send people to the same place.",
+   "steps": [
+    "For each of YouTube, Instagram, Threads, TikTok, Facebook Page, X, eBay store: profile photo = `logo-640.png`; name 'Off The Rip Collectables'; bio from the Copy Kit; link = `https://offtheripcollectables.com/links/?src=<platform>` (ig, yt, tt, th, fb, x).",
+    "YouTube: Customize channel → Basic info → Links: add the website, eBay store, Instagram. Add the site to the About description.",
+    "Add the new website to the eBay store description and 'social links' if eBay offers it (verify; eBay restricts selling links but permits social and brand links)."
+   ],
+   "acceptance": [
+    "All profiles show the same name, logo and link",
+    "Links/redirects: `/yt`, `/ebay`, `/ig`, `/tiktok` resolve"
+   ],
+   "needs_human": [
+    "Logging into each platform"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07",
+    "T14",
+    "T15"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T20",
+   "phase": "P2",
+   "title": "Polish the eBay store itself",
+   "owner": "either",
+   "minutes": 45,
+   "priority": 1,
+   "status": "todo",
+   "why": "All sales happen here. Small store fixes lift conversion immediately.",
+   "steps": [
+    "Seller Hub → Store: check whether the store URL slug (currently `offtheripollectables`, missing the 'c') can be changed; if not, leave it and use `/ebay` on the site. (verify)",
+    "Write the store description from the Copy Kit: what he sells, 'most cards pulled on YouTube', link to the channel.",
+    "Add store categories that match the site: Basketball, Football, Baseball, Pokémon, One Piece, Dragon Ball, Graded.",
+    "Add a banner/logo (logo-640.png).",
+    "Do not add links that sell outside eBay (rule 6)."
+   ],
+   "acceptance": [
+    "Store shows description, logo and categories",
+    "Seller Hub shows no policy warnings"
+   ],
+   "needs_human": [
+    "Seller Hub login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": "",
+   "verify": "eBay store settings and link policy."
+  },
+  {
+   "id": "T21",
+   "phase": "P3",
+   "title": "Switch on the live eBay inventory grid",
+   "owner": "either",
+   "minutes": 40,
+   "priority": 1,
+   "status": "todo",
+   "why": "The Shop page currently shows category shortcuts. Live listings with prices keep visitors on-site longer and send ready-to-buy traffic to eBay.",
+   "steps": [
+    "developer.ebay.com → create a developer account (Clayton's) → Application Keys → Production keyset. Note the Client ID (App ID) and Client Secret (Cert ID).",
+    "GitHub repo → Settings → Secrets → add `EBAY_APP_ID`, `EBAY_CERT_ID`.",
+    "Locally: `EBAY_APP_ID=... EBAY_CERT_ID=... npm run sync:ebay`. Expect `ebay: N listings written`.",
+    "Check `src/data/listings.json` has `source: \"ebay-api\"` and sensible titles, prices, images.",
+    "`npm run build`, look at /shop/, commit."
+   ],
+   "acceptance": [
+    "/shop/ shows a live grid with images and prices",
+    "Re-running the workflow refreshes it"
+   ],
+   "needs_human": [
+    "Creating the developer account, keyset approval (eBay may require a production-access review)"
+   ],
+   "links": [
+    {
+     "label": "eBay Browse API",
+     "url": "https://developer.ebay.com/api-docs/buy/browse/overview.html"
+    }
+   ],
+   "depends_on": [
+    "T05"
+   ],
+   "notes": "",
+   "verify": "`scripts/sync-ebay.mjs` follows the public Browse API docs but has NOT been run against live credentials. Fix the filter syntax / fields on the first run if the API differs."
+  },
+  {
+   "id": "T22",
+   "phase": "P3",
+   "title": "Log the Daily Pack Verdict numbers",
+   "owner": "human",
+   "minutes": 15,
+   "priority": 1,
+   "status": "todo",
+   "why": "The scoreboard is the site's best retention hook. Days 17 to 23 show only win/loss; dollar amounts make the chart and totals appear.",
+   "steps": [
+    "Clayton fills `templates/verdicts.csv` (cost and value for days 17 to 23) in a spreadsheet, or tells an AI the numbers.",
+    "`npm run import:verdicts -- path/to/verdicts.csv` → `npm run build`.",
+    "Going forward: log each new day (30 seconds) in the same CSV, or in the Kit/Sheet you prefer.",
+    "Define and publish the scoring method: what 'value' means (e.g. recent eBay sold prices for the cards pulled, minus fees?). Add 2 to 3 lines under the table in `src/pages/verdict.html`."
+   ],
+   "acceptance": [
+    "/verdict/ shows dollar amounts, running chart and net total",
+    "A 'how we score' note is visible"
+   ],
+   "needs_human": [
+    "Clayton's numbers and method"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": "Auto-added days arrive with result=null (TBD) via `npm run sync:youtube`, which also breaks the streak until filled in."
+  },
+  {
+   "id": "T23",
+   "phase": "P3",
+   "title": "Write the real About story and add a photo",
+   "owner": "human",
+   "minutes": 30,
+   "priority": 2,
+   "status": "todo",
+   "why": "People buy from people. The About page currently has only verified facts and no story.",
+   "steps": [
+    "Clayton writes 3 to 5 sentences: why cards, how the channel started, what makes his rips different. Supplies a clear photo.",
+    "Add to `src/pages/about.html`, photo to `src/assets/img/`, then rebuild."
+   ],
+   "acceptance": [
+    "About page has his story and photo (his approval recorded)"
+   ],
+   "needs_human": [
+    "Clayton's words and photo"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T24",
+   "phase": "P3",
+   "title": "Confirm shipping, packing and returns, then publish them",
+   "owner": "human",
+   "minutes": 15,
+   "priority": 2,
+   "status": "todo",
+   "why": "Packing quality is the #1 trust signal for card buyers, but the site must only say what is true.",
+   "steps": [
+    "Clayton describes exactly how cards ship (sleeve, toploader, team bag, bubble mailer? tracking? handling time?).",
+    "Write 3 to 4 bullets in the packing block of `about.html` and set `features.packingBlock` to `true`."
+   ],
+   "acceptance": [
+    "Block live and accurate"
+   ],
+   "needs_human": [
+    "Clayton's confirmation"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T25",
+   "phase": "P3",
+   "title": "Legal pass",
+   "owner": "human",
+   "minutes": 45,
+   "priority": 2,
+   "status": "todo",
+   "why": "Cheap insurance before collecting emails and running giveaways.",
+   "steps": [
+    "Have someone competent review `privacy.html` and `terms.html` (they are plain-language templates, not legal advice).",
+    "Fill `legal.businessName` (and `legal.address` if you want it on the site).",
+    "Confirm giveaway practice: 'no purchase necessary', age and state limits, who is eligible, and FTC disclosure. Publish rules per giveaway.",
+    "Sales tax: eBay collects and remits for marketplace sales; selling anywhere else would change this (see rule 6)."
+   ],
+   "acceptance": [
+    "Review done; changes applied"
+   ],
+   "needs_human": [
+    "A person with legal judgment"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T26",
+   "phase": "P3",
+   "title": "Design the social images (OG image, banners)",
+   "owner": "ai",
+   "minutes": 40,
+   "priority": 3,
+   "status": "todo",
+   "why": "The link-preview image people see when the site is shared is currently a basic placeholder.",
+   "steps": [
+    "Render a 1200x630 image from an HTML template using the site fonts (headless Chrome screenshot) and save over `src/assets/img/og-image.jpg`.",
+    "Also produce a YouTube banner (2560x1440) and a Facebook cover (820x312) in the same style."
+   ],
+   "acceptance": [
+    "Link preview looks right in https://www.opengraph.xyz/"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T05"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T27",
+   "phase": "P3",
+   "title": "Turn on the scheduled data refresh",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 2,
+   "status": "todo",
+   "why": "Keeps the video grid, listings and Verdict stubs current without anyone touching the site.",
+   "steps": [
+    "Cloudflare → My Profile → API Tokens → create a token with 'Cloudflare Pages: Edit' permission.",
+    "GitHub → Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.",
+    "Actions → refresh-and-deploy → Run workflow; confirm it passes and deploys."
+   ],
+   "acceptance": [
+    "Workflow green; the site shows the newest video within 6 hours of an upload"
+   ],
+   "needs_human": [
+    "Creating the token"
+   ],
+   "links": [],
+   "depends_on": [
+    "T04",
+    "T05"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T28",
+   "phase": "P4",
+   "title": "Optimize the YouTube channel",
+   "owner": "either",
+   "minutes": 60,
+   "priority": 1,
+   "status": "todo",
+   "why": "All sales start here. Better packaging of the same content earns more views for free.",
+   "steps": [
+    "Playlists: Daily Pack Verdict, Up or Down, Box & Blaster Breaks, Giveaways, Pokémon, One Piece, Sports.",
+    "Description template for every upload from the Copy Kit: what's in the video, eBay store link, website link, Verdict scoreboard link.",
+    "Pinned comment template; end screen pointing to the Verdict playlist; channel trailer = the best 60-second Verdict.",
+    "Thumbnails: consistent look (logo corner, big result 'PROFIT' / 'LOSS', the chase card). Test two styles for two weeks and compare click-through rate."
+   ],
+   "acceptance": [
+    "Playlists and templates in place; CTR tracked in a sheet"
+   ],
+   "needs_human": [
+    "YouTube Studio login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T19"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T29",
+   "phase": "P4",
+   "title": "Same-day cross-posting routine",
+   "owner": "either",
+   "minutes": 30,
+   "priority": 1,
+   "status": "todo",
+   "why": "Every Short already exists; posting it on 4 more platforms is the cheapest growth available.",
+   "steps": [
+    "Same day: YouTube Short → TikTok → Instagram Reels → Facebook Reels → Threads (and X once claimed). Use the caption templates in the Copy Kit; same hashtags; bio link via `/links/?src=<platform>`.",
+    "Pick a scheduler if wanted (Buffer, Metricool, Meta Business Suite) (verify free tiers).",
+    "Track per-platform views weekly in the KPI sheet."
+   ],
+   "acceptance": [
+    "7 days in a row of cross-posts on all platforms"
+   ],
+   "needs_human": [
+    "Approving the captions"
+   ],
+   "links": [],
+   "depends_on": [
+    "T19"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T30",
+   "phase": "P4",
+   "title": "eBay listing optimization pass",
+   "owner": "either",
+   "minutes": 90,
+   "priority": 1,
+   "status": "todo",
+   "why": "The best traffic is already on eBay; better listings convert it.",
+   "steps": [
+    "Titles: Year Brand Set Player Parallel /numbering Grade (use all 80 characters).",
+    "Photos: front + back, grading label, natural light; the first photo on a plain background.",
+    "Turn on Best Offer for singles; send offers to watchers; Promoted Listings Standard at a low ad rate for slow movers (verify rates).",
+    "Combined shipping / multi-buy discounts; sale events; relist unsold with a 5% markdown.",
+    "Add 'as seen on the channel' + video link in descriptions where the card was pulled (a link to YouTube, not an external store: rule 6)."
+   ],
+   "acceptance": [
+    "Sample of 20 listings updated; sell-through compared after 30 days"
+   ],
+   "needs_human": [
+    "Seller Hub login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T20"
+   ],
+   "notes": "",
+   "verify": "eBay's current rules on description links and promoted listings."
+  },
+  {
+   "id": "T31",
+   "phase": "P4",
+   "title": "Giveaway playbook",
+   "owner": "either",
+   "minutes": 30,
+   "priority": 2,
+   "status": "todo",
+   "why": "Giveaways already run on the channel; they are the main way to grow the list.",
+   "steps": [
+    "Pick a repeatable format (e.g. every 25th Verdict Day, or per 100 subscribers).",
+    "Rules template (T25) in the video description; disclose any sponsor.",
+    "Mechanic: subscribe + comment to enter on YouTube. To build the email list, add 'get giveaway alerts: /giveaways/' as an extra, not a condition of entry (legal).",
+    "Announce winner on camera; ship the same week; post the proof."
+   ],
+   "acceptance": [
+    "Next giveaway uses the template; list growth measured"
+   ],
+   "needs_human": [
+    "Approving rules and prizes"
+   ],
+   "links": [],
+   "depends_on": [
+    "T25"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T32",
+   "phase": "P4",
+   "title": "Order inserts and (optional) 3D-printed stands",
+   "owner": "human",
+   "minutes": 60,
+   "priority": 3,
+   "status": "todo",
+   "why": "A small card in each order turns a one-time buyer into a follower. The filament photo suggests card stands could be a free gift or merch.",
+   "steps": [
+    "Design a 3x5 insert: logo, 'Thanks!', QR code → `https://offtheripcollectables.com/thanks/?src=insert`, 'Watch the rips on YouTube'. Do NOT invite buyers to purchase off eBay (rule 6).",
+    "Print 500 (verify a vendor: Vistaprint, Moo, local).",
+    "If printing stands: test a slab-sized stand; photograph; decide free gift over $X vs. sold item on eBay."
+   ],
+   "acceptance": [
+    "First 20 orders shipped with the insert; scans show up as `src=insert`"
+   ],
+   "needs_human": [
+    "Design approval, vendor payment"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": "",
+   "verify": "eBay policy on inserts and promotional material in packages."
+  },
+  {
+   "id": "T33",
+   "phase": "P5",
+   "title": "Build the welcome emails in Kit",
+   "owner": "either",
+   "minutes": 60,
+   "priority": 1,
+   "status": "todo",
+   "why": "Subscribers are warmest in their first week. Five emails, segmented by interest.",
+   "steps": [
+    "Use `emails/welcome-series.md`. In Kit create a sequence; add conditions on the `interests` field for the sports / Pokémon / One Piece-DBS / graded variants.",
+    "Replace placeholders; send a test to Clayton; he approves the voice (rule 10).",
+    "Turn it on for new subscribers."
+   ],
+   "acceptance": [
+    "A fresh test signup receives email 1 within a minute and the rest on schedule"
+   ],
+   "needs_human": [
+    "Clayton's approval of the copy"
+   ],
+   "links": [],
+   "depends_on": [
+    "T09",
+    "T10"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T34",
+   "phase": "P5",
+   "title": "Run the Want List like a service",
+   "owner": "human",
+   "minutes": 30,
+   "priority": 1,
+   "status": "todo",
+   "why": "A hunted card is a pre-qualified buyer. Keep the promise on the form.",
+   "steps": [
+    "Weekly (Sunday): export the Want List (Kit custom fields or the backup sheet).",
+    "Search the store and the week's pulls; for each match, send a short email with the eBay link (the buyer buys on eBay).",
+    "Mark fulfilled; tell the buyer if nothing matches yet."
+   ],
+   "acceptance": [
+    "First weekly pass done; reply rate and sales from matches tracked"
+   ],
+   "needs_human": [
+    "Clayton or an assistant"
+   ],
+   "links": [],
+   "depends_on": [
+    "T10"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T35",
+   "phase": "P5",
+   "title": "Collect and publish real customer quotes",
+   "owner": "either",
+   "minutes": 30,
+   "priority": 3,
+   "status": "todo",
+   "why": "Social proof beyond the feedback score.",
+   "steps": [
+    "Pick 5 positive eBay feedback comments.",
+    "Ask each buyer's permission by eBay message (only to ask permission to quote their public feedback, no sales message) (verify policy).",
+    "Add approved quotes to the About/Shop page."
+   ],
+   "acceptance": [
+    "Quotes are real, permissioned and linked to the source"
+   ],
+   "needs_human": [
+    "Clayton sends the messages"
+   ],
+   "links": [],
+   "depends_on": [
+    "T01"
+   ],
+   "notes": "",
+   "verify": "eBay messaging rules."
+  },
+  {
+   "id": "T36",
+   "phase": "P5",
+   "title": "Retention loops",
+   "owner": "either",
+   "minutes": 60,
+   "priority": 2,
+   "status": "todo",
+   "why": "Return visits drive repeat buyers.",
+   "steps": [
+    "Streak-break email: one automated email the day a Verdict ends the losing streak (subscribers who ticked interest 'verdict' come later; for now send manually).",
+    "Weekly 'Up or Down' price tracker for the featured card: log one price a week; add as a page (see Playbook → future builds).",
+    "Birthday-style 'anniversary' perk is overkill for now: skip until the list passes 500."
+   ],
+   "acceptance": [
+    "Streak email sent the first time the streak breaks"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T22",
+    "T33"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T37",
+   "phase": "P6",
+   "title": "Weekly routine (30 minutes)",
+   "owner": "either",
+   "minutes": 30,
+   "priority": 1,
+   "status": "todo",
+   "why": "Small, regular maintenance beats occasional big pushes.",
+   "steps": [
+    "`npm run sync:youtube && npm run sync:ebay` (or let the Action do it).",
+    "Log the week's Verdict results (T22). Check Want List (T34).",
+    "Look at KPIs: YouTube subs, IG/TikTok followers, eBay followers, list size, site visits, eBay Clicks. Write them in the KPI sheet.",
+    "Send the weekly Hit List."
+   ],
+   "acceptance": [
+    "KPI sheet updated every week"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T10"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T38",
+   "phase": "P6",
+   "title": "Monthly routine (45 minutes)",
+   "owner": "either",
+   "minutes": 45,
+   "priority": 2,
+   "status": "todo",
+   "why": "Keep facts accurate and the site healthy.",
+   "steps": [
+    "Re-check facts.json numbers and update `stats` in site.config.json (with the new 'as of').",
+    "Run `npm test`; click every link; check domain/renewal dates; rotate API keys if anyone left the project.",
+    "Re-run the 'similar names' search (facts.json) to make sure no new lookalike brand appeared.",
+    "Review the Playbook and move the next 3 items into tasks."
+   ],
+   "acceptance": [
+    "`stats.asOf` updated; no broken links"
+   ],
+   "needs_human": [],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T39",
+   "phase": "P6",
+   "title": "Set the Pages build command to pull fresh data",
+   "owner": "either",
+   "minutes": 10,
+   "priority": 1,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 1 in docs/AUTOMATION.md: build command `npm run sync && npm run build`, `NODE_VERSION=22`, retry deployment."
+   ],
+   "acceptance": [
+    "Build log shows `youtube:` and `built 20 pages`"
+   ],
+   "needs_human": [
+    "Cloudflare login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T05"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T40",
+   "phase": "P6",
+   "title": "Deploy the scheduled refresh Worker",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 2 in docs/AUTOMATION.md: create the Pages deploy hook, then `cd worker && npx wrangler login && npx wrangler deploy && npx wrangler secret put DEPLOY_HOOK_URL`."
+   ],
+   "acceptance": [
+    "A Pages deployment appears automatically within 6 hours",
+    "Secret is not stored in any file or in Git"
+   ],
+   "needs_human": [
+    "wrangler login",
+    "Pasting the deploy hook URL at the secret prompt"
+   ],
+   "links": [],
+   "depends_on": [
+    "T39"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T41",
+   "phase": "P6",
+   "title": "Connect the Verdict Google Sheet",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 2,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 3 in docs/AUTOMATION.md: Clayton creates and publishes the Sheet as CSV; add `VERDICTS_CSV_URL` to Pages variables.",
+    "Teach Clayton the daily routine: fill `cost` and `value` for the day only."
+   ],
+   "acceptance": [
+    "Build log says `sheet: N row(s) merged`",
+    "/verdict/ shows dollar amounts and chart"
+   ],
+   "needs_human": [
+    "Clayton's Google account"
+   ],
+   "links": [],
+   "depends_on": [
+    "T39"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T42",
+   "phase": "P6",
+   "title": "Add uptime monitoring and a deploy-age check",
+   "owner": "either",
+   "minutes": 15,
+   "priority": 2,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 5 in docs/AUTOMATION.md: free uptime monitor on the home page, alerts to Clayton and the operator."
+   ],
+   "acceptance": [
+    "Test alert received"
+   ],
+   "needs_human": [
+    "Monitor account sign-up"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
+  }
+ ]
+}

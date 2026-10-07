@@ -1,0 +1,16 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https://i.ytimg.com https://i.ebayimg.com https://*.cdninstagram.com; frame-src https://www.youtube-nocookie.com https://challenges.cloudflare.com; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; connect-src 'self' https://cloudflareinsights.com; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/data/*
+  Cache-Control: public, max-age=300
+
+/backstage-otr26/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store

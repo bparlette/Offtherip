@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backstage (HQ) | Off The Rip Collectables</title>
+<meta name="description" content="Private planning page for Off The Rip Collectables: tasks, recommendations and an AI handoff brief.">
+<link rel="canonical" href="https://offtheripcollectables.com/backstage-otr26/">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#3b4524">
+<link rel="icon" type="image/png" href="/Offtherip/preview/assets/img/favicon-48.png">
+<link rel="manifest" href="/Offtherip/preview/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/Offtherip/preview/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Off The Rip Collectables">
+<meta property="og:title" content="Backstage (HQ) | Off The Rip Collectables">
+<meta property="og:description" content="Private planning page for Off The Rip Collectables: tasks, recommendations and an AI handoff brief.">
+<meta property="og:url" content="https://offtheripcollectables.com/backstage-otr26/">
+<meta property="og:image" content="https://offtheripcollectables.com/assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/Offtherip/preview/assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/Offtherip/preview/assets/css/main.css">
+
+<link rel="stylesheet" href="hq.css"></head>
+<body class="hq">
+<header class="hq-top">
+  <div class="wrap hq-top__in">
+    <div><p class="eyebrow">Unlisted page · noindex · do not share the URL</p><h1>Backstage</h1>
+      <p class="hq-sub">Off The Rip Collectables: everything left to do, what to do next, and a brief any AI can pick up.</p></div>
+    <div class="hq-actions">
+      <button class="btn btn--lime" id="copy-brief">Copy full AI brief</button>
+      <a class="btn btn--ghost" href="brief.md" target="_blank" rel="noopener">brief.md</a>
+      <a class="btn btn--ghost" href="tasks.json" download>tasks.json</a>
+      <a class="btn btn--ghost" href="/Offtherip/preview/" target="_blank">Public site</a>
+    </div>
+  </div>
+  <div class="wrap"><div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><span id="pfill"></span></div><p class="hq-prog" id="ptext">Loading…</p></div>
+  <nav class="wrap hq-tabs" aria-label="HQ sections">
+    <a href="#next">Next up</a><a href="#tasks">All tasks</a><a href="#playbook">Playbook</a><a href="#facts">Facts</a><a href="#kit">Copy kit</a><a href="#handoff">AI handoff</a><a href="#health">Site health</a>
+  </nav>
+</header>
+<main id="main" class="wrap hq-main">
+  <noscript><p class="hq-warn">This page needs JavaScript. The same content as plain text: <a href="brief.md">brief.md</a>.</p></noscript>
+  <section id="next" aria-labelledby="h-next"><h2 id="h-next">Next up</h2><p class="fine">The five highest-priority tasks whose dependencies are done.</p><div id="nextlist" class="cards"></div></section>
+  <section id="tasks" aria-labelledby="h-tasks"><h2 id="h-tasks">All tasks</h2>
+    <div class="hq-filters"><label>Owner <select id="f-owner"><option value="">All</option><option value="human">Human</option><option value="ai">AI</option><option value="either">AI or human</option></select></label>
+      <label>Status <select id="f-status"><option value="">All</option><option value="todo">To do</option><option value="doing">Doing</option><option value="blocked">Blocked</option><option value="done">Done</option></select></label>
+      <label>Search <input id="f-q" type="search" placeholder="domain, email, eBay…"></label>
+      <button class="btn btn--small btn--ghost-dark" id="reset">Reset my local checkmarks</button></div>
+    <div id="tasklist"></div></section>
+  <section id="playbook" aria-labelledby="h-play"><h2 id="h-play">Playbook: recommendations</h2><div id="playbook-body"></div></section>
+  <section id="facts" aria-labelledby="h-facts"><h2 id="h-facts">Facts we found <span class="fine" id="facts-asof"></span></h2><div id="facts-body"></div></section>
+  <section id="kit" aria-labelledby="h-kit"><h2 id="h-kit">Copy kit</h2><p class="fine">Drafts for Clayton to approve. Click a block to copy it.</p><div id="kit-body"></div></section>
+  <section id="handoff" aria-labelledby="h-hand"><h2 id="h-hand">Hand this to an AI</h2>
+    <ol class="hq-steps">
+      <li>Click <b>Copy full AI brief</b> (or open <a href="brief.md">brief.md</a>) and paste it into the AI as its first message.</li>
+      <li>Tell it which task to do, for example: <em>"Do task T03. Stop at every needs_human step and tell me what to enter."</em> A browser-control agent (Muse, Claude with Chrome, Operator and similar) can drive the registrar, Cloudflare, Kit and social sign-up pages. You still type passwords, 2FA codes and payment details.</li>
+      <li>For coding tasks give it the repo: <code>npm run dev</code> to preview, <code>npm test</code> before committing.</li>
+      <li>Each task card has a <b>Copy for AI</b> button with just that task plus the rules.</li>
+      <li>When it finishes, ask it to set the task's <code>status</code> and <code>notes</code> in <code>src/hq/tasks.json</code> and rebuild. The checkmarks on this page are saved in your browser only; <code>tasks.json</code> is the shared source of truth.</li>
+    </ol>
+    <h3>Rules every AI must follow</h3><div id="rules-body" class="prose"></div></section>
+  <section id="health" aria-labelledby="h-health"><h2 id="h-health">Site health</h2><div id="health-body"></div></section>
+</main>
+<script src="hq.js" defer></script>
+</body></html>

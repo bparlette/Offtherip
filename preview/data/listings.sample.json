@@ -1,0 +1,52 @@
+{
+ "source": "sample",
+ "note": "Dev preview only (?preview=1 on /shop/). Prices/availability may be stale.",
+ "items": [
+  {
+   "id": "297559338807",
+   "title": "Oshawott (Poke Ball Pattern) (JP) - Pokémon: White Flare (SV11W) - 018/086",
+   "category": "tcg",
+   "price": null,
+   "url": "https://www.ebay.com/itm/297559338807"
+  },
+  {
+   "id": "297170008191",
+   "title": "Trae Young - 2024 Panini Select Neon Icon Green Prizm",
+   "category": "sports",
+   "price": null,
+   "url": "https://www.ebay.com/itm/297170008191"
+  },
+  {
+   "id": "297837521686",
+   "title": "2024 Pokémon TWM Illustration Rare #170 Dipplin - PSA 9",
+   "category": "graded",
+   "price": null,
+   "url": "https://www.ebay.com/itm/297837521686"
+  },
+  {
+   "id": "297269025569",
+   "title": "Kokoro no Chizu Event (JP) - One Piece Anime 25th Collection EB02-050 R",
+   "category": "tcg",
+   "price": null,
+   "url": "https://www.ebay.com/itm/297269025569"
+  },
+  {
+   "title": "Jeremiah Fears 2025-26 Topps Signature Class Basketball",
+   "category": "sports",
+   "price": 17.99,
+   "url": "https://www.ebay.com/str/offtheripollectables"
+  },
+  {
+   "title": "2026 Bowman Chrome Josh Allen Gold Refractor",
+   "category": "sports",
+   "price": 749.99,
+   "url": "https://www.ebay.com/str/offtheripollectables"
+  },
+  {
+   "title": "ME: 30th Celebration Mewtwo ex",
+   "category": "tcg",
+   "price": 74.99,
+   "url": "https://www.ebay.com/str/offtheripollectables"
+  }
+ ]
+}
