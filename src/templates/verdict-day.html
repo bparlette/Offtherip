@@ -4,13 +4,13 @@
 {{> header}}
 <main id="main">
 <section class="pagehead"><div class="wrap"><p class="eyebrow">Daily Pack Verdict · Day {{v.day}} · {{v.dateLabel}}</p>
-<h1>{{v.game}} {{v.product}}: worth it?</h1>
+<h1 class="display">{{v.game}} {{v.product}}: worth it?</h1>
 <p class="lead">Verdict: <b>{{v.resultWord}}</b>. {{v.money}}</p></div></section>
 <section class="section"><div class="wrap narrow">
 <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/{{v.videoId}}" title="Day {{v.day}}: {{v.game}} {{v.product}}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<p>One pack of <b>{{v.game}} {{v.product}}</b> was opened on camera for Day {{v.day}} of the Daily Pack Verdict. The call: <b>{{v.resultWord}}</b>.</p>
+<p style="margin-top:20px">One pack of <b>{{v.game}} {{v.product}}</b> was opened on camera for Day {{v.day}} of the Daily Pack Verdict. The call: <b>{{v.resultWord}}</b>.</p>
 {{{@dayNav}}}
-<p><a class="btn btn--lime" href="/verdict/">See the full scoreboard</a> <a class="btn btn--ghost-dark" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a></p>
+<p class="cta"><a class="btn btn-glow btn--small" href="/verdict/">See full scoreboard</a> <a class="btn btn-line btn--small" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a></p>
 <p class="fine">Entertainment only, based on the creator's own estimates of value. Not financial advice.</p>
 </div></section>
 {{> signup}}

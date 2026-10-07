@@ -1,20 +1,30 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footgrid">
-      <div>
-        <img src="/assets/img/logo-256.png" width="96" height="96" alt="{{brand.name}} logo" loading="lazy">
+      <div class="footbrand">
+        <a class="brand" href="/" aria-label="{{brand.name}} home"><img src="/assets/img/logo-256.png" width="48" height="48" alt="{{brand.name}} logo" loading="lazy"><span>{{brand.name}}</span></a>
         <p class="fine">{{brand.tagline}}</p>
       </div>
       <div><h3>Explore</h3>
-        <ul><li><a href="/shop/">Shop</a></li><li><a href="/verdict/">Daily Pack Verdict</a></li><li><a href="/watch/">Watch</a></li><li><a href="/want-list/">Want List</a></li><li><a href="/giveaways/">Giveaways</a></li><li><a href="/about/">About</a></li></ul></div>
+        <ul><li><a href="/shop/">Shop eBay Store</a></li><li><a href="/verdict/">Daily Pack Verdict</a></li><li><a href="/watch/">Watch Rips</a></li><li><a href="/want-list/">Want List</a></li><li><a href="/giveaways/">Giveaways</a></li><li><a href="/about/">About</a></li></ul></div>
       <div><h3>Follow</h3>{{{@socialLinksFooter}}}</div>
-      <div><h3>Contact</h3><p><a href="mailto:{{contact.email}}">{{contact.email}}</a></p>
-        <ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div>
+      <div><h3>Direct</h3><p><a href="mailto:{{contact.email}}">{{contact.email}}</a></p>
+        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div>
     </div>
     <p class="disclaimer">{{brand.name}} is an independent seller and content creator. We are not affiliated with, endorsed by, or sponsored by Pokémon, Nintendo, Game Freak, Panini, Topps, Fanatics, Bandai, Upper Deck, PSA, BGS, SGC, the NBA, NFL, MLB or any player or league. All trademarks and card artwork belong to their respective owners. Purchases are completed on eBay under eBay's terms.</p>
-    <p class="fine">© {{now}} {{legal.businessName}}</p>
+    <div class="footbottom">
+      <p class="fine">© {{now}} {{legal.businessName}} · All rights reserved.</p>
+      <p class="fine">Ripped on camera. Sold on eBay.</p>
+    </div>
   </div>
+  <div class="big-mark" aria-hidden="true"><span>OFF THE RIP</span><span>COLLECTABLES</span></div>
 </footer>
+<!-- Sticky Mobile Conversion Dock -->
+<div class="dock" role="navigation" aria-label="Mobile quick actions">
+  <a class="btn btn-line btn-sm" href="/watch/">Watch Rips <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><polygon points="6,4 16,10 6,16" fill="currentColor"/></svg></a>
+  <a class="btn btn-glow btn-sm" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
 <script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/fx.js" defer></script>
 {{#if analytics.plausibleDomain}}<script defer data-domain="{{analytics.plausibleDomain}}" src="https://plausible.io/js/script.js"></script>{{/if}}
 {{#if analytics.cloudflareToken}}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{analytics.cloudflareToken}}"}'></script>{{/if}}

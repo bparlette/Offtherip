@@ -4,7 +4,7 @@
 <body>
 {{> header}}
 <main id="main">
-<section class="pagehead"><div class="wrap"><p class="eyebrow">Want List</p><h1>Hunting a card?</h1>
+<section class="pagehead"><div class="wrap"><p class="eyebrow">Want List</p><h1 class="display">Hunting a <span class="serif">grail?</span></h1>
 <p class="lead">Tell Clayton the player, set or Pokémon you're after. The list gets checked when new cards come off the rip, and you'll hear back if there's a match.</p></div></section>
 <section class="section"><div class="wrap narrow">
 <form class="form" data-form="wantlist" novalidate>
@@ -24,7 +24,7 @@
   <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
   <input type="hidden" name="source" value="{{page.path}}">
   {{#if features.turnstile}}<div class="cf-turnstile" data-sitekey="{{turnstileSiteKey}}"></div>{{/if}}
-  <button class="btn btn--lime btn--big" type="submit">Add to the Want List</button>
+  <button class="btn btn-glow btn--big" type="submit">Add to the Want List</button>
   <p class="form__status" role="status" aria-live="polite"></p>
 </form>
 <p class="fine">Want List requests are not reservations or guarantees. Anything that matches is sold on eBay at the listed price.</p>

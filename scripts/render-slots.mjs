@@ -12,7 +12,7 @@ export const SOCIALS = [
 
 export function videoCard(v) {
   return `<a class="vcard" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">
-  <span class="vcard__thumb"><img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt=""><span class="vcard__play" aria-hidden="true">▶</span></span>
+  <span class="vcard__thumb holo"><img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt=""><span class="vcard__play" aria-hidden="true">▶</span></span>
   <span class="vcard__title">${esc(cleanTitle(v.title))}</span>
   <span class="vcard__meta">${fmtDate(v.published)} · ${fmtViews(v.views)}</span></a>`;
 }
@@ -36,9 +36,9 @@ export function streakCard(verdicts) {
   if (!last) return "";
   const label = kind === "profit" ? (n === 1 ? "win" : "wins") : n === 1 ? "loss" : "losses";
   return `<div class="streak" role="group" aria-label="Daily Pack Verdict streak">
-  <div class="streak__num">${n}</div>
+  <div class="streak__num" data-count="${n}">${n}</div>
   <div class="streak__text"><strong>${esc(label)} in a row</strong><span>Daily Pack Verdict · Day ${last.day}: ${esc(last.game)} ${esc(last.product)}</span></div>
-  <a class="btn btn--small btn--lime" href="/verdict/">Will Day ${last.day + 1} break it?</a></div>`;
+  <a class="btn btn--small btn--glow" href="/verdict/">Will Day ${last.day + 1} break it?</a></div>`;
 }
 
 export function verdictSummary(verdicts) {
@@ -102,10 +102,10 @@ export function latestVerdict(verdicts) {
   const last = [...verdicts.entries].sort((a, b) => b.day - a.day)[0];
   if (!last) return "";
   const word = last.result === "loss" ? "LOSS" : last.result === "profit" ? "PROFIT" : "TBD";
-  return `<article class="lverdict"><a class="lverdict__img" href="/verdict/day-${last.day}/"><img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(last.videoId)}/hqdefault.jpg" alt=""></a>
-  <div><p class="eyebrow">Latest verdict · Day ${last.day} · ${fmtDate(last.date)}</p><h2>${esc(last.game)} ${esc(last.product)}</h2>
+  return `<article class="lverdict"><a class="lverdict__img holo" href="/verdict/day-${last.day}/"><img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(last.videoId)}/hqdefault.jpg" alt=""></a>
+  <div><p class="eyebrow"><span class="badge badge--live" style="margin-right: 0.5rem;">LATEST RIP</span>Day ${last.day} · ${fmtDate(last.date)}</p><h2>${esc(last.game)} ${esc(last.product)}</h2>
   <p><span class="badge badge--${esc(last.result || "none")}">${word}</span> ${typeof last.cost === "number" && typeof last.value === "number" ? `Cost ${money(last.cost)} · pulled ${money(last.value)}` : "Dollar figures coming soon"}</p>
-  <p><a class="btn btn--lime btn--small" href="/verdict/day-${last.day}/">Is it worth it? See the verdict</a> <a class="btn btn--ghost-dark btn--small" href="https://www.youtube.com/watch?v=${esc(last.videoId)}" target="_blank" rel="noopener">Watch the rip</a></p></div></article>`;
+  <p><a class="btn btn--glow btn--small" href="/verdict/day-${last.day}/">Is it worth it? See the verdict</a> <a class="btn btn--ghost-dark btn--small" href="https://www.youtube.com/watch?v=${esc(last.videoId)}" target="_blank" rel="noopener">Watch the rip</a></p></div></article>`;
 }
 
 export function giveawayVideos(videos) {

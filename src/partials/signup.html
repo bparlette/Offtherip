@@ -1,26 +1,36 @@
-<section class="band band--olive" id="hitlist" aria-labelledby="hl-h">
-  <div class="wrap band__in">
-    <div class="band__copy">
-      <p class="eyebrow">The Hit List</p>
-      <h2 id="hl-h">The week's biggest pulls, in your inbox.</h2>
-      <p>New listings, Daily Pack Verdict results and giveaway alerts. One email a week. No spam, unsubscribe anytime.</p>
+<section class="band band--crew" id="hitlist" aria-labelledby="hl-h">
+  <div class="wrap crew-card">
+    <div class="crew-copy">
+      <p class="kicker">The Hit List · VIP Collectors</p>
+      <h2 id="hl-h" class="display">The week's biggest pulls, <span class="serif">in your inbox.</span></h2>
+      <p class="lede">New eBay listings, Daily Pack Verdict results, and exclusive giveaway alerts before videos go live. Zero spam. Unsubscribe anytime.</p>
+      <ul class="perks" aria-label="Hit list perks">
+        <li>First look at newly listed grails & graded slabs before they sell out</li>
+        <li>Daily Pack Verdict streak alerts and scoreboard profit/loss recaps</li>
+        <li>Subscriber-exclusive YouTube giveaway notifications</li>
+      </ul>
     </div>
-    <form class="form form--inline" data-form="subscribe" novalidate>
-      <label class="sr" for="email-{{page.nav}}">Email</label>
-      <input id="email-{{page.nav}}" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
-      <button class="btn btn--lime" type="submit">Join the list</button>
-      <fieldset class="chips" aria-label="What are you into?">
-        <label><input type="checkbox" name="interests" value="sports"> Sports cards</label>
-        <label><input type="checkbox" name="interests" value="pokemon"> Pokémon</label>
-        <label><input type="checkbox" name="interests" value="onepiece-dbs"> One Piece / Dragon Ball</label>
-        <label><input type="checkbox" name="interests" value="graded"> Graded</label>
-        <label><input type="checkbox" name="interests" value="giveaways"> Giveaway alerts</label>
-      </fieldset>
-      <label class="consent"><input type="checkbox" name="consent" required> I agree to receive the weekly email from {{brand.name}}. <a href="/privacy/">Privacy</a></label>
-      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <input type="hidden" name="source" value="{{page.path}}">
-      {{#if features.turnstile}}<div class="cf-turnstile" data-sitekey="{{turnstileSiteKey}}"></div>{{/if}}
-      <p class="form__status" role="status" aria-live="polite"></p>
-    </form>
+    <div class="crew-form-wrap">
+      <form class="form signup" data-form="subscribe" novalidate>
+        <div class="signup-row">
+          <label class="sr" for="email-{{page.nav}}">Email</label>
+          <input class="input" id="email-{{page.nav}}" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email address" required>
+          <button class="btn btn-glow" type="submit">Join The Hit List <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <fieldset class="chips" aria-label="What are you into?">
+          <legend class="sr">Select your interests</legend>
+          <label class="chip"><input type="checkbox" name="interests" value="sports"> <span>🏈 Sports Cards</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="pokemon"> <span>⚡ Pokémon</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="onepiece-dbs"> <span>🐉 One Piece / DBS</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="graded"> <span>🔒 Graded Slabs</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="giveaways"> <span>🎁 Giveaways</span></label>
+        </fieldset>
+        <label class="consent"><input type="checkbox" name="consent" required> <span>I agree to receive the weekly email from {{brand.name}}. <a href="/privacy/">Privacy Policy</a></span></label>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source" value="{{page.path}}">
+        {{#if features.turnstile}}<div class="cf-turnstile" data-sitekey="{{turnstileSiteKey}}"></div>{{/if}}
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
   </div>
 </section>

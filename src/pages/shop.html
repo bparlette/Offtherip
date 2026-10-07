@@ -4,12 +4,12 @@
 <body>
 {{> header}}
 <main id="main">
-<section class="pagehead"><div class="wrap"><p class="eyebrow">The store</p><h1>Shop the pulls</h1>
-<p class="lead">Every listing lives on eBay, so checkout, buyer protection and returns work exactly the way you're used to. Pick a category to see what's new.</p>
-<p class="trust-line"><b>{{stats.ebayFeedback}}</b> positive feedback · <b>{{stats.ebaySold}}</b> items sold · on eBay since <b>{{stats.ebaySince}}</b> <span class="fine">(as of {{stats.asOf}})</span></p></div></section>
+<section class="pagehead"><div class="wrap"><p class="eyebrow">The store</p><h1 class="display">Shop the <span class="serif">pulls.</span></h1>
+<p class="lead">Every listing lives on eBay, so checkout, buyer protection and returns work exactly the way you're used to. Pick a category below to see what's new.</p>
+<p class="trust-line"><svg class="ico star" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M10 1.8l2.4 5.3 5.8.6-4.3 3.9 1.2 5.7L10 14.4l-5.1 2.9 1.2-5.7L1.8 7.7l5.8-.6z" fill="currentColor"/></svg><b>{{stats.ebayFeedback}}</b> positive feedback · <b>{{stats.ebaySold}}</b> items sold · on eBay since <b>{{stats.ebaySince}}</b> <span class="fine">(as of {{stats.asOf}})</span></p></div></section>
 <section class="section"><div class="wrap">
 {{{@shopTiles}}}
-<p class="center"><a class="btn btn--lime btn--big" href="{{links.ebay}}" target="_blank" rel="noopener">Open the whole eBay store</a></p>
+<p class="center"><a class="btn btn-glow btn--big" href="{{links.ebay}}" target="_blank" rel="noopener">Open the whole eBay store <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
 </div></section>
 <section class="section section--cream" id="inventory" aria-labelledby="inv-h"><div class="wrap">
   <div class="sechead"><h2 id="inv-h">Latest listings</h2>

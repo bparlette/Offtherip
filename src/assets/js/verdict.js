@@ -19,9 +19,9 @@
   const path = series.map((s, i) => `${i ? "L" : "M"}${X(s.day).toFixed(1)},${Y(s.v).toFixed(1)}`).join(" ");
   const last = series[series.length - 1];
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Running profit and loss across ${pts.length} days, currently ${last.v >= 0 ? "up" : "down"} $${Math.abs(last.v).toFixed(2)}">
-    <line x1="${P}" x2="${W - P}" y1="${Y(0)}" y2="${Y(0)}" stroke="#999" stroke-dasharray="4 4"/>
-    <path d="${path}" fill="none" stroke="${last.v >= 0 ? "#2f7d32" : "#b3361f"}" stroke-width="4" stroke-linejoin="round"/>
-    ${series.map((s) => `<circle cx="${X(s.day)}" cy="${Y(s.v)}" r="5" fill="#0e0f0a"><title>Day ${s.day}: ${s.v >= 0 ? "+" : "-"}$${Math.abs(s.v).toFixed(2)}</title></circle>`).join("")}
-    <text x="${P}" y="${H - 12}" font-size="14" fill="#555">Day ${x0}</text><text x="${W - P}" y="${H - 12}" font-size="14" fill="#555" text-anchor="end">Day ${x1}</text>
-    <text x="${W - P}" y="${Y(last.v) + (last.v >= 0 ? -16 : 34)}" font-size="18" font-weight="800" text-anchor="end" fill="#0e0f0a">${last.v >= 0 ? "+" : "-"}$${Math.abs(last.v).toFixed(2)}</text></svg>`;
+    <line x1="${P}" x2="${W - P}" y1="${Y(0)}" y2="${Y(0)}" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4 4"/>
+    <path d="${path}" fill="none" stroke="${last.v >= 0 ? "#10b981" : "#ff4343"}" stroke-width="4" stroke-linejoin="round"/>
+    ${series.map((s) => `<circle cx="${X(s.day)}" cy="${Y(s.v)}" r="5" fill="${s.v >= 0 ? "#10b981" : "#ff4343"}" stroke="#08090b" stroke-width="2"><title>Day ${s.day}: ${s.v >= 0 ? "+" : "-"}$${Math.abs(s.v).toFixed(2)}</title></circle>`).join("")}
+    <text x="${P}" y="${H - 12}" font-size="13" font-family="'Bricolage Grotesque', system-ui, sans-serif" font-weight="700" fill="#9ea3b2">Day ${x0}</text><text x="${W - P}" y="${H - 12}" font-size="13" font-family="'Bricolage Grotesque', system-ui, sans-serif" font-weight="700" fill="#9ea3b2" text-anchor="end">Day ${x1}</text>
+    <text x="${W - P}" y="${Y(last.v) + (last.v >= 0 ? -16 : 34)}" font-size="18" font-family="'Bricolage Grotesque', system-ui, sans-serif" font-weight="800" text-anchor="end" fill="${last.v >= 0 ? "#10b981" : "#ff4343"}">${last.v >= 0 ? "+" : "-"}$${Math.abs(last.v).toFixed(2)}</text></svg>`;
 })();

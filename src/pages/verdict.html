@@ -4,10 +4,22 @@
 <body>
 {{> header}}
 <main id="main">
-<section class="pagehead"><div class="wrap"><p class="eyebrow">Daily series</p><h1>Daily Pack Verdict</h1>
-<p class="lead">One pack, opened on camera every day. The verdict is simple: <b>profit or loss</b>. Here's the running scoreboard.</p></div></section>
+<section class="pagehead"><div class="wrap"><p class="eyebrow">Daily series</p><h1 class="display">Daily Pack <span class="serif">Verdict.</span></h1>
+<p class="lead">One pack, opened on camera every day with zero cuts. The verdict is simple: <b>profit or loss</b>. Here's the live running scoreboard.</p></div></section>
 <section class="section"><div class="wrap">
   {{{@streak}}}
+  <div class="predict" data-predict data-next="24" data-results='{"23":"loss","22":"loss","21":"loss","20":"loss","19":"loss","18":"profit","17":"loss"}'>
+    <div class="predict__head">
+      <strong>Call Day 24: Hit or Bust?</strong>
+      <button class="btn btn-line btn-sm" data-share hidden type="button">Share prediction</button>
+    </div>
+    <div class="predict__btns">
+      <button data-pick="hit" type="button">🔥 HIT (Profit)</button>
+      <button data-pick="bust" type="button">💀 BUST (Loss)</button>
+    </div>
+    <p class="predict__out">Pick one! Your prediction stays saved on this device.</p>
+    <p class="predict__rec" hidden></p>
+  </div>
   {{{@latestVerdict}}}
   {{{@verdictSummary}}}
 </div></section>
