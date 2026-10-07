@@ -662,15 +662,22 @@ section[id]{scroll-margin-top:76px}
     // preload
     imgs.forEach(function(u){ var p = new Image(); p.src = u; });
     var i = 0;
-    timers.set(el, setInterval(function(){
+    // front image holds 2.5s, others 1.5s
+    var HOLD = [2500, 1500, 1500, 1500];
+    function tick(){
       i = (i + 1) % imgs.length;
       img.style.opacity = '0';
-      setTimeout(function(){ img.src = imgs[i]; img.style.opacity = '1'; }, 200);
-    }, 1600));
+      setTimeout(function(){
+        img.src = imgs[i];
+        img.style.opacity = '1';
+        timers.set(el, setTimeout(tick, HOLD[i] || 1500));
+      }, 200);
+    }
+    timers.set(el, setTimeout(tick, HOLD[0]));
   }
   function stopRotation(el){
     var t = timers.get(el);
-    if(t){ clearInterval(t); timers.delete(el); }
+    if(t){ clearTimeout(t); timers.delete(el); }
   }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
