@@ -15,6 +15,11 @@
     <p class="fine">© {{now}} {{legal.businessName}}</p>
   </div>
 </footer>
+<nav class="dock" aria-label="Quick actions">
+  <a class="dock__watch" href="/verdict/">▶ Watch</a>
+  <a class="dock__shop" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a>
+</nav>
 <script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/fx.js" defer></script>
 {{#if analytics.plausibleDomain}}<script defer data-domain="{{analytics.plausibleDomain}}" src="https://plausible.io/js/script.js"></script>{{/if}}
 {{#if analytics.cloudflareToken}}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{analytics.cloudflareToken}}"}'></script>{{/if}}

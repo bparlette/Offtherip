@@ -60,5 +60,9 @@
     "text": "",
     "url": "/shop/",
     "endsIso": null
+  },
+  "verdict": {
+    "dropTime": null,
+    "dropTz": "America/New_York"
   }
 }

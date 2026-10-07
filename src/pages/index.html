@@ -5,25 +5,25 @@
 {{> header}}
 <main id="main">
 <section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
   <div class="wrap hero__in">
     <div class="hero__copy">
-      <p class="eyebrow">Sports cards • TCG • Pack openings</p>
-      <h1 class="paint"><span>Ripped on camera.</span><span class="paint__2">Sold on eBay.</span></h1>
-      {{{@streak}}}
-      <p class="lead">Watch every pack get opened on camera. Then shop the hits, singles and slabs on eBay.</p>
+      {{{@streakHero}}}
+      <h1 class="hero__h1">Ripped on camera. <span>Sold on eBay.</span></h1>
+      <p class="lead">One pack opened every day. Profit or bust. Then shop the hits, singles and slabs on eBay.</p>
       <div class="cta">
-        <a class="btn btn--lime btn--big" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a>
-        <a class="btn btn--ghost btn--big" href="/watch/">Watch the latest rips</a>
+        <a class="btn btn--lime btn--big btn--sheen" href="/verdict/">Watch the Verdict <span aria-hidden="true">→</span></a>
+        <a class="quiet" href="{{links.ebay}}" target="_blank" rel="noopener">or shop on eBay</a>
       </div>
-      <ul class="trust" aria-label="Seller track record">
-        <li><b>{{stats.ebayFeedback}}</b> positive feedback on eBay</li>
-        <li><b>{{stats.ebaySold}}</b> items sold</li>
-        <li>Selling since <b>{{stats.ebaySince}}</b></li>
-      </ul>
-      <p class="fine">eBay figures as of {{stats.asOf}}.</p>
+      {{{@predict}}}
     </div>
-    <div class="hero__badge"><img src="/assets/img/logo-640.png" width="480" height="480" alt="Off The Rip Collectables: sports cards, TCG, pack openings" fetchpriority="high"></div>
+    <div class="hero__media">{{{@latestPoster}}}</div>
   </div>
+  <div class="wrap"><ul class="proof" aria-label="Seller track record">
+    <li><b>{{stats.ebayFeedback}}</b> positive feedback</li>
+    <li><b>{{stats.ebaySold}}</b> items sold on eBay</li>
+    <li>Selling since <b>{{stats.ebaySince}}</b></li>
+    <li class="fine">eBay figures as of {{stats.asOf}}</li></ul></div>
   <div class="marquee" aria-hidden="true"><div class="marquee__track">{{{@marquee}}}</div></div>
 </section>
 

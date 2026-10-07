@@ -41,6 +41,62 @@ export function streakCard(verdicts) {
   <a class="btn btn--small btn--lime" href="/verdict/">Will Day ${last.day + 1} break it?</a></div>`;
 }
 
+const streakLabel = (n, kind) => (kind === "profit" ? (n === 1 ? "win" : "wins") : n === 1 ? "loss" : "losses");
+const RESULT_MAP = (entries) => JSON.stringify(Object.fromEntries(entries.filter((e) => e.result === "profit" || e.result === "loss").map((e) => [e.day, e.result])));
+
+/** Compact streak bar pinned under the header on every page. The countdown only renders when config.verdict.dropTime is set. */
+export function streakHud(verdicts, config) {
+  const { n, kind, last } = streakOf(verdicts.entries);
+  if (!last || !n) return "";
+  const v = (config && config.verdict) || {};
+  const drop = v.dropTime ? ` data-drop="${esc(v.dropTime)}" data-tz="${esc(v.dropTz || "America/New_York")}"` : "";
+  return `<a class="hud" href="/verdict/" data-next="${last.day + 1}"${drop} aria-label="Daily Pack Verdict: ${n} ${streakLabel(n, kind)} in a row">
+  <span class="hud__streak"><i aria-hidden="true"></i><b>${n}</b> ${streakLabel(n, kind)} in a row</span>
+  <span class="hud__next">Day ${last.day + 1}<span class="hud__t" aria-live="off"> drops daily</span></span>
+  <span class="hud__go">Call it →</span></a>`;
+}
+
+/** Hero centrepiece: one giant streak number, the last 7 results as pips, a live countdown and the latest video as the poster. */
+export function streakHero(verdicts, config) {
+  const { n, kind, last } = streakOf(verdicts.entries);
+  if (!last) return "";
+  const v = (config && config.verdict) || {};
+  const drop = v.dropTime ? ` data-drop="${esc(v.dropTime)}" data-tz="${esc(v.dropTz || "America/New_York")}"` : "";
+  const recent = [...verdicts.entries].sort((a, b) => a.day - b.day).slice(-7);
+  const pips = recent.map((e) => `<a class="pip pip--${esc(e.result || "none")}" href="/verdict/day-${e.day}/" title="Day ${e.day}: ${esc(e.result || "pending")}"><span class="sr">Day ${e.day}: ${esc(e.result || "pending")}</span></a>`).join("");
+  return `<div class="streakhero" data-next="${last.day + 1}"${drop}>
+  <p class="streakhero__eyebrow"><span class="live" aria-hidden="true"></span>Daily Pack Verdict · Day ${last.day}</p>
+  <div class="streakhero__row"><span class="streakhero__num" data-count="${n}" aria-hidden="true">${n}</span>
+    <span class="streakhero__lbl"><b>${esc(streakLabel(n, kind))}</b> in a row<small>${esc(last.game)} ${esc(last.product)}</small></span></div>
+  <p class="sr">${n} ${esc(streakLabel(n, kind))} in a row.</p>
+  <div class="pips" role="group" aria-label="Last ${recent.length} results">${pips}<span class="pip pip--next" title="Day ${last.day + 1}">?</span></div>
+  <p class="streakhero__next">Day ${last.day + 1}<span class="hud__t"> drops daily</span></p></div>`;
+}
+
+/** Hit-or-Bust call for the next Verdict day. Picks live in the visitor's own browser (localStorage); there is no shared vote. */
+export function predictCard(verdicts) {
+  const { last } = streakOf(verdicts.entries);
+  if (!last) return "";
+  const next = last.day + 1;
+  return `<div class="predict" data-predict data-next="${next}" data-results='${RESULT_MAP(verdicts.entries)}'>
+  <p class="predict__q"><span class="eyebrow">Your call</span><b>Day ${next}: hit or bust?</b></p>
+  <div class="predict__btns" role="group" aria-label="Call Day ${next}">
+    <button type="button" class="pbtn pbtn--hit" data-pick="hit"><span aria-hidden="true">🔥</span> Hit<small>profit</small></button>
+    <button type="button" class="pbtn pbtn--bust" data-pick="bust"><span aria-hidden="true">💥</span> Bust<small>loss</small></button></div>
+  <p class="predict__out" role="status" aria-live="polite"></p>
+  <p class="predict__rec fine" hidden></p>
+  <button type="button" class="predict__share link" data-share hidden>Share my call</button></div>`;
+}
+
+export function latestPoster(verdicts) {
+  const last = [...verdicts.entries].sort((a, b) => a.day - b.day).pop();
+  if (!last) return "";
+  return `<a class="poster" data-tilt href="https://www.youtube.com/watch?v=${esc(last.videoId)}" target="_blank" rel="noopener" aria-label="Watch Day ${last.day}: ${esc(last.game)} ${esc(last.product)}">
+  <img src="https://i.ytimg.com/vi/${esc(last.videoId)}/hqdefault.jpg" width="480" height="360" alt="" fetchpriority="high">
+  <span class="poster__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></span>
+  <span class="poster__cap"><b>Day ${last.day}</b>${esc(last.game)} ${esc(last.product)}</span></a>`;
+}
+
 export function verdictSummary(verdicts) {
   const e = verdicts.entries;
   const wins = e.filter((x) => x.result === "profit").length, losses = e.filter((x) => x.result === "loss").length;
@@ -122,6 +178,10 @@ export function slots({ config, data, page }) {
     latestVideos: `<div class="vgrid">${vids.slice(0, 6).map(videoCard).join("")}</div>`,
     allVideos: `<div class="vgrid">${vids.slice(0, 12).map(videoCard).join("")}</div>`,
     streak: streakCard(data.verdicts),
+    streakHero: streakHero(data.verdicts, config),
+    streakHud: streakHud(data.verdicts, config),
+    predict: predictCard(data.verdicts),
+    latestPoster: latestPoster(data.verdicts),
     giveawayVideos: giveawayVideos(vids),
     latestVerdict: latestVerdict(data.verdicts),
     verdictSummary: verdictSummary(data.verdicts),
