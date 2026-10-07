@@ -87,4 +87,19 @@
 
 
 
+<script>
+(function(){
+  var f = document.querySelector('form[data-form="wantlist"]');
+  if(!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(f);
+    var body = [];
+    d.forEach(function(v,k){ body.push(k+': '+v); });
+    window.location.href = 'mailto:hello@offtheripcollectables.com'
+      + '?subject=' + encodeURIComponent('Want List request')
+      + '&body=' + encodeURIComponent(body.join('\n'));
+  });
+})();
+</script>
 </body></html>
