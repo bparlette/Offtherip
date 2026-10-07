@@ -62,7 +62,7 @@
       body.consent = !!fd.get("consent");
       form.classList.add("is-busy"); say("Sending…");
       try {
-        const r = await fetch(`/Offtherip/preview/api/${form.dataset.form}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+        const r = await fetch(`/api/${form.dataset.form}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
         const j = await r.json().catch(() => ({}));
         if (!r.ok) throw new Error(j.error || "Something went wrong. Please try again.");
         say(form.dataset.form === "wantlist" ? "Got it! Clayton will email you if something matches." : "You're on the list! Check your inbox to confirm.", "ok");

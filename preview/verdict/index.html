@@ -24,7 +24,7 @@
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
 <a class="skip" href="#main">Skip to content</a>
-
+<div class="promo" data-ends=""><a href="https://www.ebay.com/str/offtheripollectables">Buy 3, get 1 free · $3.99 flat shipping when you buy 5+</a> <span class="promo__t" aria-live="off"></span></div>
 <header class="site-header">
   <div class="wrap site-header__in">
     <a class="brand" href="/Offtherip/preview/" aria-label="Off The Rip Collectables home"><img src="/Offtherip/preview/assets/img/logo-256.png" width="44" height="44" alt=""><span>Off The Rip</span></a>
@@ -47,19 +47,24 @@
 <main id="main">
 <section class="pagehead"><div class="wrap"><p class="eyebrow">Daily series</p><h1>Daily Pack Verdict</h1>
 <p class="lead">One pack, opened on camera every day. The verdict is simple: <b>profit or loss</b>. Here's the running scoreboard.</p></div></section>
-<section class="section"><div class="wrap">
-  <div class="streak" role="group" aria-label="Daily Pack Verdict streak">
-  <div class="streak__num">7</div>
-  <div class="streak__text"><strong>losses in a row</strong><span>Daily Pack Verdict · Day 23: Dragon Ball Super Prismatic Clash</span></div>
-  <a class="btn btn--small btn--lime" href="/Offtherip/preview/verdict/">Will Day 24 break it?</a></div>
-  <div class="predict" data-predict data-next="24" data-results='{"17":"loss","18":"loss","19":"loss","20":"loss","21":"loss","22":"loss","23":"loss"}'>
+<section class="section verdict" aria-label="Current streak"><div class="wrap verdict__in">
+  <div class="verdict__main"><div class="streakhero" data-next="24">
+  <p class="streakhero__eyebrow"><span class="live" aria-hidden="true"></span>Daily Pack Verdict · Day 23</p>
+  <div class="streakhero__row"><span class="streakhero__num" data-count="7" aria-hidden="true">7</span>
+    <span class="streakhero__lbl"><b>losses</b> in a row<small>Dragon Ball Super Prismatic Clash</small></span></div>
+  <p class="sr">7 losses in a row.</p>
+  <div class="pips" role="group" aria-label="Last 7 results"><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-17/" title="Day 17: loss"><span class="sr">Day 17: loss</span></a><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-18/" title="Day 18: loss"><span class="sr">Day 18: loss</span></a><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-19/" title="Day 19: loss"><span class="sr">Day 19: loss</span></a><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-20/" title="Day 20: loss"><span class="sr">Day 20: loss</span></a><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-21/" title="Day 21: loss"><span class="sr">Day 21: loss</span></a><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-22/" title="Day 22: loss"><span class="sr">Day 22: loss</span></a><a class="pip pip--loss" href="/Offtherip/preview/verdict/day-23/" title="Day 23: loss"><span class="sr">Day 23: loss</span></a><span class="pip pip--next" title="Day 24">?</span></div>
+  <p class="streakhero__next">Day 24<span class="hud__t"> drops daily</span></p></div><p class="lead">The streak only ends when a pack finally pays.</p></div>
+  <div class="verdict__media"><div class="predict" data-predict data-next="24" data-results='{"17":"loss","18":"loss","19":"loss","20":"loss","21":"loss","22":"loss","23":"loss"}'>
   <p class="predict__q"><span class="eyebrow">Your call</span><b>Day 24: hit or bust?</b></p>
   <div class="predict__btns" role="group" aria-label="Call Day 24">
     <button type="button" class="pbtn pbtn--hit" data-pick="hit"><span aria-hidden="true">🔥</span> Hit<small>profit</small></button>
     <button type="button" class="pbtn pbtn--bust" data-pick="bust"><span aria-hidden="true">💥</span> Bust<small>loss</small></button></div>
   <p class="predict__out" role="status" aria-live="polite"></p>
   <p class="predict__rec fine" hidden></p>
-  <button type="button" class="predict__share link" data-share hidden>Share my call</button></div>
+  <button type="button" class="predict__share link" data-share hidden>Share my call</button></div></div>
+</div></section>
+<section class="section"><div class="wrap">
   <article class="lverdict"><a class="lverdict__img" href="/Offtherip/preview/verdict/day-23/"><img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/Nn6-vh25-SE/hqdefault.jpg" alt=""></a>
   <div><p class="eyebrow">Latest verdict · Day 23 · Oct 6</p><h2>Dragon Ball Super Prismatic Clash</h2>
   <p><span class="badge badge--loss">LOSS</span> Dollar figures coming soon</p>
@@ -139,7 +144,7 @@
       </fieldset>
       <label class="consent"><input type="checkbox" name="consent" required> I agree to receive the weekly email from Off The Rip Collectables. <a href="/Offtherip/preview/privacy/">Privacy</a></label>
       <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <input type="hidden" name="source" value="/Offtherip/preview/verdict/">
+      <input type="hidden" name="source" value="/verdict/">
       
       <p class="form__status" role="status" aria-live="polite"></p>
     </form>
