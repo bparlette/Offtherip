@@ -586,10 +586,15 @@ section[id]{scroll-margin-top:76px}
     var id = thumb.getAttribute('data-video-id');
     var v = document.createElement('video');
     v.className = 'vprev';
-    v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto';
+    v.setAttribute('muted', '');
+    v.setAttribute('loop', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('preload', 'auto');
+    v.muted = true;
     v.src = 'https://cdn.jsdelivr.net/gh/bparlette/Offtherip@main/src/assets/video/previews/' + id + '.mp4';
-    v.play().catch(function(){});
     thumb.appendChild(v);
+    var pr = v.play();
+    if(pr && pr.catch) pr.catch(function(){});
     thumb.classList.add('playing');
   }
   function stop(){
