@@ -609,7 +609,21 @@ section[id]{scroll-margin-top:76px}
     thumbs.forEach(function(t){
       var r = t.getBoundingClientRect();
       if(r.bottom < 0 || r.top > window.innerHeight) return;
-      var d = Math.abs((r.top + r.bottom) / 2 - cy);
+      // vertical distance to viewport center
+      var dy = Math.abs((r.top + r.bottom) / 2 - cy);
+      // horizontal: distance to center of its scroll container's visible area
+      var dx = 0;
+      var shelf = t.closest('.shelf');
+      if(shelf){
+        var sr = shelf.getBoundingClientRect();
+        var sx = (sr.left + sr.right) / 2;
+        dx = Math.abs((r.left + r.right) / 2 - sx);
+        // heavily weight horizontal when card is off-screen horizontally
+        if(r.right < sr.left || r.left > sr.right) dx += 10000;
+      } else {
+        dx = Math.abs((r.left + r.right) / 2 - window.innerWidth / 2) * 0.3;
+      }
+      var d = dy + dx;
       if(d < bestDist){ bestDist = d; best = t; }
     });
     if(best) play(best); else stop();
@@ -621,6 +635,9 @@ section[id]{scroll-margin-top:76px}
     requestAnimationFrame(function(){ pick(); ticking = false; });
   }
   window.addEventListener('scroll', onScroll, {passive:true});
+  document.querySelectorAll('.shelf').forEach(function(s){
+    s.addEventListener('scroll', onScroll, {passive:true});
+  });
   window.addEventListener('resize', onScroll);
   document.addEventListener('visibilitychange', function(){ if(document.hidden) stop(); else pick(); });
   thumbs.forEach(function(t){
