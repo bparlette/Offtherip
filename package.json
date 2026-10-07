@@ -17,6 +17,8 @@
     "sync:sheet": "node scripts/sync-sheet.mjs",
     "sync:previews": "node scripts/sync-video-previews.mjs",
     "sync:prices": "node scripts/sync-verdict-prices.mjs",
+    "sync:verdicts": "node scripts/sync-verdicts-md.mjs --from-md",
+    "verdicts:review": "node scripts/sync-verdicts-md.mjs --to-md",
     "import:verdicts": "node scripts/import-verdicts-csv.mjs",
     "deploy": "node build.mjs && npx wrangler pages deploy dist --project-name off-the-rip",
     "deploy:worker": "cd worker && npx wrangler deploy"
