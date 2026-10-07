@@ -462,10 +462,10 @@ section[id]{scroll-margin-top:76px}
   <span class="vcard__title">WNBA PLAYOFFS + CAITLIN CLARK GIVEAWAY! 🔥 2026 Donruss WNBA 2 Blaster Box Opening</span>
   <span class="vcard__meta">Oct 4 · 282 views</span></a></div>
 
-  <div class="streak" role="group" aria-label="Daily Pack Verdict streak">
-  <div class="streak__num">7</div>
-  <div class="streak__text"><strong>losses in a row</strong><span>Daily Pack Verdict · Day 23: Dragon Ball Super Prismatic Clash</span></div>
-  <a class="btn btn--small btn--lime" href="/Offtherip/verdict/">Will Day 24 break it?</a></div>
+  <div class="streak" role="group" aria-label="Daily Pack Verdict streak" data-streak>
+  <div class="streak__num" data-streak-num>7</div>
+  <div class="streak__text"><strong data-streak-kind>losses in a row</strong><span data-streak-desc>Daily Pack Verdict · Day 23: Dragon Ball Super Prismatic Clash</span></div>
+  <a class="btn btn--small btn--lime" href="/Offtherip/verdict/" data-streak-cta>Will Day 24 break it?</a></div>
 </section>
 
 
@@ -699,6 +699,36 @@ section[id]{scroll-margin-top:76px}
     });
   }, {threshold: 0.4});
   cards.forEach(function(c){ io.observe(c); });
+})();
+</script>
+<script>
+(function(){
+  // Dynamic streak: fetches verdict data and updates the banner
+  var el = document.querySelector('[data-streak]');
+  if(!el) return;
+  fetch('https://cdn.jsdelivr.net/gh/bparlette/Offtherip@main/src/data/verdicts.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var entries = d.entries || [];
+      if(!entries.length) return;
+      // Calculate streak from the end
+      var last = entries[entries.length - 1];
+      var kind = last.result; // 'win' or 'loss'
+      var n = 0;
+      for(var i = entries.length - 1; i >= 0; i--){
+        if(entries[i].result === kind) n++;
+        else break;
+      }
+      var kindText = kind === 'win' ? 'wins in a row' : 'losses in a row';
+      var nextDay = last.day + 1;
+      el.querySelector('[data-streak-num]').textContent = n;
+      el.querySelector('[data-streak-kind]').textContent = kindText;
+      el.querySelector('[data-streak-desc]').textContent =
+        'Daily Pack Verdict · Day ' + last.day + ': ' + last.game + ' ' + last.product;
+      el.querySelector('[data-streak-cta]').textContent =
+        'Will Day ' + nextDay + ' break it?';
+    })
+    .catch(function(){ /* keep hardcoded fallback */ });
 })();
 </script>
 </body></html>
