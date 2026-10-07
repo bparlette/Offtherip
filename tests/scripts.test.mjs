@@ -57,3 +57,11 @@ test("cleanTitle strips hashtags; listings grid escapes HTML and hides sample da
   const html = listingsGrid({ source: "ebay-api", items: [{ title: '<img src=x onerror=1>', price: 1, url: "https://www.ebay.com/itm/1", category: "tcg" }] }, cfg);
   assert.ok(!html.includes("<img src=x"));
 });
+
+import { giveawayVideos } from "../scripts/render-slots.mjs";
+test("giveaway section lists only giveaway videos and vanishes when there are none", () => {
+  const v = [{ id: "AAAAAAAAAAA", title: "WNBA PLAYOFFS + CAITLIN CLARK GIVEAWAY!", published: "2026-10-04", views: 1 }, { id: "BBBBBBBBBBB", title: "Daily Pack Verdict Day 1", published: "2026-10-04", views: 1 }];
+  const html = giveawayVideos(v);
+  assert.match(html, /AAAAAAAAAAA/); assert.ok(!html.includes("BBBBBBBBBBB"));
+  assert.equal(giveawayVideos([v[1]]), "");
+});

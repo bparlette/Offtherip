@@ -108,6 +108,12 @@ export function latestVerdict(verdicts) {
   <p><a class="btn btn--lime btn--small" href="/verdict/day-${last.day}/">Is it worth it? See the verdict</a> <a class="btn btn--ghost-dark btn--small" href="https://www.youtube.com/watch?v=${esc(last.videoId)}" target="_blank" rel="noopener">Watch the rip</a></p></div></article>`;
 }
 
+export function giveawayVideos(videos) {
+  const g = videos.filter((v) => /giveaway/i.test(v.title)).slice(0, 6);
+  if (!g.length) return "";
+  return `<section class="section section--cream" aria-labelledby="gv-h"><div class="wrap"><h2 id="gv-h">Recent giveaway videos</h2><div class="vgrid">${g.map(videoCard).join("")}</div></div></section>`;
+}
+
 export const MARQUEE = ["DAILY PACK VERDICT", "BOX BREAKS", "SPORTS CARDS", "POKÉMON", "ONE PIECE", "DRAGON BALL SUPER", "BIG HITS", "GIVEAWAYS", "GRADED SLABS"];
 
 export function slots({ config, data, page }) {
@@ -116,6 +122,7 @@ export function slots({ config, data, page }) {
     latestVideos: `<div class="vgrid">${vids.slice(0, 6).map(videoCard).join("")}</div>`,
     allVideos: `<div class="vgrid">${vids.slice(0, 12).map(videoCard).join("")}</div>`,
     streak: streakCard(data.verdicts),
+    giveawayVideos: giveawayVideos(vids),
     latestVerdict: latestVerdict(data.verdicts),
     verdictSummary: verdictSummary(data.verdicts),
     verdictTable: verdictTable(data.verdicts),
