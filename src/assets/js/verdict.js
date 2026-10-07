@@ -21,7 +21,7 @@
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Running profit and loss across ${pts.length} days, currently ${last.v >= 0 ? "up" : "down"} $${Math.abs(last.v).toFixed(2)}">
     <line x1="${P}" x2="${W - P}" y1="${Y(0)}" y2="${Y(0)}" stroke="#6b6c5d" stroke-dasharray="4 4"/>
     <path d="${path}" fill="none" stroke="${last.v >= 0 ? "#8be28f" : "#ff8a70"}" stroke-width="4" stroke-linejoin="round"/>
-    ${series.map((s) => `<circle cx="${X(s.day)}" cy="${Y(s.v)}" r="5" fill="#c4f135"><title>Day ${s.day}: ${s.v >= 0 ? "+" : "-"}$${Math.abs(s.v).toFixed(2)}</title></circle>`).join("")}
+    ${series.map((s) => `<circle cx="${X(s.day)}" cy="${Y(s.v)}" r="5" fill="#f4efe2"><title>Day ${s.day}: ${s.v >= 0 ? "+" : "-"}$${Math.abs(s.v).toFixed(2)}</title></circle>`).join("")}
     <text x="${P}" y="${H - 12}" font-size="14" fill="#a9a897">Day ${x0}</text><text x="${W - P}" y="${H - 12}" font-size="14" fill="#a9a897" text-anchor="end">Day ${x1}</text>
     <text x="${W - P}" y="${Y(last.v) + (last.v >= 0 ? -16 : 34)}" font-size="18" font-weight="800" text-anchor="end" fill="#f4efe2">${last.v >= 0 ? "+" : "-"}$${Math.abs(last.v).toFixed(2)}</text></svg>`;
 })();
