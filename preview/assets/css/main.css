@@ -891,114 +891,370 @@ h3 {
   gap: 24px;
 }
 
+/* ==========================================================================
+   Side-Scrolling Shelves & Rails (Ashley Claudy Architecture)
+   ========================================================================== */
+
+.shelf-wrap {
+  position: relative;
+  width: 100%;
+}
+
 .shelf {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding: 6px var(--gutter) 28px;
+  padding: 10px var(--gutter, 24px) 34px;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: var(--gutter);
+  scroll-padding-inline: var(--gutter, 24px);
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+}
+.shelf:active, .shelf.is-dragging {
+  cursor: grabbing;
 }
 .shelf::-webkit-scrollbar {
   display: none;
 }
 
-.vcard {
+.shelf-card {
+  flex: 0 0 min(74vw, 296px);
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   gap: 12px;
   text-decoration: none;
-  color: var(--paper);
   position: relative;
-  transition: transform 0.3s var(--ease);
+  background: radial-gradient(85% 70% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 70%), linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  border: 1px solid var(--line-2);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 20px 44px -16px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s var(--ease), border-color 0.3s var(--ease), box-shadow 0.4s var(--ease);
 }
 
-.vcard--shelf {
-  flex: 0 0 min(76vw, 320px);
-  scroll-snap-align: start;
+.shelf-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(var(--glow-rgb), 0.6);
+  box-shadow: 0 34px 64px -22px rgba(var(--glow-rgb), 0.4), 0 0 0 1px rgba(var(--glow-rgb), 0.3);
 }
 
-.vcard__thumb {
+.shelf-card .cover {
   position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: 14px;
+  display: block;
+  aspect-ratio: 16 / 11;
+  border-radius: 16px;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--ink-2);
   border: 1px solid var(--line);
-  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.7);
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s;
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.8);
 }
 
-.vcard__thumb img {
+.shelf-card .cover--video {
+  aspect-ratio: 16 / 9;
+}
+
+.shelf-card .cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.45s var(--ease);
 }
 
-.vcard:hover .vcard__thumb {
-  transform: translateY(-4px);
-  border-color: rgba(var(--glow-rgb), 0.5);
-  box-shadow: 0 24px 50px -16px rgba(var(--glow-rgb), 0.3);
+.shelf-card:hover .cover img {
+  transform: scale(1.08);
 }
 
-.vcard:hover .vcard__thumb img {
-  transform: scale(1.05);
-}
-
-.vcard__play {
+.shelf-card .cover__bg {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(8, 9, 11, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, rgba(var(--glow-rgb), 0.22), transparent 70%), linear-gradient(180deg, #161822, #0d0e14);
+}
+
+.shelf-card .cover__icon {
+  font-size: 54px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.7));
+  transition: transform 0.4s var(--ease);
+}
+
+.shelf-card:hover .cover__icon {
+  transform: scale(1.18) rotate(-4deg);
+}
+
+.shelf-card .kicker {
+  margin: 2px 0 0;
+  font: 700 11.5px/1.2 var(--f-body);
+  letter-spacing: 0.14em;
   color: var(--glow);
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s var(--ease), background 0.25s, color 0.25s;
+  text-transform: uppercase;
 }
 
-.vcard:hover .vcard__play {
-  transform: scale(1.1);
-  background: var(--glow);
-  color: var(--on-glow);
+.shelf-card h3 {
+  margin: 0;
+  font: 800 clamp(22px, 5.2vw, 26px)/1.15 var(--f-display);
+  letter-spacing: -0.025em;
+  color: var(--paper);
 }
 
-.vcard__title {
-  font: 700 16px/1.35 var(--f-body);
+.shelf-card .line {
+  margin: 0;
+  color: var(--paper-muted);
+  font-size: 14.5px;
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: color 0.2s;
 }
 
-.vcard:hover .vcard__title {
+.shelf-card .more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+  font: 650 14.5px/1 var(--f-body);
   color: var(--glow);
 }
 
-.vcard__meta {
-  font-size: 13px;
+.shelf-card .more .ico {
+  transition: transform 0.3s var(--ease);
+}
+
+.shelf-card:hover .more .ico {
+  transform: translateX(5px);
+}
+
+/* Shelf Navigation Controls (Ashley Claudy Arrow Buttons & Progress) */
+.shelf-ctl, .rv-ctl {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 10px auto 0;
+  padding-inline: var(--gutter, 24px);
+  max-width: var(--max, 1220px);
+}
+
+.shelf-btn, .rv-btn {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--paper);
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, opacity 0.25s, border-color 0.25s, color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.shelf-btn:hover:not(:disabled), .rv-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--glow);
+  color: var(--glow);
+  transform: scale(1.06);
+}
+
+.shelf-btn:disabled, .rv-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.shelf-prog, .rv-prog {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.shelf-prog i, .rv-prog i {
+  display: block;
+  height: 100%;
+  width: 25%;
+  border-radius: 4px;
+  background: var(--glow);
+  transition: transform 0.2s linear;
+  transform-origin: left;
+}
+
+.shelf-foot {
+  display: flex;
+  justify-content: center;
+  padding: 24px var(--gutter, 24px) 0;
+}
+
+.feed-follow {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Review Slider Styles (Ashley Claudy .rv / .rv-track) */
+.rv {
+  position: relative;
+  width: 100%;
+}
+
+.rv-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px var(--gutter, 24px) 28px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter, 24px);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+}
+.rv-track:active, .rv-track.is-dragging {
+  cursor: grabbing;
+}
+.rv-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rv-card {
+  flex: 0 0 min(84vw, 420px);
+  scroll-snap-align: start;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 30px;
+  border-radius: 28px;
+  border: 1px solid var(--line-2);
+  background: radial-gradient(90% 70% at 100% 0%, rgba(var(--glow-rgb), 0.16), transparent 62%), linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 24px 50px -16px rgba(0, 0, 0, 0.8);
+  transition: transform 0.35s var(--ease), border-color 0.25s, box-shadow 0.35s;
+}
+
+.rv-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 34px 64px -20px rgba(var(--glow-rgb), 0.35);
+}
+
+.rv-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rv-top .stars {
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.rv-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(var(--glow-rgb), 0.55);
+  background: rgba(var(--glow-rgb), 0.14);
+  color: var(--glow);
+  font: 700 11px/1 var(--f-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rv-book {
+  font: 700 12px/1 var(--f-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--glow);
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 4px;
+}
+
+.rv-card blockquote {
+  margin: 0;
+  font: italic 400 clamp(20px, 4.6vw, 25px)/1.3 var(--f-serif);
+  text-wrap: pretty;
+  color: var(--paper);
+}
+
+.rv-card figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-size: 14px;
   color: var(--paper-muted);
 }
 
-@media (min-width: 1024px) {
-  .shelf {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    overflow: visible;
-    padding-inline: 0;
-  }
-  .vcard--shelf {
-    flex: initial;
-  }
+.rv-card figcaption b {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.rv-link {
+  margin-left: auto;
+  font: 600 12px var(--f-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-2);
+  padding-bottom: 2px;
+}
+
+.rv-link:hover {
+  color: var(--glow);
+  border-color: var(--glow);
+}
+
+.rv-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* Tone variants for review cards */
+.rv-card.t-gold {
+  border-color: rgba(245, 158, 11, 0.28);
+}
+.rv-card.t-gold .rv-badge {
+  border-color: rgba(245, 158, 11, 0.6);
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--gold);
+}
+
+.rv-card.t-blue {
+  border-color: rgba(0, 240, 255, 0.28);
+}
+.rv-card.t-blue .rv-badge {
+  border-color: rgba(0, 240, 255, 0.6);
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--glow);
+}
+
+.rv-card.t-emerald {
+  border-color: rgba(16, 185, 129, 0.28);
+}
+.rv-card.t-emerald .rv-badge {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--profit);
 }
 
 /* ==========================================================================
