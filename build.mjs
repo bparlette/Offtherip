@@ -75,6 +75,7 @@ const write = (rel, content) => {
   fs.writeFileSync(out, content);
 };
 
+if (!globalThis.__otrWarn) { globalThis.__otrWarn = true; const age = (Date.now() - Date.parse(config.stats.asOf)) / 864e5; if (age > 45) console.warn(`WARNING: eBay stats "as of ${config.stats.asOf}" are ${Math.round(age)} days old. Update site.config.json stats (HQ task T38).`); }
 const NAV_KEYS = ["home", "shop", "verdict", "watch", "wantlist", "about"];
 
 export function build() {
@@ -109,6 +110,20 @@ export function build() {
 
   // loose files in src/ (e.g. manifest.webmanifest) go to the site root
   for (const f of fs.readdirSync(SRC, { withFileTypes: true })) if (f.isFile()) fs.copyFileSync(path.join(SRC, f.name), path.join(DIST, f.name));
+  const sorted = [...data.verdicts.entries].sort((a, b) => a.day - b.day);
+  const dayTpl = read("src/templates/verdict-day.html");
+  sorted.forEach((e, i) => {
+    const has = typeof e.cost === "number" && typeof e.value === "number";
+    const route = `/verdict/day-${e.day}/`;
+    const page = { nav: "verdict", title: `${e.game} ${e.product}: worth it? Day ${e.day}`, description: `Is ${e.game} ${e.product} worth opening? Daily Pack Verdict Day ${e.day}: ${e.result === "profit" ? "profit" : e.result === "loss" ? "loss" : "result pending"}. Watch the rip.`, path: route, noindex: false, canonical: config.siteUrl + route, ogImage: "/assets/img/og-image.jpg" };
+    page.fullTitle = `${page.title} | ${config.brand.name}`;
+    const nav = Object.fromEntries(NAV_KEYS.map((k) => [k, k === "verdict" ? "is-active" : ""]));
+    const link = (x, t) => (x ? `<a href="/verdict/day-${x.day}/">${t} Day ${x.day}: ${esc(x.game)} ${esc(x.product)}</a>` : "");
+    const v = { ...e, resultWord: e.result === "loss" ? "LOSS" : e.result === "profit" ? "PROFIT" : "pending", dateLabel: e.date, money: has ? `Cost $${e.cost.toFixed(2)}, pulled $${e.value.toFixed(2)}.` : "Dollar figures coming soon." };
+    const ctx = { ...config, page, nav, v, slots: { ...slots({ config, data, page }), dayNav: `<p class="daynav">${link(sorted[i - 1], "← ")} ${link(sorted[i + 1], "")}</p>` }, now: new Date().getFullYear() };
+    write(path.join(route, "index.html"), render(dayTpl, ctx, `verdict-day-${e.day}`));
+    pages.push({ route, noindex: false, rel: `verdict-day-${e.day}` });
+  });
   copyDir(path.join(SRC, "assets"), path.join(DIST, "assets"));
   copyDir(path.join(SRC, "data"), path.join(DIST, "data"));
   fs.rmSync(path.join(DIST, "data", "listings.sample.json"), { force: true });

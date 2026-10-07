@@ -98,6 +98,16 @@ export function jsonLd(config) {
   return [org, site].map((o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`).join("\n");
 }
 
+export function latestVerdict(verdicts) {
+  const last = [...verdicts.entries].sort((a, b) => b.day - a.day)[0];
+  if (!last) return "";
+  const word = last.result === "loss" ? "LOSS" : last.result === "profit" ? "PROFIT" : "TBD";
+  return `<article class="lverdict"><a class="lverdict__img" href="/verdict/day-${last.day}/"><img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(last.videoId)}/hqdefault.jpg" alt=""></a>
+  <div><p class="eyebrow">Latest verdict · Day ${last.day} · ${fmtDate(last.date)}</p><h2>${esc(last.game)} ${esc(last.product)}</h2>
+  <p><span class="badge badge--${esc(last.result || "none")}">${word}</span> ${typeof last.cost === "number" && typeof last.value === "number" ? `Cost ${money(last.cost)} · pulled ${money(last.value)}` : "Dollar figures coming soon"}</p>
+  <p><a class="btn btn--lime btn--small" href="/verdict/day-${last.day}/">Is it worth it? See the verdict</a> <a class="btn btn--ghost-dark btn--small" href="https://www.youtube.com/watch?v=${esc(last.videoId)}" target="_blank" rel="noopener">Watch the rip</a></p></div></article>`;
+}
+
 export const MARQUEE = ["DAILY PACK VERDICT", "BOX BREAKS", "SPORTS CARDS", "POKÉMON", "ONE PIECE", "DRAGON BALL SUPER", "BIG HITS", "GIVEAWAYS", "GRADED SLABS"];
 
 export function slots({ config, data, page }) {
@@ -106,6 +116,7 @@ export function slots({ config, data, page }) {
     latestVideos: `<div class="vgrid">${vids.slice(0, 6).map(videoCard).join("")}</div>`,
     allVideos: `<div class="vgrid">${vids.slice(0, 12).map(videoCard).join("")}</div>`,
     streak: streakCard(data.verdicts),
+    latestVerdict: latestVerdict(data.verdicts),
     verdictSummary: verdictSummary(data.verdicts),
     verdictTable: verdictTable(data.verdicts),
     shopTiles: shopTiles(config),

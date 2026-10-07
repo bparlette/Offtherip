@@ -87,3 +87,13 @@ test("shop page is honest when there is no live inventory", () => {
   assert.match(shop, /grid--empty/);
   assert.ok(!/\$\d/.test(shop.split('id="grid"')[1] || ""), "no prices should appear without live data");
 });
+
+test("each Verdict day gets its own indexable page, linked from the sitemap", () => {
+  const days = JSON.parse(fs.readFileSync(path.join(ROOT, "src/data/verdicts.json"), "utf8")).entries;
+  for (const e of days) {
+    const h = rd(`verdict/day-${e.day}/index.html`);
+    assert.match(h, /worth it\?/i);
+    assert.match(h, new RegExp(e.videoId));
+    assert.ok(rd("sitemap.xml").includes(`/verdict/day-${e.day}/`));
+  }
+});
