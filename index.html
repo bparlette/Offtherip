@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><!-- logo inlined -->" fetchpriority="high">
+<html lang="en"><head><!-- logo inlined -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Off The Rip Collectables | Sports Cards, TCG &amp; Pack Openings</title>
@@ -351,7 +351,7 @@ section[id]{scroll-margin-top:76px}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
-</style>
+.vprev--loading{opacity:0 !important;}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Off The Rip Collectables","url":"https://offtheripcollectables.com","logo":"https://offtheripcollectables.com/assets/img/logo-640.png","sameAs":["https://www.youtube.com/@offtheripcollectables","https://www.instagram.com/offtheripcollectables/","https://www.tiktok.com/@offtheripcollectables","https://www.threads.net/@offtheripcollectables","https://www.ebay.com/str/offtheripollectables"],"description":"Sports cards. TCG. Pack openings. Straight off the rip."}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Off The Rip Collectables","url":"https://offtheripcollectables.com"}</script>
 <style>
@@ -584,17 +584,23 @@ section[id]{scroll-margin-top:76px}
     current = thumb;
     var id = thumb.getAttribute('data-video-id');
     var v = document.createElement('video');
-    v.className = 'vprev';
+    v.className = 'vprev vprev--loading';
     v.setAttribute('muted', '');
     v.setAttribute('loop', '');
     v.setAttribute('playsinline', '');
     v.setAttribute('preload', 'auto');
     v.muted = true;
     v.src = 'https://cdn.jsdelivr.net/gh/bparlette/Offtherip@main/src/assets/video/previews/' + id + '.mp4';
+    // only reveal once the first frame is ready — no green flash
+    v.addEventListener('canplay', function(){
+      v.classList.remove('vprev--loading');
+      thumb.classList.add('playing');
+    }, {once:true});
+    // fallback: if video fails, keep the thumbnail
+    v.addEventListener('error', function(){ stop(); }, {once:true});
     thumb.appendChild(v);
     var pr = v.play();
     if(pr && pr.catch) pr.catch(function(){});
-    thumb.classList.add('playing');
   }
   function stop(){
     if(!current) return;
