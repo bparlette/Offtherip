@@ -147,17 +147,18 @@ p{margin:0 0 1em}
 .site-footer{background:var(--ink);color:var(--cream);padding:48px 0 30px;border-top:6px solid var(--olive-2)}
 .site-footer h3{font-size:1.1rem;color:var(--cream)}.site-footer a{color:var(--cream)}.site-footer a:hover{color:var(--lime)}
 .site-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
-.footgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:28px}@media(max-width:820px){.footgrid{grid-template-columns:1fr 1fr;gap:20px}
-.footgrid>div:first-child{grid-column:1/-1;text-align:center;margin-bottom:4px}
-.footgrid>div:first-child img{margin:0 auto;width:64px;height:64px}
-.footgrid>div:first-child p{margin:4px 0 0;font-size:.85rem}
-.footgrid h3{font-size:1rem;margin:0 0 8px}
-.footgrid ul{margin:0;padding:0}
-.footgrid li{margin-bottom:6px}
-.footgrid>div:last-child{grid-column:1/-1}
-.site-footer{padding:28px 0 20px}
-.site-footer .disclaimer{font-size:.75rem;margin-top:16px}
-.site-footer .fine{margin-top:8px}}
+.footgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:28px}@media(max-width:820px){
+.site-footer .footgrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:20px!important}
+.site-footer .footgrid>div:first-child{grid-column:1/-1!important;text-align:center!important;margin-bottom:4px!important}
+.site-footer .footgrid>div:first-child img{margin:0 auto!important;width:64px!important;height:64px!important}
+.site-footer .footgrid>div:first-child p{margin:4px 0 0!important;font-size:.85rem!important}
+.site-footer .footgrid h3{font-size:1rem!important;margin:0 0 8px!important}
+.site-footer .footgrid ul{margin:0!important;padding:0!important}
+.site-footer .footgrid li{margin-bottom:6px!important}
+.site-footer .footgrid>div:last-child{grid-column:1/-1!important}
+.site-footer{padding:28px 0 20px!important}
+.site-footer .disclaimer{font-size:.75rem!important;margin-top:16px!important}
+.site-footer .fine{margin-top:8px!important}}
 .disclaimer{font-size:.74rem;opacity:.6;max-width:90ch;margin-top:28px}
 .serieslist{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .serieslist>li>a{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;text-decoration:none;color:var(--ink);height:100%}
@@ -736,22 +737,6 @@ section[id]{scroll-margin-top:76px}
         'Will Day ' + nextDay + ' break it?';
     })
     .catch(function(){ /* keep hardcoded fallback */ });
-})();
-</script>
-<script>
-(function(){
-  document.querySelectorAll('form[data-form="subscribe"]').forEach(function(f){
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var email = f.querySelector('input[type="email"]').value;
-      var interests = [];
-      f.querySelectorAll('input[name="interests"]:checked').forEach(function(c){ interests.push(c.value); });
-      var body = 'Email: ' + email + '\nInterests: ' + interests.join(', ');
-      window.location.href = 'mailto:hello@offtheripcollectables.com'
-        + '?subject=' + encodeURIComponent('Hit List signup')
-        + '&body=' + encodeURIComponent(body);
-    });
-  });
 })();
 </script>
 </body></html>
