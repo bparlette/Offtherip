@@ -23,7 +23,8 @@
   };
 
   if (!+grid.dataset.count && new URLSearchParams(location.search).get("preview") === "1") {
-    fetch("/data/listings.sample.json").then((r) => r.json()).then((d) => {
+    const dataUrl = location.pathname.includes("/preview/") ? "/Offtherip/preview/data/listings.sample.json" : location.pathname.startsWith("/Offtherip/") ? "/Offtherip/data/listings.sample.json" : "/data/listings.sample.json";
+    fetch(dataUrl).then((r) => r.json()).then((d) => {
       grid.className = "grid";
       grid.innerHTML = d.items.map((i) => `<a class="lcard" data-cat="${esc(i.category)}" data-price="${i.price ?? ""}" data-title="${esc(i.title.toLowerCase())}" href="${esc(i.url)}" target="_blank" rel="noopener"><span class="lcard__img"></span><span class="lcard__title">${esc(i.title)}</span><span class="lcard__price">${money(i.price)}</span></a>`).join("");
       grid.insertAdjacentHTML("beforebegin", '<p class="fine">Preview data: not live inventory.</p>');
