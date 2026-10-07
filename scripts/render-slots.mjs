@@ -56,7 +56,16 @@ export function streakHud(verdicts, config) {
   <span class="hud__go">Call it →</span></a>`;
 }
 
-/** Hero centrepiece: one giant streak number, the last 7 results as pips, a live countdown and the latest video as the poster. */
+/** Pill above the hero headline: live streak plus the next-drop countdown (only when config.verdict.dropTime is set). */
+export function heroPill(verdicts, config) {
+  const { n, kind, last } = streakOf(verdicts.entries);
+  if (!last || !n) return "";
+  const v = (config && config.verdict) || {};
+  const drop = v.dropTime ? ` data-drop="${esc(v.dropTime)}" data-tz="${esc(v.dropTz || "America/New_York")}"` : "";
+  return `<a class="pill" href="#verdict" data-next="${last.day + 1}"${drop}><span class="live" aria-hidden="true"></span><b>${n}</b> ${streakLabel(n, kind)} in a row<span class="pill__sep" aria-hidden="true">·</span>Day ${last.day + 1}<span class="hud__t"> drops daily</span></a>`;
+}
+
+/** Verdict band centrepiece: one giant streak number, the last 7 results as pips, a live countdown and the latest video as the poster. */
 export function streakHero(verdicts, config) {
   const { n, kind, last } = streakOf(verdicts.entries);
   if (!last) return "";
@@ -124,13 +133,25 @@ export function verdictTable(verdicts) {
 
 const searchUrl = (seller, kw) => `https://www.ebay.com/sch/i.html?_ssn=${encodeURIComponent(seller)}&_nkw=${encodeURIComponent(kw)}&_sop=10`;
 export const SHOP_TILES = [
-  ["Basketball", "basketball", "🏀"], ["Football", "football", "🏈"], ["Baseball", "baseball", "⚾"],
-  ["Pokémon", "pokemon", "⚡"], ["One Piece", "one piece", "🏴‍☠️"], ["Dragon Ball Super", "dragon ball", "🐉"],
-  ["Graded slabs", "(psa,bgs,sgc,cgc)", "🔒"], ["Everything new", "", "🆕"],
+  ["Basketball", "basketball", "🏀", "255,128,48"], ["Football", "football", "🏈", "190,120,70"], ["Baseball", "baseball", "⚾", "235,70,70"],
+  ["Pokémon", "pokemon", "⚡", "255,204,40"], ["One Piece", "one piece", "🏴‍☠️", "255,82,82"], ["Dragon Ball Super", "dragon ball", "🐉", "255,150,40"],
+  ["Graded slabs", "(psa,bgs,sgc,cgc)", "🔒", "130,190,255"], ["Everything new", "", "🆕", "196,241,53"],
 ];
 export function shopTiles(config) {
   const s = config.ebay.sellerName;
-  return `<div class="tiles">${SHOP_TILES.map(([name, kw, icon]) => `<a class="tile" href="${esc(kw ? searchUrl(s, kw) : `https://www.ebay.com/sch/i.html?_ssn=${s}&_sop=10`)}" target="_blank" rel="noopener"><span class="tile__icon" aria-hidden="true">${icon}</span><span class="tile__name">${esc(name)}</span><span class="tile__go">Shop on eBay →</span></a>`).join("")}</div>`;
+  return `<div class="tiles">${SHOP_TILES.map(([name, kw, icon, rgb]) => `<a class="tile" style="--c:${rgb}" href="${esc(kw ? searchUrl(s, kw) : `https://www.ebay.com/sch/i.html?_ssn=${s}&_sop=10`)}" target="_blank" rel="noopener"><span class="tile__icon" aria-hidden="true">${icon}</span><span class="tile__name">${esc(name)}</span><span class="tile__go">Shop on eBay →</span></a>`).join("")}</div>`;
+}
+
+/** Proof row: eBay figures from config plus the days logged in the Verdict. */
+export function statsRow(verdicts, config) {
+  const st = config.stats || {};
+  const days = verdicts.entries.length;
+  return `<ul class="statsrow" aria-label="Seller track record">
+  <li><b>${esc(st.ebayFeedback)}</b><span>positive feedback on eBay</span></li>
+  <li><b>${esc(st.ebaySold)}</b><span>items sold on eBay</span></li>
+  <li><b>${esc(st.ebaySince)}</b><span>selling since</span></li>
+  <li><b>${days}</b><span>days of Pack Verdict on camera</span></li></ul>
+  <p class="fine center">eBay figures as of ${esc(st.asOf)}</p>`;
 }
 
 export function listingsGrid(listings, config) {
@@ -175,10 +196,14 @@ export const MARQUEE = ["DAILY PACK VERDICT", "BOX BREAKS", "SPORTS CARDS", "POK
 export function slots({ config, data, page }) {
   const vids = data.videos.videos;
   return {
+    videoShelf: `<div class="shelf" data-shelf><div class="shelf__track" tabindex="0" role="group" aria-label="Latest videos">${vids.slice(0, 8).map(videoCard).join("")}</div>
+  <div class="shelf__ctl"><div class="shelf__bar" aria-hidden="true"><i></i></div><button type="button" class="shelf__btn" data-dir="-1" aria-label="Previous videos">←</button><button type="button" class="shelf__btn" data-dir="1" aria-label="Next videos">→</button></div></div>`,
     latestVideos: `<div class="vgrid">${vids.slice(0, 6).map(videoCard).join("")}</div>`,
     allVideos: `<div class="vgrid">${vids.slice(0, 12).map(videoCard).join("")}</div>`,
     streak: streakCard(data.verdicts),
     streakHero: streakHero(data.verdicts, config),
+    heroPill: heroPill(data.verdicts, config),
+    statsRow: statsRow(data.verdicts, config),
     streakHud: streakHud(data.verdicts, config),
     predict: predictCard(data.verdicts),
     latestPoster: latestPoster(data.verdicts),

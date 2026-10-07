@@ -144,9 +144,35 @@
     if (img.complete) done(); else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
   });
 
-  /* ---- mobile dock tucks away over the signup form and footer ---- */
+  /* ---- home: HUD slides in once the hero pill scrolls away ---- */
+  const hud = $(".hud"), pill = $(".pill");
+  if (hud && pill && "IntersectionObserver" in window) {
+    new IntersectionObserver((es) => es.forEach((e) => hud.classList.toggle("is-on", !e.isIntersecting && e.boundingClientRect.top < 0))).observe(pill);
+  }
+
+  /* ---- video shelf: arrows + progress bar over native scroll-snap ---- */
+  $$("[data-shelf]").forEach((sh) => {
+    const track = $(".shelf__track", sh), bar = $(".shelf__bar i", sh), btns = $$(".shelf__btn", sh);
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const w = track.scrollWidth ? track.clientWidth / track.scrollWidth : 1;
+      bar.style.setProperty("--w", Math.min(100, w * 100) + "%");
+      bar.style.setProperty("--l", (max > 0 ? (track.scrollLeft / max) * (100 - w * 100) : 0) + "%");
+      btns[0].disabled = track.scrollLeft < 4;
+      btns[1].disabled = track.scrollLeft > max - 4;
+    };
+    btns.forEach((b) => b.addEventListener("click", () => track.scrollBy({ left: +b.dataset.dir * track.clientWidth * 0.85, behavior: reduce ? "auto" : "smooth" })));
+    track.addEventListener("scroll", () => requestAnimationFrame(sync), { passive: true });
+    addEventListener("resize", sync);
+    sync();
+  });
+
+  /* ---- mobile dock: appears once the hero buttons scroll away, tucks away over the signup form and footer ---- */
   const dock = $(".dock");
   if (dock && "IntersectionObserver" in window) {
+    const trigger = $(".hero .cta");
+    if (trigger) new IntersectionObserver((es) => es.forEach((e) => dock.classList.toggle("is-on", !e.isIntersecting && e.boundingClientRect.top < 0))).observe(trigger);
+    else dock.classList.add("is-on");
     const watched = $$("#hitlist, .site-footer, form");
     const vis = new Set();
     const io = new IntersectionObserver((es) => {
@@ -154,5 +180,5 @@
       dock.classList.toggle("is-away", vis.size > 0);
     });
     watched.forEach((el) => io.observe(el));
-  }
+  } else if (dock) dock.classList.add("is-on");
 })();

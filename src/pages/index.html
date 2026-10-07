@@ -8,37 +8,48 @@
   <div class="hero__glow" aria-hidden="true"></div>
   <div class="wrap hero__in">
     <div class="hero__copy">
-      {{{@streakHero}}}
-      <h1 class="hero__h1">Ripped on camera. <span>Sold on eBay.</span></h1>
-      <p class="lead">One pack opened every day. Profit or bust. Then shop the hits, singles and slabs on eBay.</p>
+      {{{@heroPill}}}
+      <p class="eyebrow">Sports cards · TCG · Pack openings</p>
+      <h1 class="hero__h1">Ripped on camera.<br><span>Sold on eBay.</span></h1>
+      <p class="lead">Watch every pack get opened on camera. Then shop the hits, singles and slabs on eBay.</p>
       <div class="cta">
-        <a class="btn btn--lime btn--big btn--sheen" href="/verdict/">Watch the Verdict <span aria-hidden="true">→</span></a>
-        <a class="quiet" href="{{links.ebay}}" target="_blank" rel="noopener">or shop on eBay</a>
+        <a class="btn btn--lime btn--big btn--sheen" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay <span aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost btn--big" href="/verdict/">Watch the Verdict</a>
       </div>
-      {{{@predict}}}
+      <p class="heroproof"><span><b>{{stats.ebayFeedback}}</b> positive</span> <i aria-hidden="true">·</i> <span><b>{{stats.ebaySold}}</b> sold on eBay</span></p>
     </div>
-    <div class="hero__media">{{{@latestPoster}}}</div>
+    <div class="hero__media" data-tilt><img class="hero__logo" src="/assets/img/logo-640.png" width="520" height="520" alt="Off The Rip Collectables logo" fetchpriority="high"></div>
   </div>
-  <div class="wrap"><ul class="proof" aria-label="Seller track record">
-    <li><b>{{stats.ebayFeedback}}</b> positive feedback</li>
-    <li><b>{{stats.ebaySold}}</b> items sold on eBay</li>
-    <li>Selling since <b>{{stats.ebaySince}}</b></li>
-    <li class="fine">eBay figures as of {{stats.asOf}}</li></ul></div>
   <div class="marquee" aria-hidden="true"><div class="marquee__track">{{{@marquee}}}</div></div>
 </section>
 
-<section class="section" aria-labelledby="fresh-h"><div class="wrap">
-  <div class="sechead"><h2 id="fresh-h">Fresh off the rip</h2><a href="{{links.youtube}}" target="_blank" rel="noopener">All videos on YouTube →</a></div>
-  {{{@latestVideos}}}
+<section class="section verdict" id="verdict" aria-labelledby="vd-h"><div class="wrap">
+  <h2 id="vd-h" class="sr">Daily Pack Verdict streak</h2>
+  <div class="verdict__in">
+    <div class="verdict__main">
+      {{{@streakHero}}}
+      <p class="lead">One pack, opened on camera every day. Profit or bust. The streak only ends when a pack finally pays.</p>
+      {{{@predict}}}
+    </div>
+    <div class="verdict__media">{{{@latestPoster}}}
+      <a class="btn btn--dark verdict__all" href="/verdict/">See every day, every dollar →</a></div>
+  </div>
 </div></section>
 
-<section class="section section--cream" aria-labelledby="shop-h"><div class="wrap">
-  <div class="sechead"><h2 id="shop-h">Shop the pulls</h2><a href="/shop/">Shop page →</a></div>
+<section class="section" aria-labelledby="fresh-h"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">New on the channel</p><h2 id="fresh-h">Fresh off the rip</h2></div><a href="{{links.youtube}}" target="_blank" rel="noopener">All videos on YouTube →</a></div>
+  {{{@videoShelf}}}
+</div></section>
+
+<section class="section" aria-labelledby="shop-h"><div class="wrap">
+  <div class="sechead"><div><p class="eyebrow">Straight from the rips</p><h2 id="shop-h">Shop the pulls</h2></div><a href="/shop/">Shop page →</a></div>
   {{{@shopTiles}}}
+  {{{@statsRow}}}
 </div></section>
 
 <section class="section" aria-labelledby="how-h"><div class="wrap">
-  <h2 id="how-h">How it works</h2>
+  <p class="eyebrow">How it works</p>
+  <h2 id="how-h">Watch. Spot. Buy.</h2>
   <ol class="steps">
     <li><b>1</b><h3>Watch the rip</h3><p>Boxes, blasters and the Daily Pack Verdict are opened on camera on YouTube.</p></li>
     <li><b>2</b><h3>Spot your card</h3><p>Most of what's in the store gets pulled on the channel. Can't find it? Add it to the Want List.</p></li>
@@ -46,9 +57,9 @@
   </ol>
 </div></section>
 
-<section class="section section--cream"><div class="wrap split">
-  <div><p class="eyebrow">Want List</p><h2>Hunting a specific card?</h2><p class="lead">Tell Clayton the player, set or Pokémon you're after. The list gets checked when new cards come off the rip.</p><a class="btn btn--dark" href="/want-list/">Add to the Want List</a></div>
-  <div><p class="eyebrow">Giveaways</p><h2>Free cards, on the channel.</h2><p class="lead">Giveaways run on YouTube. Get a heads-up before the next one starts.</p><a class="btn btn--dark" href="/giveaways/">Get giveaway alerts</a></div>
+<section class="section" aria-label="Want List and giveaways"><div class="wrap duo">
+  <article class="duo__card" style="--c:196,241,53"><p class="eyebrow">Want List</p><h2>Hunting a specific card?</h2><p class="lead">Tell Clayton the player, set or Pokémon you're after. The list gets checked when new cards come off the rip.</p><a class="btn btn--dark" href="/want-list/">Add to the Want List</a></article>
+  <article class="duo__card" style="--c:255,92,64"><p class="eyebrow">Giveaways</p><h2>Free cards, on the channel.</h2><p class="lead">Giveaways run on YouTube. Get a heads-up before the next one starts.</p><a class="btn btn--dark" href="/giveaways/">Get giveaway alerts</a></article>
 </div></section>
 
 {{> signup}}

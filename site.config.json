@@ -56,9 +56,9 @@
     "address": null
   },
   "promo": {
-    "enabled": false,
-    "text": "",
-    "url": "/shop/",
+    "enabled": true,
+    "text": "Buy 3, get 1 free · $3.99 flat shipping when you buy 5+",
+    "url": "https://www.ebay.com/str/offtheripollectables",
     "endsIso": null
   },
   "verdict": {

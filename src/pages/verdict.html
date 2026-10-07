@@ -6,9 +6,11 @@
 <main id="main">
 <section class="pagehead"><div class="wrap"><p class="eyebrow">Daily series</p><h1>Daily Pack Verdict</h1>
 <p class="lead">One pack, opened on camera every day. The verdict is simple: <b>profit or loss</b>. Here's the running scoreboard.</p></div></section>
+<section class="section verdict" aria-label="Current streak"><div class="wrap verdict__in">
+  <div class="verdict__main">{{{@streakHero}}}<p class="lead">The streak only ends when a pack finally pays.</p></div>
+  <div class="verdict__media">{{{@predict}}}</div>
+</div></section>
 <section class="section"><div class="wrap">
-  {{{@streak}}}
-  {{{@predict}}}
   {{{@latestVerdict}}}
   {{{@verdictSummary}}}
 </div></section>
