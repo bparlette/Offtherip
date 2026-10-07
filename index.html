@@ -738,4 +738,20 @@ section[id]{scroll-margin-top:76px}
     .catch(function(){ /* keep hardcoded fallback */ });
 })();
 </script>
+<script>
+(function(){
+  document.querySelectorAll('form[data-form="subscribe"]').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = f.querySelector('input[type="email"]').value;
+      var interests = [];
+      f.querySelectorAll('input[name="interests"]:checked').forEach(function(c){ interests.push(c.value); });
+      var body = 'Email: ' + email + '\nInterests: ' + interests.join(', ');
+      window.location.href = 'mailto:hello@offtheripcollectables.com'
+        + '?subject=' + encodeURIComponent('Hit List signup')
+        + '&body=' + encodeURIComponent(body);
+    });
+  });
+})();
+</script>
 </body></html>
