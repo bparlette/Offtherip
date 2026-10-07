@@ -144,3 +144,73 @@ All pages have been fixed for: canonical/OG → github.io URLs, removed broken A
 - **"Stop" means stop.** Don't re-pitch.
 - **Simple changes stay simple.** Don't redesign unrelated elements.
 - She catches everything — the test suite exists because she found every bug manually.
+
+---
+
+## Deployment Architecture (updated 2026-10-07)
+
+**Optimal setup — all free ($0/month):**
+
+1. **Private GitHub repo** — code hidden. Free for private repos.
+2. **GitHub Actions** (`.github/workflows/daily-sync.yml`) — runs daily at 6am ET:
+   - Sync YouTube videos → `src/data/videos.json`
+   - Sync eBay listings → `src/data/listings.json`
+   - Generate video previews (max 3 new)
+   - Sync verdict prices (retail cost + eBay sold values)
+   - Sync VERDICTS.md ↔ verdicts.json (both directions)
+   - Commits to `main` only if files changed
+   - Each step has `continue-on-error: true` — one failure never blocks others
+   - Free tier: 2,000 min/month. This uses ~90.
+3. **Cloudflare Pages** — connected to the private repo, auto-deploys every push to `main`.
+   Custom domain: `offtheripcollectables.com` (~$12/year).
+
+**Why not GitHub Pages:** Requires Pro ($4/mo) for private repos. Cloudflare Pages
+is free regardless and handles the custom domain + SSL automatically.
+
+**Why not Cloudflare Workers for sync:** Workers have CPU time limits and can't
+easily run yt-dlp. GitHub Actions has full Node.js with no such constraints.
+
+### Adding the workflow file
+GitHub blocks API integrations from creating `.github/workflows/` files.
+It must be added via the GitHub web UI (Add file → Create new file).
+Done 2026-10-07 via browser.
+
+### Required secrets (repo Settings → Secrets → Actions)
+- `EBAY_APP_ID` — eBay Browse API client ID
+- `EBAY_CERT_ID` — eBay Browse API client secret
+Without these, eBay steps skip gracefully (no crash).
+
+## VERDICTS.md — Clayton's editable scores
+
+**Location:** `VERDICTS.md` (repo root)
+
+Clayton edits this in GitHub's web UI (pencil icon). Simple markdown table:
+
+| Day | Date | Product | Result | Pack $ | Hits |
+|-----|------|---------|--------|--------|------|
+| 24 | 2026-10-07 | Pokemon 151 Booster | loss | | Charizard ($45); Pikachu |
+
+**Sync scripts:**
+- `npm run sync:verdicts` — MD → JSON (after Clayton edits)
+- `npm run verdicts:review` — JSON → MD (writes auto-prices back for review)
+- **Clayton's values always win** — auto-lookup only fills blank cells, never overwrites.
+
+**Auto price lookup** (`scripts/sync-verdict-prices.mjs`):
+- Pack cost → Target → Walmart → TCGPlayer → CamelCamelCamel (price history fallback)
+- Hit values → eBay sold listings (median of recent sales)
+- Needs `EBAY_APP_ID` + `EBAY_CERT_ID` for eBay lookups
+
+## Data freshness footer
+
+The homepage footer shows "Videos updated [date] · Listings updated [date] ·
+Verdicts updated [date]" — fetched live from each JSON file's `updated` field.
+If a sync fails silently, the stale date is visible.
+
+## npm scripts (updated)
+
+| Script | Purpose |
+|--------|---------|
+| `npm run sync` | All syncs: YouTube + Sheet + eBay + previews + verdict prices |
+| `npm run sync:prices` | Verdict auto price lookup only |
+| `npm run sync:verdicts` | VERDICTS.md → verdicts.json |
+| `npm run verdicts:review` | verdicts.json → VERDICTS.md (fill blanks) |
