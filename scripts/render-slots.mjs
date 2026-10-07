@@ -116,11 +116,130 @@ export function giveawayVideos(videos) {
 
 export const MARQUEE = ["DAILY PACK VERDICT", "BOX BREAKS", "SPORTS CARDS", "POKÉMON", "ONE PIECE", "DRAGON BALL SUPER", "BIG HITS", "GIVEAWAYS", "GRADED SLABS"];
 
+export const SHOP_CATEGORIES = [
+  ["Basketball", "basketball", "🏀", "NBA & Rookies", "Prizm, Optic, Select blasters & hobby. Rookie autos, numbered parallels & chases.", "HOT"],
+  ["Football", "football", "🏈", "NFL Blasters & Hobby", "Bowman Chrome, Prizm, Donruss. Key rookie quarterbacks and case hits.", "NEW"],
+  ["Baseball", "baseball", "⚾", "MLB & Flagship", "Topps Flagship, Chrome, Bowman. Short prints, numbered parallels & autographs.", "POPULAR"],
+  ["Pokémon", "pokemon", "⚡", "Scarlet & Violet", "Prismatic Evolutions, Pitch Black, 151, Crown Zenith. Special Art Rares.", "CHASE"],
+  ["One Piece", "one piece", "🏴‍☠️", "Bandai Card Game", "OP-09, Wings of the Captain, Memorial Collection. Manga rares & Leaders.", "TRENDING"],
+  ["Dragon Ball Super", "dragon ball", "🐉", "Fusion World & Masters", "Prismatic Clash, Realm of the Gods. Secret Rares & God Rares.", "FRESH"],
+  ["Graded slabs", "(psa,bgs,sgc,cgc)", "🔒", "Investment Grade", "PSA 10 Gem Mint, BGS 9.5, CGC pristine slabs. Graded and sealed.", "GEM MINT"],
+  ["Everything new", "", "🆕", "Daily Live Drops", "Every fresh hit listed directly from the studio. Bubble wrapped and insured.", "DAILY"],
+];
+
+export function shelfCollectibles(config) {
+  const s = config.ebay.sellerName;
+  const cards = SHOP_CATEGORIES.map(([name, kw, icon, kicker, desc, badge]) => {
+    const url = kw ? searchUrl(s, kw) : `https://www.ebay.com/sch/i.html?_ssn=${s}&_sop=10`;
+    return `<a class="shelf-card" href="${esc(url)}" target="_blank" rel="noopener">
+      <span class="cover">
+        <span class="badge">${esc(badge)}</span>
+        <span class="cover__bg" aria-hidden="true"><span class="cover__icon">${icon}</span></span>
+        <span class="cover__art holo"></span>
+      </span>
+      <p class="kicker">${esc(kicker)}</p>
+      <h3>${esc(name)}</h3>
+      <p class="line">${esc(desc)}</p>
+      <span class="more">Shop on eBay <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>`;
+  });
+  return `<div class="shelf-wrap" data-shelf>
+    <div class="shelf" tabindex="0" aria-label="Collectibles by Off The Rip">${cards.join("\n")}</div>
+    <div class="wrap shelf-ctl">
+      <button class="shelf-btn" type="button" data-shelf-btn="prev" aria-label="Scroll left">←</button>
+      <div class="shelf-prog" aria-hidden="true"><i></i></div>
+      <button class="shelf-btn" type="button" data-shelf-btn="next" aria-label="Scroll right">→</button>
+    </div>
+  </div>`;
+}
+
+export function shelfVideos(videos) {
+  const cards = videos.slice(0, 10).map((v) => {
+    return `<a class="shelf-card vcard--shelf holo" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">
+      <span class="cover cover--video">
+        <img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="">
+        <span class="vcard__play" aria-hidden="true">▶</span>
+      </span>
+      <p class="kicker">${fmtDate(v.published)} · ${fmtViews(v.views)}</p>
+      <h3>${esc(cleanTitle(v.title))}</h3>
+      <span class="more">Watch Rip <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>`;
+  });
+  return `<div class="shelf-wrap" data-shelf>
+    <div class="shelf feed" tabindex="0" aria-label="Recent pack rip videos">${cards.join("\n")}</div>
+    <div class="wrap shelf-ctl">
+      <button class="shelf-btn" type="button" data-shelf-btn="prev" aria-label="Previous video">←</button>
+      <div class="shelf-prog" aria-hidden="true"><i></i></div>
+      <button class="shelf-btn" type="button" data-shelf-btn="next" aria-label="Next video">→</button>
+    </div>
+  </div>`;
+}
+
+export function shelfVerdicts(verdicts) {
+  const sorted = [...verdicts.entries].sort((a, b) => b.day - a.day).slice(0, 8);
+  const cards = sorted.map((x) => {
+    const has = typeof x.cost === "number" && typeof x.value === "number";
+    const pl = has ? x.value - x.cost : null;
+    const isLoss = x.result === "loss";
+    const isWin = x.result === "profit";
+    return `<a class="shelf-card vcard--shelf verdict-card ${isLoss ? "t-loss" : isWin ? "t-win" : ""}" href="/verdict/day-${x.day}/">
+      <span class="cover cover--video">
+        <img loading="lazy" width="480" height="360" src="https://i.ytimg.com/vi/${esc(x.videoId)}/hqdefault.jpg" alt="">
+        <span class="badge badge--${esc(x.result || "none")}">${isLoss ? "LOSS" : isWin ? "PROFIT" : "TBD"}</span>
+      </span>
+      <p class="kicker">Day ${x.day} · ${fmtDate(x.date)}</p>
+      <h3>${esc(x.game)} ${esc(x.product)}</h3>
+      <p class="line">${has ? `Cost ${money(x.cost)} · Pulled ${money(x.value)} (${pl >= 0 ? "+" : ""}${money(pl)})` : "Dollar figures coming soon"}</p>
+      <span class="more">See Verdict Day ${x.day} <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>`;
+  });
+  return `<div class="shelf-wrap" data-shelf>
+    <div class="shelf verdict-shelf" tabindex="0" aria-label="Daily Pack Verdict days">${cards.join("\n")}</div>
+    <div class="wrap shelf-ctl">
+      <button class="shelf-btn" type="button" data-shelf-btn="prev" aria-label="Previous verdict day">←</button>
+      <div class="shelf-prog" aria-hidden="true"><i></i></div>
+      <button class="shelf-btn" type="button" data-shelf-btn="next" aria-label="Next verdict day">→</button>
+    </div>
+  </div>`;
+}
+
+export function reviewsSlider(reviewsData, config) {
+  const list = reviewsData?.reviews || [];
+  if (!list.length) return "";
+  const cards = list.map((r, i) => {
+    const tone = i % 3 === 0 ? "t-gold" : i % 3 === 1 ? "t-blue" : "t-emerald";
+    return `<figure class="rv-card ${tone}">
+      <div class="rv-top">
+        <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+        <span class="rv-badge">★ 100% Positive</span>
+        <span class="rv-book">${esc(r.item)}</span>
+      </div>
+      <blockquote>“${esc(r.quote)}”</blockquote>
+      <figcaption>
+        <b>${esc(r.by)}</b><span>Verified eBay Buyer</span>
+        <a class="rv-link" href="${esc(config.links.ebayFeedback || config.links.ebay)}" target="_blank" rel="noopener">eBay Feedback</a>
+      </figcaption>
+    </figure>`;
+  });
+  return `<div class="rv reveal" data-reviews>
+    <div class="rv-track" tabindex="0" aria-label="Collector reviews on eBay">${cards.join("\n")}</div>
+    <div class="wrap rv-ctl">
+      <button class="rv-btn" type="button" data-rv="prev" aria-label="Previous review">←</button>
+      <div class="rv-prog" aria-hidden="true"><i></i></div>
+      <button class="rv-btn" type="button" data-rv="next" aria-label="Next review">→</button>
+    </div>
+  </div>`;
+}
+
 export function slots({ config, data, page }) {
   const vids = data.videos.videos;
   return {
     latestVideos: `<div class="vgrid">${vids.slice(0, 6).map(videoCard).join("")}</div>`,
     allVideos: `<div class="vgrid">${vids.slice(0, 12).map(videoCard).join("")}</div>`,
+    shelfVideos: shelfVideos(vids),
+    shelfCollectibles: shelfCollectibles(config),
+    shelfVerdicts: shelfVerdicts(data.verdicts),
+    reviewsSlider: reviewsSlider(data.reviews, config),
     streak: streakCard(data.verdicts),
     giveawayVideos: giveawayVideos(vids),
     latestVerdict: latestVerdict(data.verdicts),

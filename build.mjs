@@ -27,6 +27,7 @@ const data = {
   videos: readJSON("src/data/videos.json"),
   verdicts: readJSON("src/data/verdicts.json"),
   listings: readJSON("src/data/listings.json"),
+  reviews: fs.existsSync(path.join(ROOT, "src/data/reviews.json")) ? readJSON("src/data/reviews.json") : { reviews: [] },
 };
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

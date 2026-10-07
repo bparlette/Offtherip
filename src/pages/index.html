@@ -39,18 +39,74 @@
   <div class="marquee" aria-hidden="true"><div class="marquee__track">{{{@marquee}}}</div></div>
 </section>
 
-<section class="section" aria-labelledby="fresh-h"><div class="wrap">
-  <div class="sechead"><h2 id="fresh-h">Fresh off the rip</h2><a href="{{links.youtube}}" target="_blank" rel="noopener">All videos on YouTube →</a></div>
-  {{{@latestVideos}}}
-</div></section>
+<section class="section" id="vault" aria-labelledby="shelf-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">The Collection</p>
+      <h2 class="h2" id="shelf-title">Pick your kind of <span class="serif">grail.</span></h2>
+      <p>Sports cards, Pokémon, One Piece and graded slabs. Pulled on camera, authentic, bubble-wrapped with care. Every card ships directly through eBay Authenticity with buyer protection.</p>
+    </div>
+  </div>
+  {{{@shelfCollectibles}}}
+  <div class="shelf-foot">
+    <a class="btn btn-line" href="/shop/">Browse all categories on eBay <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b>{{stats.ebayFeedback}}</b><span>positive feedback on eBay</span></div>
+      <div class="stat"><b>{{stats.ebaySold}}</b><span>cards delivered to collectors</span></div>
+      <div class="stat"><b>23+</b><span>Daily Pack Verdicts ripped</span></div>
+      <div class="stat"><b>100%</b><span>uncut pack breaks on camera</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="section section--cream" aria-labelledby="shop-h"><div class="wrap">
-  <div class="sechead"><h2 id="shop-h">Shop the pulls</h2><a href="/shop/">Shop page →</a></div>
-  {{{@shopTiles}}}
-</div></section>
+<section class="section" id="feed" aria-labelledby="feed-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Fresh Off The Rip</p>
+      <h2 class="h2" id="feed-title">Watch the rips <span class="serif">live on camera.</span></h2>
+      <p>Zero cuts, raw reactions, and the Daily Pack Verdict. Watch the pulls, then grab the singles on eBay.</p>
+    </div>
+  </div>
+  {{{@shelfVideos}}}
+  <div class="shelf-foot feed-follow">
+    <a class="btn btn-line" href="{{links.youtube}}" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    <a class="btn btn-line" href="{{links.instagram}}" target="_blank" rel="noopener">Follow on Instagram</a>
+    <a class="btn btn-line" href="{{links.tiktok}}" target="_blank" rel="noopener">Follow on TikTok</a>
+  </div>
+</section>
+
+<section class="section" id="verdicts" aria-labelledby="verdict-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Daily Pack Verdict</p>
+      <h2 class="h2" id="verdict-title">One pack a day. <span class="serif">Profit or loss?</span></h2>
+      <p>Every single pack opened on camera with live market value vs cost logged transparently.</p>
+    </div>
+  </div>
+  {{{@shelfVerdicts}}}
+  <div class="shelf-foot">
+    <a class="btn btn-line" href="/verdict/">See the full Pack Verdict scoreboard <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<section class="section reviews" id="reviews" aria-labelledby="rv-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Collectors say</p>
+      <h2 class="h2" id="rv-title">What buyers <span class="serif">say.</span></h2>
+      <p>Over 1,600 cards delivered with 100% positive feedback on eBay. Here’s what real collectors say after their orders arrive.</p>
+    </div>
+  </div>
+  {{{@reviewsSlider}}}
+  <div class="wrap rv-more">
+    <a class="btn btn-line" href="{{links.ebayFeedback}}" target="_blank" rel="noopener">Read all eBay feedback (100% positive) <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-5L15.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
 
 <section class="section" aria-labelledby="how-h"><div class="wrap">
-  <div class="sechead"><h2 id="how-h">How it works</h2><span class="kicker">3 SIMPLE STEPS</span></div>
+  <div class="sec-head"><p class="kicker">3 SIMPLE STEPS</p><h2 class="h2" id="how-h">How it <span class="serif">works.</span></h2></div>
   <ol class="steps">
     <li><b>1</b><h3>Watch the rip</h3><p>Boxes, blasters and the Daily Pack Verdict are opened on camera on YouTube.</p></li>
     <li><b>2</b><h3>Spot your card</h3><p>Most of what's in the store gets pulled on the channel. Can't find it? Add it to the Want List.</p></li>

@@ -249,4 +249,94 @@
     });
     hideTargets.forEach((t) => ioHide.observe(t));
   }
+  /* ==========================================================================
+     Horizontal Shelf & Reviews Slider Controls (Ashley Claudy Parity)
+     ========================================================================== */
+  function wireSlider(box, trackSel, prevSel, nextSel, barSel, cardSel) {
+    const track = box.querySelector(trackSel);
+    if (!track) return;
+    const prev = box.querySelector(prevSel);
+    const next = box.querySelector(nextSel);
+    const bar = box.querySelector(barSel);
+
+    function step() {
+      const card = track.querySelector(cardSel);
+      return card ? card.getBoundingClientRect().width + 20 : 320;
+    }
+
+    function update() {
+      const max = track.scrollWidth - track.clientWidth;
+      const pos = max > 0 ? track.scrollLeft / max : 0;
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max - 2;
+      if (bar) {
+        const view = max > 0 ? track.clientWidth / track.scrollWidth : 1;
+        bar.style.width = Math.max(view, 0.15) * 100 + "%";
+        bar.style.transform = "translateX(" + pos * (1 / Math.max(view, 0.15) - 1) * 100 + "%)";
+      }
+    }
+
+    function go(dir) {
+      track.scrollBy({ left: dir * step(), behavior: reduce ? "auto" : "smooth" });
+    }
+
+    if (prev) prev.addEventListener("click", () => { go(-1); track.focus({ preventScroll: true }); });
+    if (next) next.addEventListener("click", () => { go(1); track.focus({ preventScroll: true }); });
+
+    track.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
+    });
+
+    track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+
+    // Desktop drag-to-scroll
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let moved = false;
+
+    track.addEventListener("mousedown", (e) => {
+      isDown = true;
+      moved = false;
+      track.classList.add("is-dragging");
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (isDown) {
+        isDown = false;
+        track.classList.remove("is-dragging");
+      }
+    });
+
+    track.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 6) moved = true;
+      track.scrollLeft = scrollLeft - walk;
+    });
+
+    track.addEventListener("click", (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  }
+
+  // Initialize review sliders
+  $$("[data-reviews]").forEach((box) => {
+    wireSlider(box, ".rv-track", '[data-rv="prev"]', '[data-rv="next"]', ".rv-prog i", ".rv-card");
+  });
+
+  // Initialize shelf sliders
+  $$("[data-shelf]").forEach((box) => {
+    wireSlider(box, ".shelf", '[data-shelf-btn="prev"]', '[data-shelf-btn="next"]', ".shelf-prog i", ".shelf-card");
+  });
 })();
