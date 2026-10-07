@@ -1,0 +1,32 @@
+<!--page {"nav":"verdict","title":"Daily Pack Verdict","description":"One pack opened on camera every day. Profit or loss? Follow the Daily Pack Verdict streak, results and every video."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body>
+{{> header}}
+<main id="main">
+<section class="pagehead"><div class="wrap"><p class="eyebrow">Daily series</p><h1>Daily Pack Verdict</h1>
+<p class="lead">One pack, opened on camera every day. The verdict is simple: <b>profit or loss</b>. Here's the running scoreboard.</p></div></section>
+<section class="section"><div class="wrap">
+  {{{@streak}}}
+  {{{@verdictSummary}}}
+</div></section>
+<section class="section section--cream" aria-labelledby="chart-h"><div class="wrap">
+  <h2 id="chart-h">Running profit / loss</h2>
+  <div id="vchart" class="vchart" data-empty="Dollar amounts appear here as each day's cost and pulled value are logged."></div>
+  <noscript><p class="fine">The chart needs JavaScript. The full table is below.</p></noscript>
+</div></section>
+<section class="section" aria-labelledby="log-h"><div class="wrap">
+  <div class="sechead"><h2 id="log-h">Every verdict</h2>
+    <div class="filters"><label class="sr" for="vfilter">Filter by result</label><select id="vfilter"><option value="">All results</option><option value="loss">Losses</option><option value="profit">Profits</option></select></div></div>
+  {{{@verdictTable}}}
+  <p class="fine">Results for the earliest logged days come from the video titles. The new log adds cost and pulled value for every day going forward.</p>
+</div></section>
+<section class="section section--cream"><div class="wrap split">
+  <div><h2>Pick tomorrow's pack</h2><p class="lead">Drop a suggestion in the comments of the latest Verdict video. Popular picks make the lineup.</p><a class="btn btn--dark" href="{{links.youtube}}" target="_blank" rel="noopener">Open the channel</a></div>
+  <div><h2>Tell me when it breaks</h2><p class="lead">Get one email the day the streak ends (and the weekly Hit List).</p><a class="btn btn--dark" href="#hitlist">Join the list</a></div>
+</div></section>
+{{> signup}}
+<script src="/assets/js/verdict.js" defer></script>
+</main>
+{{> footer}}
+</body></html>

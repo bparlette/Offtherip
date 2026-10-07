@@ -1,0 +1,18 @@
+<!--page {"nav":"about","title":"About","description":"About Off The Rip Collectables: a sports card and TCG seller and YouTube channel. Most cards in the eBay store are pulled on camera."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body>
+{{> header}}
+<main id="main">
+<section class="pagehead"><div class="wrap"><p class="eyebrow">About</p><h1>Straight off the rip</h1>
+<p class="lead">{{brand.name}} is a sports card and TCG seller and YouTube channel. Most of the cards in the eBay store are pulled on camera.</p></div></section>
+<section class="section"><div class="wrap split">
+  <div><h2>What's in the store</h2><ul class="ticks"><li>Sports cards: basketball, football, baseball and more</li><li>TCG: Pokémon, One Piece, Dragon Ball Super and more</li><li>Singles, hits, lots and sealed product</li><li>Graded cards: sports and TCG slabs</li></ul></div>
+  <div><h2>Track record</h2><ul class="ticks"><li><b>{{stats.ebayFeedback}}</b> positive feedback on eBay</li><li><b>{{stats.ebaySold}}</b> items sold</li><li>On eBay since <b>{{stats.ebaySince}}</b></li></ul><p class="fine">eBay figures as of {{stats.asOf}}.</p></div>
+</div></section>
+{{#if features.packingBlock}}<section class="section section--cream"><div class="wrap"><h2>How orders ship</h2><p class="lead">Every order is packed with care and shipped through eBay.</p></div></section>{{/if}}
+<section class="section section--cream"><div class="wrap center"><h2>Find us everywhere</h2>{{{@socialLinks}}}<p class="fine">Questions? <a href="mailto:{{contact.email}}">{{contact.email}}</a></p></div></section>
+{{> signup}}
+</main>
+{{> footer}}
+</body></html>

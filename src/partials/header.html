@@ -1,0 +1,17 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+<a class="skip" href="#main">Skip to content</a>
+{{#if promo.enabled}}<div class="promo" data-ends="{{promo.endsIso}}"><a href="{{promo.url}}">{{promo.text}}</a> <span class="promo__t" aria-live="off"></span></div>{{/if}}
+<header class="site-header">
+  <div class="wrap site-header__in">
+    <a class="brand" href="/" aria-label="{{brand.name}} home"><img src="/assets/img/logo-256.png" width="44" height="44" alt=""><span>{{brand.short}}</span></a>
+    <button class="navtoggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="nav" class="nav" aria-label="Main">
+      <a class="{{nav.shop}}" href="/shop/">Shop</a>
+      <a class="{{nav.verdict}}" href="/verdict/">Pack Verdict</a>
+      <a class="{{nav.watch}}" href="/watch/">Watch</a>
+      <a class="{{nav.wantlist}}" href="/want-list/">Want List</a>
+      <a class="{{nav.about}}" href="/about/">About</a>
+      <a class="btn btn--small btn--lime" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a>
+    </nav>
+  </div>
+</header>

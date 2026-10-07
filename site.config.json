@@ -1,0 +1,64 @@
+{
+  "brand": {
+    "name": "Off The Rip Collectables",
+    "short": "Off The Rip",
+    "tagline": "Sports cards. TCG. Pack openings. Straight off the rip.",
+    "owner": "Clayton"
+  },
+  "siteUrl": "https://offtheripcollectables.com",
+  "hqPath": "/backstage-otr26/",
+  "locale": "en_US",
+  "themeColor": "#3b4524",
+  "contact": {
+    "email": "hello@offtheripcollectables.com"
+  },
+  "links": {
+    "ebay": "https://www.ebay.com/str/offtheripollectables",
+    "ebayFeedback": "https://www.ebay.com/str/offtheripollectables",
+    "youtube": "https://www.youtube.com/@offtheripcollectables",
+    "instagram": "https://www.instagram.com/offtheripcollectables/",
+    "threads": "https://www.threads.net/@offtheripcollectables",
+    "tiktok": "https://www.tiktok.com/@offtheripcollectables",
+    "facebook": null,
+    "x": null,
+    "whatnot": null,
+    "tcgplayer": null
+  },
+  "youtube": {
+    "channelId": "UCoc5YV93E64NXWy0XyFOf9A",
+    "handle": "@offtheripcollectables"
+  },
+  "ebay": {
+    "sellerName": "offtheripcollectables"
+  },
+  "stats": {
+    "asOf": "Oct 2026",
+    "ebaySold": "1.6K+",
+    "ebayFeedback": "100%",
+    "ebaySince": "2023"
+  },
+  "features": {
+    "packingBlock": false,
+    "whatnotLive": false,
+    "newsletter": true,
+    "turnstile": false
+  },
+  "turnstileSiteKey": null,
+  "analytics": {
+    "cloudflareToken": null,
+    "plausibleDomain": null
+  },
+  "forms": {
+    "endpoint": "/api/"
+  },
+  "legal": {
+    "businessName": "Off The Rip Collectables",
+    "address": null
+  },
+  "promo": {
+    "enabled": false,
+    "text": "",
+    "url": "/shop/",
+    "endsIso": null
+  }
+}

@@ -1,0 +1,20 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <img src="/assets/img/logo-256.png" width="96" height="96" alt="{{brand.name}} logo" loading="lazy">
+        <p class="fine">{{brand.tagline}}</p>
+      </div>
+      <div><h3>Explore</h3>
+        <ul><li><a href="/shop/">Shop</a></li><li><a href="/verdict/">Daily Pack Verdict</a></li><li><a href="/watch/">Watch</a></li><li><a href="/want-list/">Want List</a></li><li><a href="/giveaways/">Giveaways</a></li><li><a href="/about/">About</a></li></ul></div>
+      <div><h3>Follow</h3>{{{@socialLinksFooter}}}</div>
+      <div><h3>Contact</h3><p><a href="mailto:{{contact.email}}">{{contact.email}}</a></p>
+        <ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div>
+    </div>
+    <p class="disclaimer">{{brand.name}} is an independent seller and content creator. We are not affiliated with, endorsed by, or sponsored by Pokémon, Nintendo, Game Freak, Panini, Topps, Fanatics, Bandai, Upper Deck, PSA, BGS, SGC, the NBA, NFL, MLB or any player or league. All trademarks and card artwork belong to their respective owners. Purchases are completed on eBay under eBay's terms.</p>
+    <p class="fine">© {{now}} {{legal.businessName}}</p>
+  </div>
+</footer>
+<script src="/assets/js/main.js" defer></script>
+{{#if analytics.plausibleDomain}}<script defer data-domain="{{analytics.plausibleDomain}}" src="https://plausible.io/js/script.js"></script>{{/if}}
+{{#if analytics.cloudflareToken}}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{analytics.cloudflareToken}}"}'></script>{{/if}}

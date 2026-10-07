@@ -1,0 +1,65 @@
+<!--page {"home":true,"nav":"home","title":"Off The Rip Collectables","description":"Sports cards, Pokémon, One Piece and Dragon Ball TCG, graded slabs and pack openings. Watch the rips on YouTube, shop the hits on eBay."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body class="home">
+{{> header}}
+<main id="main">
+<section class="hero">
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow">Sports cards • TCG • Pack openings</p>
+      <h1 class="paint"><span>Ripped on camera.</span><span class="paint__2">Sold on eBay.</span></h1>
+      <p class="lead">Watch every pack get opened on camera. Then shop the hits, singles and slabs on eBay.</p>
+      <div class="cta">
+        <a class="btn btn--lime btn--big" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a>
+        <a class="btn btn--ghost btn--big" href="/watch/">Watch the latest rips</a>
+      </div>
+      <ul class="trust" aria-label="Seller track record">
+        <li><b>{{stats.ebayFeedback}}</b> positive feedback on eBay</li>
+        <li><b>{{stats.ebaySold}}</b> items sold</li>
+        <li>Selling since <b>{{stats.ebaySince}}</b></li>
+      </ul>
+      <p class="fine">eBay figures as of {{stats.asOf}}.</p>
+    </div>
+    <div class="hero__badge"><img src="/assets/img/logo-640.png" width="480" height="480" alt="Off The Rip Collectables: sports cards, TCG, pack openings" fetchpriority="high"></div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee__track">{{{@marquee}}}</div></div>
+</section>
+
+<section class="section"><div class="wrap">
+  {{{@streak}}}
+</div></section>
+
+<section class="section" aria-labelledby="fresh-h"><div class="wrap">
+  <div class="sechead"><h2 id="fresh-h">Fresh off the rip</h2><a href="{{links.youtube}}" target="_blank" rel="noopener">All videos on YouTube →</a></div>
+  {{{@latestVideos}}}
+</div></section>
+
+<section class="section section--cream" aria-labelledby="shop-h"><div class="wrap">
+  <div class="sechead"><h2 id="shop-h">Shop the pulls</h2><a href="/shop/">Shop page →</a></div>
+  {{{@shopTiles}}}
+</div></section>
+
+<section class="section" aria-labelledby="how-h"><div class="wrap">
+  <h2 id="how-h">How it works</h2>
+  <ol class="steps">
+    <li><b>1</b><h3>Watch the rip</h3><p>Boxes, blasters and the Daily Pack Verdict are opened on camera on YouTube.</p></li>
+    <li><b>2</b><h3>Spot your card</h3><p>Most of what's in the store gets pulled on the channel. Can't find it? Add it to the Want List.</p></li>
+    <li><b>3</b><h3>Buy on eBay</h3><p>Checkout, buyer protection and returns are handled by eBay, from a seller with {{stats.ebayFeedback}} positive feedback.</p></li>
+  </ol>
+</div></section>
+
+<section class="section section--cream"><div class="wrap split">
+  <div><p class="eyebrow">Want List</p><h2>Hunting a specific card?</h2><p class="lead">Tell Clayton the player, set or Pokémon you're after. The list gets checked when new cards come off the rip.</p><a class="btn btn--dark" href="/want-list/">Add to the Want List</a></div>
+  <div><p class="eyebrow">Giveaways</p><h2>Free cards, on the channel.</h2><p class="lead">Giveaways run on YouTube. Get a heads-up before the next one starts.</p><a class="btn btn--dark" href="/giveaways/">Get giveaway alerts</a></div>
+</div></section>
+
+{{> signup}}
+
+<section class="section" aria-labelledby="fol-h"><div class="wrap center">
+  <h2 id="fol-h">Follow the rips</h2>
+  {{{@socialLinks}}}
+</div></section>
+</main>
+{{> footer}}
+</body></html>

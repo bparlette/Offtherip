@@ -1,0 +1,20 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{page.fullTitle}}</title>
+<meta name="description" content="{{page.description}}">
+<link rel="canonical" href="{{page.canonical}}">
+{{#if page.noindex}}<meta name="robots" content="noindex,nofollow,noarchive">{{/if}}
+<meta name="theme-color" content="{{themeColor}}">
+<link rel="icon" type="image/png" href="/assets/img/favicon-48.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{brand.name}}">
+<meta property="og:title" content="{{page.fullTitle}}">
+<meta property="og:description" content="{{page.description}}">
+<meta property="og:url" content="{{page.canonical}}">
+<meta property="og:image" content="{{siteUrl}}{{page.ogImage}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+{{{@jsonLd}}}

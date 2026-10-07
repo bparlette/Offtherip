@@ -1,0 +1,25 @@
+<section class="band band--olive" id="hitlist" aria-labelledby="hl-h">
+  <div class="wrap band__in">
+    <div class="band__copy">
+      <p class="eyebrow">The Hit List</p>
+      <h2 id="hl-h">The week's biggest pulls, in your inbox.</h2>
+      <p>New listings, Daily Pack Verdict results and giveaway alerts. One email a week. No spam, unsubscribe anytime.</p>
+    </div>
+    <form class="form form--inline" data-form="subscribe" novalidate>
+      <label class="sr" for="email-{{page.nav}}">Email</label>
+      <input id="email-{{page.nav}}" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+      <button class="btn btn--lime" type="submit">Join the list</button>
+      <fieldset class="chips" aria-label="What are you into?">
+        <label><input type="checkbox" name="interests" value="sports"> Sports cards</label>
+        <label><input type="checkbox" name="interests" value="pokemon"> Pokémon</label>
+        <label><input type="checkbox" name="interests" value="onepiece-dbs"> One Piece / Dragon Ball</label>
+        <label><input type="checkbox" name="interests" value="graded"> Graded</label>
+      </fieldset>
+      <label class="consent"><input type="checkbox" name="consent" required> I agree to receive the weekly email from {{brand.name}}. <a href="/privacy/">Privacy</a></label>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="source" value="{{page.path}}">
+      {{#if features.turnstile}}<div class="cf-turnstile" data-sitekey="{{turnstileSiteKey}}"></div>{{/if}}
+      <p class="form__status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

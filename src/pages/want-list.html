@@ -1,0 +1,34 @@
+<!--page {"nav":"wantlist","title":"Want List","description":"Tell Off The Rip Collectables the card, player or set you're hunting. Get an email when it turns up."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body>
+{{> header}}
+<main id="main">
+<section class="pagehead"><div class="wrap"><p class="eyebrow">Want List</p><h1>Hunting a card?</h1>
+<p class="lead">Tell Clayton the player, set or Pokémon you're after. The list gets checked when new cards come off the rip, and you'll hear back if there's a match.</p></div></section>
+<section class="section"><div class="wrap narrow">
+<form class="form" data-form="wantlist" novalidate>
+  <label for="wl-name">First name <span class="opt">(optional)</span></label>
+  <input id="wl-name" name="name" type="text" autocomplete="given-name" maxlength="60">
+  <label for="wl-email">Email</label>
+  <input id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" required>
+  <label for="wl-want">What are you hunting?</label>
+  <textarea id="wl-want" name="want" rows="4" maxlength="800" required placeholder="e.g. Josh Allen 2018 Prizm rookie, any parallel. Or: Charizard ex from Obsidian Flames."></textarea>
+  <div class="row2">
+    <div><label for="wl-budget">Budget</label>
+      <select id="wl-budget" name="budget"><option value="">No limit set</option><option>Under $25</option><option>$25–$100</option><option>$100–$500</option><option>$500+</option></select></div>
+    <div><label for="wl-grade">Raw or graded?</label>
+      <select id="wl-grade" name="grade"><option value="either">Either</option><option value="raw">Raw</option><option value="graded">Graded only</option></select></div>
+  </div>
+  <label class="consent"><input type="checkbox" name="consent" required> Email me when something matches, and the weekly Hit List. Unsubscribe anytime. <a href="/privacy/">Privacy</a></label>
+  <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="source" value="{{page.path}}">
+  {{#if features.turnstile}}<div class="cf-turnstile" data-sitekey="{{turnstileSiteKey}}"></div>{{/if}}
+  <button class="btn btn--lime btn--big" type="submit">Add to the Want List</button>
+  <p class="form__status" role="status" aria-live="polite"></p>
+</form>
+<p class="fine">Want List requests are not reservations or guarantees. Anything that matches is sold on eBay at the listed price.</p>
+</div></section>
+</main>
+{{> footer}}
+</body></html>

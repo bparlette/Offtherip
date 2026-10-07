@@ -1,0 +1,22 @@
+<!--page {"nav":"links","title":"Links","noindex":true,"description":"All Off The Rip Collectables links in one place: eBay store, YouTube, Instagram, TikTok and the Want List."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body class="linkhub">
+<main id="main" class="linkhub__in">
+  <img class="linkhub__logo" src="/assets/img/logo-256.png" width="128" height="128" alt="{{brand.name}}">
+  <h1 class="sr">{{brand.name}}</h1>
+  <p class="linkhub__tag">{{brand.tagline}}</p>
+  <a class="linkbtn linkbtn--hot" href="{{links.ebay}}" target="_blank" rel="noopener">Shop on eBay</a>
+  <a class="linkbtn" href="{{links.youtube}}?sub_confirmation=1" target="_blank" rel="noopener">Watch + subscribe on YouTube</a>
+  <a class="linkbtn" href="/verdict/">Daily Pack Verdict scoreboard</a>
+  <a class="linkbtn" href="/want-list/">Add a card to the Want List</a>
+  <a class="linkbtn" href="/giveaways/">Giveaway alerts</a>
+  {{#if links.instagram}}<a class="linkbtn" href="{{links.instagram}}" target="_blank" rel="me noopener">Instagram</a>{{/if}}
+  {{#if links.tiktok}}<a class="linkbtn" href="{{links.tiktok}}" target="_blank" rel="me noopener">TikTok</a>{{/if}}
+  {{#if links.threads}}<a class="linkbtn" href="{{links.threads}}" target="_blank" rel="me noopener">Threads</a>{{/if}}
+  {{#if links.x}}<a class="linkbtn" href="{{links.x}}" target="_blank" rel="me noopener">X</a>{{/if}}
+  {{#if links.whatnot}}<a class="linkbtn" href="{{links.whatnot}}" target="_blank" rel="noopener">Whatnot live auctions</a>{{/if}}
+  <a class="linkhub__more" href="/">{{siteUrl}}</a>
+</main>
+<script src="/assets/js/main.js" defer></script>
+</body></html>

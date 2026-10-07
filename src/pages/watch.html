@@ -1,0 +1,27 @@
+<!--page {"nav":"watch","title":"Watch","description":"Watch Off The Rip Collectables on YouTube: Daily Pack Verdict, box breaks, blaster openings and giveaways for sports cards and TCG."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body>
+{{> header}}
+<main id="main">
+<section class="pagehead"><div class="wrap"><p class="eyebrow">YouTube</p><h1>Watch the rips</h1>
+<p class="lead">Boxes, blasters, packs and giveaways, opened on camera.</p>
+<p><a class="btn btn--lime" href="{{links.youtube}}?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a></p></div></section>
+<section class="section"><div class="wrap">
+  <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list={{{@uploadsPlaylist}}}" title="Latest Off The Rip Collectables videos" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+</div></section>
+<section class="section section--cream"><div class="wrap">
+  <h2>Series</h2>
+  <ul class="serieslist">
+    <li><a href="{{links.youtube}}/search?query=Daily%20Pack%20Verdict" target="_blank" rel="noopener"><b>Daily Pack Verdict</b><span>One pack a day. Profit or loss? <a href="/verdict/">See the scoreboard</a></span></a></li>
+    <li><a href="{{links.youtube}}/search?query=Up%20or%20Down" target="_blank" rel="noopener"><b>Up or Down</b><span>Weekly price check on a chase card.</span></a></li>
+    <li><a href="{{links.youtube}}/search?query=giveaway" target="_blank" rel="noopener"><b>Giveaways</b><span>Free cards and slabs on the channel. <a href="/giveaways/">Get alerts</a></span></a></li>
+    <li><a href="{{links.youtube}}/search?query=box%20opening" target="_blank" rel="noopener"><b>Box &amp; blaster breaks</b><span>Sports and TCG, hits on camera.</span></a></li>
+  </ul>
+</div></section>
+<section class="section"><div class="wrap"><div class="sechead"><h2>Latest uploads</h2><a href="{{links.youtube}}/videos" target="_blank" rel="noopener">See all →</a></div>{{{@allVideos}}}</div></section>
+{{#if features.whatnotLive}}<section class="section section--cream"><div class="wrap"><h2>Live auctions</h2><p class="lead">Catch live sales on Whatnot.</p><a class="btn btn--dark" href="{{links.whatnot}}" target="_blank" rel="noopener">Open Whatnot</a></div></section>{{/if}}
+{{> signup}}
+</main>
+{{> footer}}
+</body></html>

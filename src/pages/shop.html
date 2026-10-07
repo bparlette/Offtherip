@@ -1,0 +1,31 @@
+<!--page {"nav":"shop","title":"Shop","description":"Shop sports cards, Pokémon, One Piece, Dragon Ball Super and graded slabs from Off The Rip Collectables on eBay."} -->
+<!doctype html>
+<html lang="en"><head>{{> head}}</head>
+<body>
+{{> header}}
+<main id="main">
+<section class="pagehead"><div class="wrap"><p class="eyebrow">The store</p><h1>Shop the pulls</h1>
+<p class="lead">Every listing lives on eBay, so checkout, buyer protection and returns work exactly the way you're used to. Pick a category to see what's new.</p>
+<p class="trust-line"><b>{{stats.ebayFeedback}}</b> positive feedback · <b>{{stats.ebaySold}}</b> items sold · on eBay since <b>{{stats.ebaySince}}</b> <span class="fine">(as of {{stats.asOf}})</span></p></div></section>
+<section class="section"><div class="wrap">
+{{{@shopTiles}}}
+<p class="center"><a class="btn btn--lime btn--big" href="{{links.ebay}}" target="_blank" rel="noopener">Open the whole eBay store</a></p>
+</div></section>
+<section class="section section--cream" id="inventory" aria-labelledby="inv-h"><div class="wrap">
+  <div class="sechead"><h2 id="inv-h">Latest listings</h2>
+  <div class="filters" id="filters" hidden>
+    <input id="q" type="search" placeholder="Search listings" aria-label="Search listings">
+    <select id="cat" aria-label="Category"><option value="">All</option><option value="sports">Sports</option><option value="tcg">TCG</option><option value="graded">Graded</option></select>
+    <select id="sort" aria-label="Sort"><option value="">Newest</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select>
+  </div></div>
+  {{{@listingsGrid}}}
+</div></section>
+<section class="section"><div class="wrap split">
+  <div><h2>Can't find it?</h2><p class="lead">Tell Clayton what you're hunting. The Want List gets checked when new cards come off the rip.</p><a class="btn btn--dark" href="/want-list/">Add to the Want List</a></div>
+  <div><h2>Never miss a drop</h2><p class="lead">The weekly Hit List has the biggest pulls and newest listings.</p><a class="btn btn--dark" href="#hitlist">Join the list</a></div>
+</div></section>
+{{> signup}}
+<script src="/assets/js/shop.js" defer></script>
+</main>
+{{> footer}}
+</body></html>

@@ -1,0 +1,12 @@
+name = "off-the-rip"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "dist"
+
+# Secrets / vars live in the Cloudflare dashboard (Pages > off-the-rip > Settings > Variables), NEVER in git:
+#   SITE_URL            https://offtheripcollectables.com   (origin check for the form endpoints)
+#   KIT_API_KEY         (secret)  Kit v4 API key
+#   KIT_FORM_ID         numeric id of the "Hit List" form in Kit
+#   FORM_WEBHOOK_URL    optional: Zapier / Make / Google Apps Script URL, receives every lead as JSON
+#   TURNSTILE_SECRET    optional: Cloudflare Turnstile secret (also set features.turnstile + turnstileSiteKey in site.config.json)
+#   ALLOW_PAGES_DEV     "1" while testing on https://off-the-rip.pages.dev
+# Optional KV backup of every lead: create a KV namespace "LEADS" and bind it in Settings > Functions > KV namespace bindings.
