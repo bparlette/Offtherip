@@ -1,0 +1,8 @@
+name = "off-the-rip-refresh"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[triggers]
+crons = ["17 */6 * * *"]
+
+# Secret (never put it in this file):  npx wrangler secret put DEPLOY_HOOK_URL

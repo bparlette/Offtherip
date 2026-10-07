@@ -65,3 +65,19 @@ test("giveaway section lists only giveaway videos and vanishes when there are no
   assert.match(html, /AAAAAAAAAAA/); assert.ok(!html.includes("BBBBBBBBBBB"));
   assert.equal(giveawayVideos([v[1]]), "");
 });
+
+import { fetchSheetRows } from "../scripts/sync-sheet.mjs";
+import { rebuild } from "../worker/index.js";
+const csvRes = (t, ok = true) => async () => ({ ok, status: ok ? 200 : 500, text: async () => t });
+test("sheet reader accepts CSV and rejects HTML, errors and wrong headers", async () => {
+  assert.equal((await fetchSheetRows("u", csvRes("day,cost,value\n17,10,20\n")))[0].day, "17");
+  await assert.rejects(fetchSheetRows("u", csvRes("<!doctype html><html>sign in</html>")), /not published/);
+  await assert.rejects(fetchSheetRows("u", csvRes("", false)), /HTTP 500/);
+  await assert.rejects(fetchSheetRows("u", csvRes("a,b\n1,2\n")), /'day' column/);
+});
+test("scheduler worker POSTs the deploy hook and refuses to run without it", async () => {
+  const calls = [];
+  assert.equal(await rebuild({ DEPLOY_HOOK_URL: "https://hook.test/x" }, async (u, i) => { calls.push([u, i.method]); return { ok: true }; }), true);
+  assert.deepEqual(calls, [["https://hook.test/x", "POST"]]);
+  assert.equal(await rebuild({}, async () => { throw new Error("must not call"); }), false);
+});

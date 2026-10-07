@@ -62,6 +62,10 @@ Never hand-edit `dist/`. **Template syntax**: `{{config.path}}` (build fails on 
 
 `.github/workflows/refresh.yml` runs the syncs, tests, build and deploy every 6 hours once the Cloudflare secrets exist (HQ task T27).
 
+## Hands-off refresh
+
+The site rebuilds every 6 hours and each build pulls fresh videos, Verdict numbers (Google Sheet) and eBay listings. Setup steps for a human or a browser AI: [docs/AUTOMATION.md](docs/AUTOMATION.md) (HQ tasks T39 to T42).
+
 ## Forms
 
 `POST /api/subscribe` and `POST /api/wantlist` (`functions/api/`). Validation, honeypot, minimum-time check, origin check, optional Cloudflare Turnstile. A lead is delivered to every configured sink and **the form fails loudly if none accepts it** (no silent lead loss):

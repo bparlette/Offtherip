@@ -1104,6 +1104,106 @@
     "T07"
    ],
    "notes": ""
+  },
+  {
+   "id": "T39",
+   "phase": "P6",
+   "title": "Set the Pages build command to pull fresh data",
+   "owner": "either",
+   "minutes": 10,
+   "priority": 1,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 1 in docs/AUTOMATION.md: build command `npm run sync && npm run build`, `NODE_VERSION=22`, retry deployment."
+   ],
+   "acceptance": [
+    "Build log shows `youtube:` and `built 20 pages`"
+   ],
+   "needs_human": [
+    "Cloudflare login"
+   ],
+   "links": [],
+   "depends_on": [
+    "T05"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T40",
+   "phase": "P6",
+   "title": "Deploy the scheduled refresh Worker",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 1,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 2 in docs/AUTOMATION.md: create the Pages deploy hook, then `cd worker && npx wrangler login && npx wrangler deploy && npx wrangler secret put DEPLOY_HOOK_URL`."
+   ],
+   "acceptance": [
+    "A Pages deployment appears automatically within 6 hours",
+    "Secret is not stored in any file or in Git"
+   ],
+   "needs_human": [
+    "wrangler login",
+    "Pasting the deploy hook URL at the secret prompt"
+   ],
+   "links": [],
+   "depends_on": [
+    "T39"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T41",
+   "phase": "P6",
+   "title": "Connect the Verdict Google Sheet",
+   "owner": "either",
+   "minutes": 20,
+   "priority": 2,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 3 in docs/AUTOMATION.md: Clayton creates and publishes the Sheet as CSV; add `VERDICTS_CSV_URL` to Pages variables.",
+    "Teach Clayton the daily routine: fill `cost` and `value` for the day only."
+   ],
+   "acceptance": [
+    "Build log says `sheet: N row(s) merged`",
+    "/verdict/ shows dollar amounts and chart"
+   ],
+   "needs_human": [
+    "Clayton's Google account"
+   ],
+   "links": [],
+   "depends_on": [
+    "T39"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T42",
+   "phase": "P6",
+   "title": "Add uptime monitoring and a deploy-age check",
+   "owner": "either",
+   "minutes": 15,
+   "priority": 2,
+   "status": "todo",
+   "why": "Makes the site hands off: it rebuilds itself and always shows the latest videos and data. Full guide: docs/AUTOMATION.md in the repo.",
+   "steps": [
+    "Follow Step 5 in docs/AUTOMATION.md: free uptime monitor on the home page, alerts to Clayton and the operator."
+   ],
+   "acceptance": [
+    "Test alert received"
+   ],
+   "needs_human": [
+    "Monitor account sign-up"
+   ],
+   "links": [],
+   "depends_on": [
+    "T07"
+   ],
+   "notes": ""
   }
  ]
 }
