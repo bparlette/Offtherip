@@ -582,6 +582,13 @@ section[id]{scroll-margin-top:76px}
     <p class="disclaimer">Off The Rip Collectables is an independent seller and content creator. We are not affiliated with, endorsed by, or sponsored by Pokémon, Nintendo, Game Freak, Panini, Topps, Fanatics, Bandai, Upper Deck, PSA, BGS, SGC, the NBA, NFL, MLB or any player or league. All trademarks and card artwork belong to their respective owners. Purchases are completed on eBay under eBay's terms.</p>
     <p class="fine">© 2026 Off The Rip Collectables</p>
   </div>
+  <div class="wrap">
+    <p class="fine" data-freshness style="text-align:center;margin-top:16px">
+      Videos updated <span data-fresh-videos>—</span> ·
+      Listings updated <span data-fresh-listings>—</span> ·
+      Verdicts updated <span data-fresh-verdicts>—</span>
+    </p>
+  </div>
 </footer>
 <script src="/Offtherip/assets/js/main.js" defer></script>
 
@@ -737,6 +744,26 @@ section[id]{scroll-margin-top:76px}
         'Will Day ' + nextDay + ' break it?';
     })
     .catch(function(){ /* keep hardcoded fallback */ });
+})();
+</script>
+<script>
+(function(){
+  var el = document.querySelector('[data-freshness]');
+  if(!el) return;
+  var sources = {
+    'videos': 'https://cdn.jsdelivr.net/gh/bparlette/Offtherip@main/src/data/videos.json',
+    'listings': 'https://cdn.jsdelivr.net/gh/bparlette/Offtherip@main/src/data/listings.json',
+    'verdicts': 'https://cdn.jsdelivr.net/gh/bparlette/Offtherip@main/src/data/verdicts.json'
+  };
+  Object.keys(sources).forEach(function(key){
+    fetch(sources[key])
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var span = el.querySelector('[data-fresh-' + key + ']');
+        if(span && d.updated) span.textContent = d.updated;
+      })
+      .catch(function(){ /* leave as — */ });
+  });
 })();
 </script>
 </body></html>
