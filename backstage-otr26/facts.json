@@ -1,0 +1,49 @@
+{
+  "asOf": "2026-10-07",
+  "note": "Facts gathered from public pages on 2026-10-06/07. Status: confirmed = read directly from the source; exists = account exists but details unreadable; none = not found; other = belongs to someone else; unknown = could not be checked (blocked by the site).",
+  "business": {
+    "name": "Off The Rip Collectables",
+    "owner": "Clayton Floyd (display name on Instagram and Facebook)",
+    "tagline_on_logo": "Sports Cards • TCG • Pack Openings",
+    "logo_icons": ["eBay", "YouTube", "Instagram", "X"],
+    "what_it_sells": "Sports cards (basketball, football, baseball, more), TCG (Pokémon, One Piece, Dragon Ball Super, more), graded slabs, singles/lots/sealed. eBay store text says most cards are pulled on the YouTube channel.",
+    "colors": { "olive": "#3b4524", "cream": "#f4efe2", "ink": "#0e0f0a" }
+  },
+  "accounts": [
+    { "platform": "eBay", "status": "confirmed", "handle": "offtheripcollectables", "url": "https://www.ebay.com/str/offtheripollectables", "metrics": "100% positive feedback; 1.6K items sold; 71 store followers (store page 2026-10-06). An older listing page showed 99.8%. Member since Jan 2023 (from a search snippet, unconfirmed).", "notes": "Store URL slug is misspelled (missing the 'c'). Categories: Sports Cards, TCG Cards, Video Games, Other. Listings seen from $1.49 to $749.99." },
+    { "platform": "YouTube", "status": "confirmed", "handle": "@offtheripcollectables", "url": "https://www.youtube.com/@offtheripcollectables", "metrics": "687 subscribers. 15 uploads in the last 7 days (about 2 a day, mostly Shorts). Typical Short: 28 to 1,689 views.", "notes": "Channel ID UCoc5YV93E64NXWy0XyFOf9A. Series: Daily Pack Verdict (Day 23 on 2026-10-06; titles say 7 losses in a row), UP OR DOWN weekly price check (Week 16: 2026 Bowman Football Blaster, $250 Josh Allen Gold /50), box and blaster breaks, giveaways (Caitlin Clark PSA giveaway)." },
+    { "platform": "Instagram", "status": "confirmed", "handle": "@offtheripcollectables", "url": "https://www.instagram.com/offtheripcollectables/", "metrics": "281 followers, 126 following, 1,096 posts", "notes": "Display name 'Clayton Floyd'." },
+    { "platform": "Threads", "status": "confirmed", "handle": "@offtheripcollectables", "url": "https://www.threads.net/@offtheripcollectables", "metrics": "2 followers, 24 threads", "notes": "" },
+    { "platform": "TikTok", "status": "exists", "handle": "@offtheripcollectables", "url": "https://www.tiktok.com/@offtheripcollectables", "metrics": "Unreadable (page showed 0 followers / 0 videos, which may be a scraping block)", "notes": "Nickname 'Clayton'. Check by hand whether it is active." },
+    { "platform": "Facebook", "status": "exists", "handle": "Clayton Floyd (personal profile)", "url": "https://www.facebook.com/share/19VSqBiv67/?mibextid=wwXIfr", "metrics": "Behind login", "notes": "No business Page found. facebook.com/offtheripcollectables returned a generic page; check by hand." },
+    { "platform": "X (Twitter)", "status": "none", "handle": "@offtheripcollectables", "url": "https://x.com/offtheripcollectables", "metrics": "", "notes": "Returned 404 on 2026-10-07 = unclaimed, yet the logo shows an X icon. @OffTheRipCards and @offtheripco ('Off The RIP Kicks') belong to other people; @offtherip is unconfirmed." },
+    { "platform": "Whatnot / TCGplayer / Mercari / Etsy / COMC / Twitch", "status": "unknown", "handle": "", "url": "", "metrics": "", "notes": "All blocked automated checks or returned generic pages. Ask Clayton which of these he uses." },
+    { "platform": "Amazon storefront / LinkedIn", "status": "none", "handle": "", "url": "", "metrics": "", "notes": "Nothing found by search. Amazon cannot be searched reliably by seller name." }
+  ],
+  "domains": [
+    { "domain": "offtheripcollectables.com", "status": "unregistered", "checked": "2026-10-07 (whois: No match; no DNS)", "action": "Register as the primary domain" },
+    { "domain": "offtheripcollectibles.com", "status": "unregistered", "checked": "2026-10-07 (whois: No match; no DNS)", "action": "Register and redirect to the primary (people search both spellings)" },
+    { "domain": "offtheripcards.com", "status": "unregistered", "checked": "2026-10-07 (whois: No match; no DNS)", "action": "Optional third" },
+    { "domain": "offtherip.com", "status": "taken", "checked": "2026-10-07", "action": "Belongs to someone else (a clothing-brand site, registered 2015). Do not use." },
+    { "domain": "offtherip.net", "status": "for sale", "checked": "2026-10-07", "action": "Parked on GoDaddy. Probably not worth the price." },
+    { "domain": "offtherip.shop", "status": "taken", "checked": "2026-10-07", "action": "RipVibe streetwear store. Do not use." }
+  ],
+  "similar_names": [
+    "eBay store 'Off The Rip Sports Cards' (formerly Junk Wax Joe's): a different seller",
+    "YouTube @offtherip and @offtheripcards: different channels",
+    "X @OffTheRipCards and @offtheripco (sneakers): different accounts",
+    "Always use the full name 'Off The Rip Collectables' to avoid confusion"
+  ],
+  "questions_for_clayton": [
+    "Confirm the exact brand spelling: 'Collectables' (as on the logo).",
+    "Are you OK with your first name 'Clayton' appearing on the site?",
+    "Which email address should be public (hello@ forwarded to you)?",
+    "Do you sell or go live on Whatnot, TCGplayer, Mercari or Facebook groups?",
+    "Is the TikTok account active, and who runs Instagram and Threads?",
+    "How do you score a Daily Pack Verdict (pack cost vs which prices)? Can you log cost and pulled value each day?",
+    "What are your packing, shipping and return practices (for the About page)?",
+    "Do you 3D-print card stands or slab displays (the filament photo suggests it)? Would you sell or give them away?",
+    "Are you a registered business or sole proprietor, and what mailing address can go in the emails?",
+    "Do you want the Want List to be a promise to email people, and who checks it each week?"
+  ]
+}
