@@ -774,7 +774,7 @@ section[id]{scroll-margin-top:76px}
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span class="sticky-cta-text">Fresh pulls daily</span>
   <a class="cta-pill cta-green" href="https://www.ebay.com/str/offtheripollectables" target="_blank" rel="noopener">Shop on eBay</a>
-  <a class="cta-pill cta-white" href="https://www.ebay.com/str/offtheripollectables?_nkw=slab" target="_blank" rel="noopener">Shop the Sale</a>
+  <a class="cta-pill cta-white" id="dealBtn" href="https://www.ebay.com/str/offtheripollectables" target="_blank" rel="noopener">Shop the Sale</a>
 </div>
 <style>
 .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;padding-bottom:calc(14px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:center;gap:12px;padding-left:16px;padding-right:16px;padding-top:14px;background:rgba(14,15,10,.96);backdrop-filter:blur(10px);border-top:2px solid var(--olive-2);transform:translateY(110%);transition:transform .35s ease}
@@ -805,6 +805,13 @@ section[id]{scroll-margin-top:76px}
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+  // Sync deal button with promo bar headline
+  var promoLink = document.querySelector('.promo a');
+  var dealBtn = document.getElementById('dealBtn');
+  if(promoLink && dealBtn){
+    var deal = promoLink.textContent.split('\u00b7')[0].trim();
+    if(deal) dealBtn.textContent = deal;
+  }
 })();
 </script>
 </body></html>
