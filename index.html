@@ -769,4 +769,39 @@ section[id]{scroll-margin-top:76px}
   });
 })();
 </script>
+
+<!-- Sticky bottom CTA (like Ashley's persistent footer) -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <span class="sticky-cta-text">Fresh pulls daily</span>
+  <a class="btn btn-ebay" href="https://www.ebay.com/str/offtheripollectables" target="_blank" rel="noopener">Shop on eBay</a>
+  <a class="btn btn-ghost" href="https://www.ebay.com/str/offtheripollectables?_nkw=slab" target="_blank" rel="noopener">Shop the Sale</a>
+</div>
+<style>
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 16px;background:rgba(14,15,10,.96);backdrop-filter:blur(10px);border-top:2px solid var(--olive-2);transform:translateY(110%);transition:transform .35s ease}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta-text{font:700 .85rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--cream);display:none}
+.sticky-cta .btn{padding:10px 20px;font-size:.9rem}
+@media(min-width:640px){.sticky-cta-text{display:block}}
+@media(max-width:480px){.sticky-cta{gap:8px;padding:10px}.sticky-cta .btn{padding:9px 14px;font-size:.82rem}}
+</style>
+<script>
+(function(){
+  var bar = document.getElementById('stickyCta');
+  var hero = document.querySelector('.hero');
+  if(!bar || !hero) return;
+  function onScroll(){
+    var hr = hero.getBoundingClientRect();
+    // Show after scrolling past hero
+    if(hr.bottom < 0){
+      bar.classList.add('show');
+      bar.setAttribute('aria-hidden','false');
+    } else {
+      bar.classList.remove('show');
+      bar.setAttribute('aria-hidden','true');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 </body></html>
