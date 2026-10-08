@@ -773,16 +773,19 @@ section[id]{scroll-margin-top:76px}
 <!-- Sticky bottom CTA (like Ashley's persistent footer) -->
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span class="sticky-cta-text">Fresh pulls daily</span>
-  <a class="btn btn-ebay" href="https://www.ebay.com/str/offtheripollectables" target="_blank" rel="noopener">Shop on eBay</a>
-  <a class="btn btn-ghost" href="https://www.ebay.com/str/offtheripollectables?_nkw=slab" target="_blank" rel="noopener">Shop the Sale</a>
+  <a class="cta-pill cta-green" href="https://www.ebay.com/str/offtheripollectables" target="_blank" rel="noopener">Shop on eBay</a>
+  <a class="cta-pill cta-white" href="https://www.ebay.com/str/offtheripollectables?_nkw=slab" target="_blank" rel="noopener">Shop the Sale</a>
 </div>
 <style>
-.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 16px;background:rgba(14,15,10,.96);backdrop-filter:blur(10px);border-top:2px solid var(--olive-2);transform:translateY(110%);transition:transform .35s ease}
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 16px;background:rgba(14,15,10,.96);backdrop-filter:blur(10px);border-top:2px solid var(--olive-2);transform:translateY(110%);transition:transform .35s ease}
 .sticky-cta.show{transform:translateY(0)}
 .sticky-cta-text{font:700 .85rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--cream);display:none}
-.sticky-cta .btn{padding:10px 20px;font-size:.9rem}
+.cta-pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font:700 .95rem/1 var(--body);text-decoration:none;border:1px solid transparent;transition:transform .15s}
+.cta-pill:active{transform:scale(.97)}
+.cta-green{background:#c4f135;color:#141507;box-shadow:0 10px 30px -10px rgba(196,241,53,.5),inset 0 1px 0 rgba(255,255,255,.4)}
+.cta-white{background:rgba(255,255,255,.08);color:#f4efe2;border-color:rgba(244,239,226,.3)}
 @media(min-width:640px){.sticky-cta-text{display:block}}
-@media(max-width:480px){.sticky-cta{gap:8px;padding:10px}.sticky-cta .btn{padding:9px 14px;font-size:.82rem}}
+@media(max-width:480px){.sticky-cta{gap:8px;padding:10px}.cta-pill{min-height:44px;padding:0 20px;font-size:.85rem}}
 </style>
 <script>
 (function(){
