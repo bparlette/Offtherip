@@ -1,84 +1,97 @@
 {
- "series": "Daily Pack Verdict",
- "updated": "2026-10-07",
- "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
- "entries": [
-  {
-   "day": 17,
-   "date": "2026-09-30",
-   "game": "Union Arena",
-   "product": "Rurouni Kenshin",
-   "videoId": "kGMpc6Qd2Ok",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  },
-  {
-   "day": 18,
-   "date": "2026-10-01",
-   "game": "Digimon",
-   "product": "Timeless Bonds",
-   "videoId": "Mvq7dSu9F1w",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  },
-  {
-   "day": 19,
-   "date": "2026-10-02",
-   "game": "One Piece",
-   "product": "The World's Strongest Warriors (OP17)",
-   "videoId": "UQaEThvotUc",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  },
-  {
-   "day": 20,
-   "date": "2026-10-03",
-   "game": "Pokémon",
-   "product": "30th Celebration",
-   "videoId": "HbpY-rOTvdg",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  },
-  {
-   "day": 21,
-   "date": "2026-10-04",
-   "game": "Pokémon",
-   "product": "Pitch Black",
-   "videoId": "3B0DDgOQ1_o",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  },
-  {
-   "day": 22,
-   "date": "2026-10-05",
-   "game": "Union Arena",
-   "product": "Jujutsu Kaisen",
-   "videoId": "yDUrxwYYLe4",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  },
-  {
-   "day": 23,
-   "date": "2026-10-06",
-   "game": "Dragon Ball Super",
-   "product": "Prismatic Clash",
-   "videoId": "Nn6-vh25-SE",
-   "result": "loss",
-   "resultSource": "video-title",
-   "cost": null,
-   "value": null
-  }
- ]
+  "series": "Daily Pack Verdict",
+  "updated": "2026-10-08",
+  "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
+  "entries": [
+    {
+      "day": 17,
+      "date": "2026-09-30",
+      "game": "Union Arena",
+      "product": "Rurouni Kenshin",
+      "videoId": "kGMpc6Qd2Ok",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 18,
+      "date": "2026-10-01",
+      "game": "Digimon",
+      "product": "Timeless Bonds",
+      "videoId": "Mvq7dSu9F1w",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 19,
+      "date": "2026-10-02",
+      "game": "One Piece",
+      "product": "The World's Strongest Warriors (OP17)",
+      "videoId": "UQaEThvotUc",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 20,
+      "date": "2026-10-03",
+      "game": "Pokémon",
+      "product": "30th Celebration",
+      "videoId": "HbpY-rOTvdg",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 21,
+      "date": "2026-10-04",
+      "game": "Pokémon",
+      "product": "Pitch Black",
+      "videoId": "3B0DDgOQ1_o",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": 939.64,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Pitch%20Black)",
+      "net": -939.64
+    },
+    {
+      "day": 22,
+      "date": "2026-10-05",
+      "game": "Union Arena",
+      "product": "Jujutsu Kaisen",
+      "videoId": "yDUrxwYYLe4",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 23,
+      "date": "2026-10-06",
+      "game": "Dragon Ball Super",
+      "product": "Prismatic Clash",
+      "videoId": "Nn6-vh25-SE",
+      "result": "loss",
+      "resultSource": "manual",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 24,
+      "date": "2026-10-07",
+      "game": "TCG",
+      "product": "Gundam Eternal Nexus",
+      "videoId": "IDuGdoerHjY",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    }
+  ]
 }

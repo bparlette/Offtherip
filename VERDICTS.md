@@ -11,14 +11,15 @@
 
 | Day | Date | Product | Result | Pack $ | Hits |
 |-----|------|---------|--------|--------|------|
-| 17 | 2026-09-30 | | loss | | |
-| 18 | 2026-10-01 | | loss | | |
-| 19 | 2026-10-02 | | loss | | |
-| 20 | 2026-10-03 | | loss | | |
-| 21 | 2026-10-04 | | loss | | |
-| 22 | 2026-10-05 | | loss | | |
-| 23 | 2026-10-06 | Dragon Ball Super Prismatic Clash | loss | | |
+| 17 | 2026-09-30 | Union Arena Rurouni Kenshin | loss |  |  |
+| 18 | 2026-10-01 | Digimon Timeless Bonds | loss |  |  |
+| 19 | 2026-10-02 | One Piece The World's Strongest Warriors (OP17) | loss |  |  |
+| 20 | 2026-10-03 | Pokémon 30th Celebration | loss |  |  |
+| 21 | 2026-10-04 | Pokémon Pitch Black | loss | 939.64 |  |
+| 22 | 2026-10-05 | Union Arena Jujutsu Kaisen | loss |  |  |
+| 23 | 2026-10-06 | Dragon Ball Super Prismatic Clash | loss |  |  |
 
+| 24 | 2026-10-07 | TCG Gundam Eternal Nexus |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
