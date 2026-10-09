@@ -1,13 +1,13 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
       "day": 17,
       "date": "2026-09-30",
-      "game": "Union Arena",
-      "product": "Rurouni Kenshin",
+      "game": "Union",
+      "product": "Arena Rurouni Kenshin",
       "videoId": "kGMpc6Qd2Ok",
       "result": "loss",
       "resultSource": "manual",
@@ -57,14 +57,14 @@
       "resultSource": "manual",
       "cost": 939.64,
       "value": null,
-      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Pitch%20Black)",
+      "costSource": "manual",
       "net": -939.64
     },
     {
       "day": 22,
       "date": "2026-10-05",
-      "game": "Union Arena",
-      "product": "Jujutsu Kaisen",
+      "game": "Union",
+      "product": "Arena Jujutsu Kaisen",
       "videoId": "yDUrxwYYLe4",
       "result": "loss",
       "resultSource": "manual",
@@ -88,6 +88,17 @@
       "game": "TCG",
       "product": "Gundam Eternal Nexus",
       "videoId": "IDuGdoerHjY",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 25,
+      "date": "2026-10-08",
+      "game": "Pokémon",
+      "product": "Mega Symphonia",
+      "videoId": "gh450T9KVeY",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
