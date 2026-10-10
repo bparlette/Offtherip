@@ -20,7 +20,8 @@
 | 23 | 2026-10-06 | Dragon Ball Super Prismatic Clash | loss |  |  |
 
 | 24 | 2026-10-07 | TCG Gundam Eternal Nexus |  |  |  |
-| 25 | 2026-10-08 | Pokémon Mega Symphonia |  |  |  |
+| 25 | 2026-10-08 | Pokémon Mega Symphonia | loss | 28.79 |  |
+| 26 | 2026-10-09 | Union Arena Sakamoto Days |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-09",
+  "updated": "2026-10-10",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -99,6 +99,19 @@
       "game": "Pokémon",
       "product": "Mega Symphonia",
       "videoId": "gh450T9KVeY",
+      "result": "loss",
+      "resultSource": "auto",
+      "cost": 28.79,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Mega%20Symphonia)",
+      "net": -28.79
+    },
+    {
+      "day": 26,
+      "date": "2026-10-09",
+      "game": "Union Arena",
+      "product": "Sakamoto Days",
+      "videoId": "IYPYTnPjtXk",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
