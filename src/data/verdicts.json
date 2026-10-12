@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-11",
+  "updated": "2026-10-12",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -123,6 +123,28 @@
       "game": "Dragon Ball Super",
       "product": "Fearsome Rivals",
       "videoId": "UaOHpLVeWCE",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 28,
+      "date": "2026-10-11",
+      "game": "Pokémon",
+      "product": "Glory of Team Rocket",
+      "videoId": "PIg7q7PWn4E",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 29,
+      "date": "2026-10-12",
+      "game": "TCG",
+      "product": "MTG The Hobbit",
+      "videoId": "iTcQGDTlU9g",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,

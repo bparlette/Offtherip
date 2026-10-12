@@ -23,6 +23,8 @@
 | 25 | 2026-10-08 | Pokémon Mega Symphonia | loss | 28.79 |  |
 | 26 | 2026-10-09 | Union Arena Sakamoto Days |  |  |  |
 | 27 | 2026-10-10 | Dragon Ball Super Fearsome Rivals |  |  |  |
+| 28 | 2026-10-11 | Pokémon Glory of Team Rocket |  |  |  |
+| 29 | 2026-10-12 | TCG MTG The Hobbit |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
