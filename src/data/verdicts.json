@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
