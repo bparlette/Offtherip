@@ -25,6 +25,7 @@
 | 27 | 2026-10-10 | Dragon Ball Super Fearsome Rivals |  |  |  |
 | 28 | 2026-10-11 | Pokémon Glory of Team Rocket |  |  |  |
 | 29 | 2026-10-12 | TCG MTG The Hobbit |  |  |  |
+| 30 | 2026-10-13 | Union Arena One Punch Man |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
