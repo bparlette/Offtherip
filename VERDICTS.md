@@ -26,6 +26,7 @@
 | 28 | 2026-10-11 | Pokémon Glory of Team Rocket |  |  |  |
 | 29 | 2026-10-12 | TCG MTG The Hobbit |  |  |  |
 | 30 | 2026-10-13 | Union Arena One Punch Man |  |  |  |
+| 31 | 2026-10-14 | TCG Tekken 8 Trading Card |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -153,9 +153,20 @@
     {
       "day": 30,
       "date": "2026-10-13",
-      "game": "Union Arena",
-      "product": "One Punch Man",
+      "game": "Union",
+      "product": "Arena One Punch Man",
       "videoId": "K7egwvluokM",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 31,
+      "date": "2026-10-14",
+      "game": "TCG",
+      "product": "Tekken 8 Trading Card",
+      "videoId": "FWmdbyYdWA0",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
