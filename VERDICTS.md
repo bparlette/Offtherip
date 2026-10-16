@@ -27,6 +27,7 @@
 | 29 | 2026-10-12 | TCG MTG The Hobbit |  |  |  |
 | 30 | 2026-10-13 | Union Arena One Punch Man |  |  |  |
 | 31 | 2026-10-14 | TCG Tekken 8 Trading Card |  |  |  |
+| 32 | 2026-10-15 | Pokémon Battle Partners |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
