@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-16",
+  "updated": "2026-10-17",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -178,6 +178,19 @@
       "game": "Pokémon",
       "product": "Battle Partners",
       "videoId": "XlmOMH1qtlk",
+      "result": "loss",
+      "resultSource": "auto",
+      "cost": 929.75,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Battle%20Partners)",
+      "net": -929.75
+    },
+    {
+      "day": 33,
+      "date": "2026-10-16",
+      "game": "Union Arena",
+      "product": "Hunter x Hunter Vol. 2",
+      "videoId": "DCbX5TBsgEg",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,

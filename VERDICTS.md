@@ -27,7 +27,8 @@
 | 29 | 2026-10-12 | TCG MTG The Hobbit |  |  |  |
 | 30 | 2026-10-13 | Union Arena One Punch Man |  |  |  |
 | 31 | 2026-10-14 | TCG Tekken 8 Trading Card |  |  |  |
-| 32 | 2026-10-15 | Pokémon Battle Partners |  |  |  |
+| 32 | 2026-10-15 | Pokémon Battle Partners | loss | 929.75 |  |
+| 33 | 2026-10-16 | Union Arena Hunter x Hunter Vol. 2 |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
