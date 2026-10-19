@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-18",
+  "updated": "2026-10-19",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -202,6 +202,17 @@
       "game": "Dragon Ball Super",
       "product": "Prismatic Clash",
       "videoId": "MEcyQcc7Kvk",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 35,
+      "date": "2026-10-18",
+      "game": "Union Arena",
+      "product": "Jujutsu Kaisen Promo",
+      "videoId": "FwuWAzQln2Q",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
