@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -210,9 +210,20 @@
     {
       "day": 35,
       "date": "2026-10-18",
-      "game": "Union Arena",
-      "product": "Jujutsu Kaisen Promo",
+      "game": "Union",
+      "product": "Arena Jujutsu Kaisen Promo",
       "videoId": "FwuWAzQln2Q",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 36,
+      "date": "2026-10-19",
+      "game": "Pokémon",
+      "product": "Nihil Zero",
+      "videoId": "-4AA532fkag",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,

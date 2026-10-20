@@ -31,6 +31,7 @@
 | 33 | 2026-10-16 | Union Arena Hunter x Hunter Vol. 2 |  |  |  |
 | 34 | 2026-10-17 | Dragon Ball Super Prismatic Clash |  |  |  |
 | 35 | 2026-10-18 | Union Arena Jujutsu Kaisen Promo |  |  |  |
+| 36 | 2026-10-19 | Pokémon Nihil Zero |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
