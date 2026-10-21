@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -224,6 +224,17 @@
       "game": "Pokémon",
       "product": "Nihil Zero",
       "videoId": "-4AA532fkag",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 37,
+      "date": "2026-10-20",
+      "game": "TCG",
+      "product": "Gundam Freedom Ascension",
+      "videoId": "a2EDMCUeb_Y",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
