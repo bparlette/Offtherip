@@ -33,6 +33,7 @@
 | 35 | 2026-10-18 | Union Arena Jujutsu Kaisen Promo |  |  |  |
 | 36 | 2026-10-19 | Pokémon Nihil Zero |  |  |  |
 | 37 | 2026-10-20 | TCG Gundam Freedom Ascension |  |  |  |
+| 38 | 2026-10-21 | Union Arena One Punch Man |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
