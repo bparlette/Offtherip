@@ -34,6 +34,7 @@
 | 36 | 2026-10-19 | Pokémon Nihil Zero |  |  |  |
 | 37 | 2026-10-20 | TCG Gundam Freedom Ascension |  |  |  |
 | 38 | 2026-10-21 | Union Arena One Punch Man |  |  |  |
+| 39 | 2026-10-22 | TCG UniVersus Tekken 8 |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
