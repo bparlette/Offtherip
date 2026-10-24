@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -257,6 +257,17 @@
       "game": "TCG",
       "product": "UniVersus Tekken 8",
       "videoId": "myoLGLWebmw",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 40,
+      "date": "2026-10-23",
+      "game": "TCG",
+      "product": "DBS Fusion World New Adventure",
+      "videoId": "crqP7Nu67Rk",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
