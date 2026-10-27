@@ -38,6 +38,7 @@
 | 40 | 2026-10-23 | TCG DBS Fusion World New Adventure |  |  |  |
 | 41 | 2026-10-24 | Pokémon Nihil Zero |  |  |  |
 | 42 | 2026-10-25 | TCG Gundam Phantom Aria |  |  |  |
+| 43 | 2026-10-26 | Union Arena Jujutsu Kaisen Vol. 2 |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
