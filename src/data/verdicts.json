@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -298,9 +298,20 @@
     {
       "day": 43,
       "date": "2026-10-26",
-      "game": "Union Arena",
-      "product": "Jujutsu Kaisen Vol. 2",
+      "game": "Union",
+      "product": "Arena Jujutsu Kaisen Vol. 2",
       "videoId": "CIQaOjlph3s",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 44,
+      "date": "2026-10-27",
+      "game": "TCG",
+      "product": "DBS Three Glorious Fighters",
+      "videoId": "CidcWf0lJN8",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,

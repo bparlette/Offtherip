@@ -39,6 +39,7 @@
 | 41 | 2026-10-24 | Pokémon Nihil Zero |  |  |  |
 | 42 | 2026-10-25 | TCG Gundam Phantom Aria |  |  |  |
 | 43 | 2026-10-26 | Union Arena Jujutsu Kaisen Vol. 2 |  |  |  |
+| 44 | 2026-10-27 | TCG DBS Three Glorious Fighters |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
