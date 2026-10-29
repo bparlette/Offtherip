@@ -40,6 +40,7 @@
 | 42 | 2026-10-25 | TCG Gundam Phantom Aria |  |  |  |
 | 43 | 2026-10-26 | Union Arena Jujutsu Kaisen Vol. 2 |  |  |  |
 | 44 | 2026-10-27 | TCG DBS Three Glorious Fighters |  |  |  |
+| 45 | 2026-10-28 | Pokémon Battle Partners |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -312,6 +312,17 @@
       "game": "TCG",
       "product": "DBS Three Glorious Fighters",
       "videoId": "CidcWf0lJN8",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 45,
+      "date": "2026-10-28",
+      "game": "Pokémon",
+      "product": "Battle Partners",
+      "videoId": "JAxXKHtAbGM",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
