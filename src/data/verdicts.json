@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -338,6 +338,19 @@
       "resultSource": "needs-input",
       "cost": null,
       "value": null
+    },
+    {
+      "day": 47,
+      "date": "2026-10-30",
+      "game": "Pokémon",
+      "product": "Mega Brave",
+      "videoId": "IFvlsMBK5pk",
+      "result": "loss",
+      "resultSource": "auto",
+      "cost": 48.42,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Mega%20Brave)",
+      "net": -48.42
     }
   ]
 }

@@ -42,6 +42,7 @@
 | 44 | 2026-10-27 | TCG DBS Three Glorious Fighters |  |  |  |
 | 45 | 2026-10-28 | Pokémon Battle Partners |  |  |  |
 | 46 | 2026-10-29 | TCG Gundam Steel Requiem |  |  |  |
+| 47 | 2026-10-30 | Pokémon Mega Brave | loss | 48.42 |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
