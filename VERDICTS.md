@@ -43,6 +43,7 @@
 | 45 | 2026-10-28 | Pokémon Battle Partners |  |  |  |
 | 46 | 2026-10-29 | TCG Gundam Steel Requiem |  |  |  |
 | 47 | 2026-10-30 | Pokémon Mega Brave | loss | 48.42 |  |
+| 48 | 2026-10-31 | Union Arena One Punch Man |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -346,11 +346,22 @@
       "product": "Mega Brave",
       "videoId": "IFvlsMBK5pk",
       "result": "loss",
-      "resultSource": "auto",
+      "resultSource": "manual",
       "cost": 48.42,
       "value": null,
-      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Mega%20Brave)",
+      "costSource": "manual",
       "net": -48.42
+    },
+    {
+      "day": 48,
+      "date": "2026-10-31",
+      "game": "Union Arena",
+      "product": "One Punch Man",
+      "videoId": "zpbyigCjDUs",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
     }
   ]
 }
