@@ -44,6 +44,8 @@
 | 46 | 2026-10-29 | TCG Gundam Steel Requiem |  |  |  |
 | 47 | 2026-10-30 | Pokémon Mega Brave | loss | 48.42 |  |
 | 48 | 2026-10-31 | Union Arena One Punch Man |  |  |  |
+| 49 | 2026-11-01 | Dragon Ball Super Impact Beyond Dimensions |  |  |  |
+| 50 | 2026-11-02 | TCG Disney Lorcana Hyperia City |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

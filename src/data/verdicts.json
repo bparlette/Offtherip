@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -355,9 +355,31 @@
     {
       "day": 48,
       "date": "2026-10-31",
-      "game": "Union Arena",
-      "product": "One Punch Man",
+      "game": "Union",
+      "product": "Arena One Punch Man",
       "videoId": "zpbyigCjDUs",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 49,
+      "date": "2026-11-01",
+      "game": "Dragon Ball Super",
+      "product": "Impact Beyond Dimensions",
+      "videoId": "O-McRv2DPuU",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 50,
+      "date": "2026-11-02",
+      "game": "TCG",
+      "product": "Disney Lorcana Hyperia City",
+      "videoId": "ZY-a45298kk",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
