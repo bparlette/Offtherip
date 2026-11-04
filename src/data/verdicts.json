@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -380,6 +380,17 @@
       "game": "TCG",
       "product": "Disney Lorcana Hyperia City",
       "videoId": "ZY-a45298kk",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 51,
+      "date": "2026-11-03",
+      "game": "Digimon",
+      "product": "Dual Revolution",
+      "videoId": "aCPk8SMaw-s",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
