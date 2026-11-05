@@ -47,6 +47,7 @@
 | 49 | 2026-11-01 | Dragon Ball Super Impact Beyond Dimensions |  |  |  |
 | 50 | 2026-11-02 | TCG Disney Lorcana Hyperia City |  |  |  |
 | 51 | 2026-11-03 | Digimon Dual Revolution |  |  |  |
+| 52 | 2026-11-04 | Yu-Gi-Oh ! Battles of Legend |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
