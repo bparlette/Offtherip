@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -402,6 +402,17 @@
       "game": "Yu-Gi-Oh",
       "product": "! Battles of Legend",
       "videoId": "m-zt_Y04554",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 53,
+      "date": "2026-11-05",
+      "game": "One Piece",
+      "product": "Heroines Edition Vol. 2",
+      "videoId": "97TwFP_Z2Tw",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
