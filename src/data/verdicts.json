@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -424,6 +424,17 @@
       "game": "Dragon Ball Super",
       "product": "Prismatic Clash",
       "videoId": "12maPRG7FIg",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 55,
+      "date": "2026-11-07",
+      "game": "Pokémon",
+      "product": "Paradise Dragona",
+      "videoId": "4Seu1BZgjLs",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
