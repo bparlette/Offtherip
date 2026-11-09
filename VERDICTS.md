@@ -51,6 +51,8 @@
 | 53 | 2026-11-05 | One Piece Heroines Edition Vol. 2 |  |  |  |
 | 54 | 2026-11-06 | Dragon Ball Super Prismatic Clash |  |  |  |
 | 55 | 2026-11-07 | Pokémon Paradise Dragona |  |  |  |
+| 56 | 2026-11-08 | TCG Gundam Eternal Nexus |  |  |  |
+| 57 | 2026-11-09 | TCG Disney Lorcana Hyperia City |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

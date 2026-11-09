@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -435,6 +435,28 @@
       "game": "Pokémon",
       "product": "Paradise Dragona",
       "videoId": "4Seu1BZgjLs",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 56,
+      "date": "2026-11-08",
+      "game": "TCG",
+      "product": "Gundam Eternal Nexus",
+      "videoId": "RBSdZi4haQQ",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 57,
+      "date": "2026-11-09",
+      "game": "TCG",
+      "product": "Disney Lorcana Hyperia City",
+      "videoId": "Iwsd8rtrg-4",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
