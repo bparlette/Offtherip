@@ -53,6 +53,7 @@
 | 55 | 2026-11-07 | Pokémon Paradise Dragona |  |  |  |
 | 56 | 2026-11-08 | TCG Gundam Eternal Nexus |  |  |  |
 | 57 | 2026-11-09 | TCG Disney Lorcana Hyperia City |  |  |  |
+| 58 | 2026-11-10 | Pokémon Delta Reign |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

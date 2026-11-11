@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -457,6 +457,17 @@
       "game": "TCG",
       "product": "Disney Lorcana Hyperia City",
       "videoId": "Iwsd8rtrg-4",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 58,
+      "date": "2026-11-10",
+      "game": "Pokémon",
+      "product": "Delta Reign",
+      "videoId": "UkZYIidGLow",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
