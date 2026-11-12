@@ -54,6 +54,7 @@
 | 56 | 2026-11-08 | TCG Gundam Eternal Nexus |  |  |  |
 | 57 | 2026-11-09 | TCG Disney Lorcana Hyperia City |  |  |  |
 | 58 | 2026-11-10 | Pokémon Delta Reign |  |  |  |
+| 59 | 2026-11-11 | TCG DBS Impact Beyond Dimensions |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
