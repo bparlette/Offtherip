@@ -56,6 +56,7 @@
 | 58 | 2026-11-10 | Pokémon Delta Reign |  |  |  |
 | 59 | 2026-11-11 | TCG DBS Impact Beyond Dimensions |  |  |  |
 | 60 | 2026-11-12 | Union Arena Hunter x Hunter |  |  |  |
+| 61 | 2026-11-13 | Pokémon Mega Symphonia |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
