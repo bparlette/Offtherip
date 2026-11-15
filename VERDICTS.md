@@ -57,6 +57,7 @@
 | 59 | 2026-11-11 | TCG DBS Impact Beyond Dimensions |  |  |  |
 | 60 | 2026-11-12 | Union Arena Hunter x Hunter |  |  |  |
 | 61 | 2026-11-13 | Pokémon Mega Symphonia |  |  |  |
+| 62 | 2026-11-14 | One Piece Heroines Edition Vol. 2 |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
