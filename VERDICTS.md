@@ -58,6 +58,8 @@
 | 60 | 2026-11-12 | Union Arena Hunter x Hunter |  |  |  |
 | 61 | 2026-11-13 | Pokémon Mega Symphonia |  |  |  |
 | 62 | 2026-11-14 | One Piece Heroines Edition Vol. 2 |  |  |  |
+| 63 | 2026-11-15 | Dragon Ball Super Fearsome Rivals |  |  |  |
+| 64 | 2026-11-16 | TCG Gundam Steel Requiem |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
