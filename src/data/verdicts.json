@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -534,6 +534,17 @@
       "game": "TCG",
       "product": "Gundam Steel Requiem",
       "videoId": "RqZ29Hh0u84",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 65,
+      "date": "2026-11-17",
+      "game": "Yu-Gi-Oh",
+      "product": "! Battles of Legacy",
+      "videoId": "JA0SBMq8BhQ",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
