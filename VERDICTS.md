@@ -61,6 +61,7 @@
 | 63 | 2026-11-15 | Dragon Ball Super Fearsome Rivals |  |  |  |
 | 64 | 2026-11-16 | TCG Gundam Steel Requiem |  |  |  |
 | 65 | 2026-11-17 | Yu-Gi-Oh ! Battles of Legacy |  |  |  |
+| 66 | 2026-11-18 | Digimon Dual Revolution |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
