@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -556,6 +556,17 @@
       "game": "Digimon",
       "product": "Dual Revolution",
       "videoId": "E6w3DGo_-Hk",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 67,
+      "date": "2026-11-19",
+      "game": "Pokémon",
+      "product": "Delta Reign",
+      "videoId": "7_-UoPJ8Qs4",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
