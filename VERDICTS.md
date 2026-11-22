@@ -64,6 +64,7 @@
 | 66 | 2026-11-18 | Digimon Dual Revolution |  |  |  |
 | 67 | 2026-11-19 | Pokémon Delta Reign |  |  |  |
 | 68 | 2026-11-20 | TCG Star Wars Ashes of the Empire |  |  |  |
+| 69 | 2026-11-21 | One Piece Heroines Edition Vol. 2 |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

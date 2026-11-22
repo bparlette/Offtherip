@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -578,6 +578,17 @@
       "game": "TCG",
       "product": "Star Wars Ashes of the Empire",
       "videoId": "czo-qWwz9qI",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 69,
+      "date": "2026-11-21",
+      "game": "One Piece",
+      "product": "Heroines Edition Vol. 2",
+      "videoId": "v8CvHZmOcbY",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
