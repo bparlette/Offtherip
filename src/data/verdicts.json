@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -501,10 +501,12 @@
       "game": "Pokémon",
       "product": "Mega Symphonia",
       "videoId": "QmmbAj2Lbl0",
-      "result": null,
-      "resultSource": "needs-input",
-      "cost": null,
-      "value": null
+      "result": "loss",
+      "resultSource": "auto",
+      "cost": 26.99,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Mega%20Symphonia)",
+      "net": -26.99
     },
     {
       "day": 62,
@@ -589,6 +591,28 @@
       "game": "One Piece",
       "product": "Heroines Edition Vol. 2",
       "videoId": "v8CvHZmOcbY",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 70,
+      "date": "2026-11-22",
+      "game": "Dragon Ball Super",
+      "product": "Prismatic Clash",
+      "videoId": "PgJPLZlO12M",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 71,
+      "date": "2026-11-23",
+      "game": "Yu-Gi-Oh",
+      "product": "! Legendary Duelists: Soulburning Volcano",
+      "videoId": "BJ_TGM2BII0",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,

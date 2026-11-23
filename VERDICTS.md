@@ -56,7 +56,7 @@
 | 58 | 2026-11-10 | Pokémon Delta Reign |  |  |  |
 | 59 | 2026-11-11 | TCG DBS Impact Beyond Dimensions |  |  |  |
 | 60 | 2026-11-12 | Union Arena Hunter x Hunter |  |  |  |
-| 61 | 2026-11-13 | Pokémon Mega Symphonia |  |  |  |
+| 61 | 2026-11-13 | Pokémon Mega Symphonia | loss | 26.99 |  |
 | 62 | 2026-11-14 | One Piece Heroines Edition Vol. 2 |  |  |  |
 | 63 | 2026-11-15 | Dragon Ball Super Fearsome Rivals |  |  |  |
 | 64 | 2026-11-16 | TCG Gundam Steel Requiem |  |  |  |
@@ -65,6 +65,8 @@
 | 67 | 2026-11-19 | Pokémon Delta Reign |  |  |  |
 | 68 | 2026-11-20 | TCG Star Wars Ashes of the Empire |  |  |  |
 | 69 | 2026-11-21 | One Piece Heroines Edition Vol. 2 |  |  |  |
+| 70 | 2026-11-22 | Dragon Ball Super Prismatic Clash |  |  |  |
+| 71 | 2026-11-23 | Yu-Gi-Oh ! Legendary Duelists: Soulburning Volcano |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
