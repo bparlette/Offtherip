@@ -47,7 +47,7 @@
 | 49 | 2026-11-01 | Dragon Ball Super Impact Beyond Dimensions |  |  |  |
 | 50 | 2026-11-02 | TCG Disney Lorcana Hyperia City |  |  |  |
 | 51 | 2026-11-03 | Digimon Dual Revolution |  |  |  |
-| 52 | 2026-11-04 | Yu-Gi-Oh ! Battles of Legend |  |  |  |
+| 52 | 2026-11-04 | Yu-Gi-Oh ! Battles of Legend | loss | 28.68 |  |
 | 53 | 2026-11-05 | One Piece Heroines Edition Vol. 2 |  |  |  |
 | 54 | 2026-11-06 | Dragon Ball Super Prismatic Clash |  |  |  |
 | 55 | 2026-11-07 | Pokémon Paradise Dragona |  |  |  |
@@ -60,13 +60,14 @@
 | 62 | 2026-11-14 | One Piece Heroines Edition Vol. 2 |  |  |  |
 | 63 | 2026-11-15 | Dragon Ball Super Fearsome Rivals |  |  |  |
 | 64 | 2026-11-16 | TCG Gundam Steel Requiem |  |  |  |
-| 65 | 2026-11-17 | Yu-Gi-Oh ! Battles of Legacy |  |  |  |
+| 65 | 2026-11-17 | Yu-Gi-Oh ! Battles of Legacy | loss | 28.68 |  |
 | 66 | 2026-11-18 | Digimon Dual Revolution |  |  |  |
 | 67 | 2026-11-19 | Pokémon Delta Reign |  |  |  |
 | 68 | 2026-11-20 | TCG Star Wars Ashes of the Empire |  |  |  |
 | 69 | 2026-11-21 | One Piece Heroines Edition Vol. 2 |  |  |  |
 | 70 | 2026-11-22 | Dragon Ball Super Prismatic Clash |  |  |  |
 | 71 | 2026-11-23 | Yu-Gi-Oh ! Legendary Duelists: Soulburning Volcano |  |  |  |
+| 72 | 2026-11-24 | TCG Gundam Stardust Trails |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.

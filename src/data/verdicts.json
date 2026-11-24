@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -402,10 +402,12 @@
       "game": "Yu-Gi-Oh",
       "product": "! Battles of Legend",
       "videoId": "m-zt_Y04554",
-      "result": null,
-      "resultSource": "needs-input",
-      "cost": null,
-      "value": null
+      "result": "loss",
+      "resultSource": "auto",
+      "cost": 28.68,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Yu-Gi-Oh%20!%20Battles%20of%20Legend)",
+      "net": -28.68
     },
     {
       "day": 53,
@@ -502,10 +504,10 @@
       "product": "Mega Symphonia",
       "videoId": "QmmbAj2Lbl0",
       "result": "loss",
-      "resultSource": "auto",
+      "resultSource": "manual",
       "cost": 26.99,
       "value": null,
-      "costSource": "Walmart (https://www.walmart.com/search?q=Pok%C3%A9mon%20Mega%20Symphonia)",
+      "costSource": "manual",
       "net": -26.99
     },
     {
@@ -547,10 +549,12 @@
       "game": "Yu-Gi-Oh",
       "product": "! Battles of Legacy",
       "videoId": "JA0SBMq8BhQ",
-      "result": null,
-      "resultSource": "needs-input",
-      "cost": null,
-      "value": null
+      "result": "loss",
+      "resultSource": "auto",
+      "cost": 28.68,
+      "value": null,
+      "costSource": "Walmart (https://www.walmart.com/search?q=Yu-Gi-Oh%20!%20Battles%20of%20Legacy)",
+      "net": -28.68
     },
     {
       "day": 66,
@@ -613,6 +617,17 @@
       "game": "Yu-Gi-Oh",
       "product": "! Legendary Duelists: Soulburning Volcano",
       "videoId": "BJ_TGM2BII0",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 72,
+      "date": "2026-11-24",
+      "game": "TCG",
+      "product": "Gundam Stardust Trails",
+      "videoId": "QB30XpGxiqY",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
