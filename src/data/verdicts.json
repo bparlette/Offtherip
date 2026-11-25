@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -403,10 +403,10 @@
       "product": "! Battles of Legend",
       "videoId": "m-zt_Y04554",
       "result": "loss",
-      "resultSource": "auto",
+      "resultSource": "manual",
       "cost": 28.68,
       "value": null,
-      "costSource": "Walmart (https://www.walmart.com/search?q=Yu-Gi-Oh%20!%20Battles%20of%20Legend)",
+      "costSource": "manual",
       "net": -28.68
     },
     {
@@ -550,10 +550,10 @@
       "product": "! Battles of Legacy",
       "videoId": "JA0SBMq8BhQ",
       "result": "loss",
-      "resultSource": "auto",
+      "resultSource": "manual",
       "cost": 28.68,
       "value": null,
-      "costSource": "Walmart (https://www.walmart.com/search?q=Yu-Gi-Oh%20!%20Battles%20of%20Legacy)",
+      "costSource": "manual",
       "net": -28.68
     },
     {
@@ -628,6 +628,17 @@
       "game": "TCG",
       "product": "Gundam Stardust Trails",
       "videoId": "QB30XpGxiqY",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 73,
+      "date": "2026-11-25",
+      "game": "Pokémon",
+      "product": "Delta Reign",
+      "videoId": "vIrmYhfClD4",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,

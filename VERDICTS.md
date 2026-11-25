@@ -68,6 +68,7 @@
 | 70 | 2026-11-22 | Dragon Ball Super Prismatic Clash |  |  |  |
 | 71 | 2026-11-23 | Yu-Gi-Oh ! Legendary Duelists: Soulburning Volcano |  |  |  |
 | 72 | 2026-11-24 | TCG Gundam Stardust Trails |  |  |  |
+| 73 | 2026-11-25 | Pokémon Delta Reign |  |  |  |
 <!-- 
   INSTRUCTIONS FOR AI / SCRIPTS:
   This file is the source of truth for verdict data.
