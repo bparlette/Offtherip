@@ -1,6 +1,6 @@
 {
   "series": "Daily Pack Verdict",
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "note": "Results for Days 17-23 are inferred from the video titles ('7 losses in a row' on Day 23). cost/value are null until Clayton supplies the numbers (see scripts/import-verdicts-csv.mjs).",
   "entries": [
     {
@@ -650,6 +650,17 @@
       "game": "TCG",
       "product": "DBS Fusion World Saiyan’s Pride",
       "videoId": "zKEJC2MpOb8",
+      "result": null,
+      "resultSource": "needs-input",
+      "cost": null,
+      "value": null
+    },
+    {
+      "day": 75,
+      "date": "2026-11-27",
+      "game": "One Piece",
+      "product": "Heroines Edition Vol. 2",
+      "videoId": "4Z8zmkD6VZ8",
       "result": null,
       "resultSource": "needs-input",
       "cost": null,
